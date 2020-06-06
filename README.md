@@ -1,6 +1,7 @@
-# TerraMICRO
+# Nucleus
 
-Mission 1 of the TerraHAB Project.
+A high altitude balloon (HAB) and the first mission from 
+[Brickworks](https://github.com/Brickworks).
 
 -> [Documentation](docs/index.md) <-
 

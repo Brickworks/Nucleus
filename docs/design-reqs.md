@@ -1,6 +1,6 @@
 # Design Requirements
 
-TerraMICRO's technical design is driven by making engineering decisions
+Nucleus's technical design is driven by making engineering decisions
 to meet the design requirements listed in this section. All of these
 requirements must be met before the mission takes flight, with test data
 to prove it.
