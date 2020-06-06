@@ -1,15 +1,15 @@
 # Concept Selection
 
 Concepts shown or adapted from this list may be included in the flight
-design of TerraMICRO. Which concepts make it in depends on the combined
+design of Nucleus. Which concepts make it in depends on the combined
 design effort required by their individual complexity, difficulty,
 expected cost, team expertise in related fields, novelty, and interest
 from the design team.
 
 !!! note
-    Since TerraMICRO is a demonstrator for a flight platform, there is no
+    Since Nucleus is a demonstrator for a flight platform, there is no
     limit to the complexity, cost, or difficulty of the experiments it
-    supports. A concept is considered feasible, then, if TerraHAB
+    supports. A concept is considered feasible, then, if Brickworks
     contributors decide that it is sufficiently interesting, novel, or
     within their pe1rsonal budgets for complexity, cost, and difficulty.
 
@@ -25,7 +25,7 @@ formulating design requirements from there.
 ## Selection Criteria
 
 !!! note
-    Members of the TerraHAB team were polled on what aspects of a HAB project
+    Members of the Brickworks team were polled on what aspects of a HAB project
     motivate them and provide a fulfilling outlet for engineering skills.
     Mission concepts should be crafted to meet these criteria because engineers
     who take pride and genuine interest in a project do good work and stick with

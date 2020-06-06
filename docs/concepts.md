@@ -1,7 +1,7 @@
 # Mission Concepts
 
-TerraMICRO was conceived as a payload-agnostic high altitude balloon
-architecture. In addition, TerraMICRO should host one or more technical
+Nucleus was conceived as a payload-agnostic high altitude balloon
+architecture. In addition, Nucleus should host one or more technical
 or scientific experiments. These experiments need not be related to
 uHAB---they serve as a means to validate the design and architecture
 while stressing the system in a real-world use case.
@@ -310,7 +310,7 @@ Correlate data with similar sensors on the HAB bus to create better stabilizatio
 ## Reference Missions
 
 This section outlines reference payloads and mission profiles for
-TerraMICRO which satisfy the main mission objective of demonstrating the
+Nucleus which satisfy the main mission objective of demonstrating the
 uHAB avionics architecture by supporting a combination of technical or
 scientific experiments.
 

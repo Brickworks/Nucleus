@@ -1,26 +1,26 @@
-# TerraMICRO
+# Nucleus
 
-This is the documentation homepage for TerraMICRO, Mission 1 of the TerraHAB
+This is the documentation homepage for Nucleus, Mission 1 of the Brickworks
 Project.
 
 The documentation here logs our ideas, designs, and decisions through the
 design process from concept selection to post-flight analysis.
 
 !!! tip "Want to help?"
-    For more information on how to contribute to TerraMICRO or join the
-    TerraHAB team, see the **[Contribute](contribute.md)** page.
+    For more information on how to contribute to Nucleus or join the
+    Brickworks team, see the **[Contribute](contribute.md)** page.
 
-    - **GitHub**: [github.com/TerraHAB/TerraMICRO](https://github.com/TerraHAB/TerraMICRO)
-    - **JIRA**: [terrahab.atlassian.net](https://terrahab.atlassian.net/)
+    - **GitHub**: [github.com/Brickworks/Nucleus](https://github.com/Brickworks/Nucleus)
+    - **JIRA**: [brickworks.atlassian.net](https://brickworks.atlassian.net/)
 
-## What is TerraHAB?
+## What is Brickworks?
 
-TerraHAB is a group of engineers who are passionate about aerospace. The
+Brickworks is a group of engineers who are passionate about aerospace. The
 group formed in November 2018 as an outlet for alumni members of the
 student-faculty research group RIT Space Exploration (SPEX) to continue
 doing space-related engineering projects.
 
-TerraHAB's mission is to do novel things with accesible hardware, share
+Brickworks's mission is to do novel things with accesible hardware, share
 the knowledge gained along the way, and set an example of excellence for
 similar hobby projects.
 
@@ -45,16 +45,16 @@ for HAB vehicles. The [Technology Readiness
 Level](https://esto.nasa.gov/technologists_trl.html) of µHAB is TRL 2 as
 of November 2018.
 
-## What is TerraMICRO?
+## What is Nucleus?
 
-TerraMICRO is a high altitude balloon technology demonstration mission.
+Nucleus is a high altitude balloon technology demonstration mission.
 The key objectives of this mission are to validate the µHAB avionics
 architecture, experiment with core technologies which enable long
 duration flights, and collect high quality images from high altitudes.
-As a technology demonstrator, TerraMICRO flight systems designed to be
-generic in order to support any future missions. TerraHAB has selected
+As a technology demonstrator, Nucleus flight systems designed to be
+generic in order to support any future missions. Brickworks has selected
 long duration flights as a target for future missions, and as such many
 of the systems beyond the core avionics are building blocks toward this
 goal. At the time of launch, µHAB should be TRL 3, and upon the
-successful completion of the TerraMICRO mission this architecture will
+successful completion of the Nucleus mission this architecture will
 be TRL 5.
