@@ -1,4 +1,4 @@
-site_name: Brickworks - Nucleus
+site_name: Nucleus
 nav:
   - Introduction: index.md
   - Mission Concepts: concepts.md
