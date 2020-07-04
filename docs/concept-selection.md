@@ -159,3 +159,34 @@ selection is informed by the decision matrix, but not strictly bound to it.
 ![Example Decision Matrix](img/decision_matrix_example.jpg)
 
 The master document with all decision matrices can be found [here](etc/Concept%20Selection%20Matrix.xlsx).
+
+### Selected Experiments
+
+From the concept selection matrix and team discussion, the following
+experiments were selected for development:
+
+* [Advanced Dynamics Modelling](#advanced-dynamics-modelling)
+* [Altitude Control](concepts.md#altitude-control)
+* [On-board Image Processing](concepts.md#on-board-image-processing)
+* [Real-Time Communication](concepts.md#real-time-data-transfer)
+* (Stretch) [Long Distance Communications](#long-distance-communications) 
+* (Stretch) [Mission Monitoring Ground Station](#mission-monitoring-ground-station)
+* (Stretch) [Launch Platform](#launch-platform)
+
+## Tiered Mission Objectives
+
+In order to allow for iteration, experimentation, and stretch goals but still
+retain a roadmap for development, the experiments were divided into variants of
+increasing complexity, cost, and difficulty. The idea is to preserve a roadmap
+of development for planning purposes and to allow the formulation of broad
+design requirements, while also allowing the team to stretch for more ambitious
+goals in each area. There are also interdependencies between some of the
+experiments, especially as they get more advanced. Having "tiered" objectives
+lets development progress and iterate at different rates among experiments
+while also maintaining a sort of baseline for success.
+
+Below is an example diagram showing potential interdependencies and tiers of
+mission objectives. An epic of more ideas for mission objectives can be found
+[here](https://brickworks.atlassian.net/browse/ENG-23).
+
+![Phil's mission objectives](img/Phil-MissionObjective-All.jpg)
