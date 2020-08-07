@@ -1,4 +1,4 @@
-# Design Requirements
+# Mission Profile
 
 Nucleus's technical design is driven by making engineering decisions
 to meet the design requirements listed in this section. All of these
@@ -14,7 +14,7 @@ commit to providing justification for doing so (even if the reason is
 *because we thought it would be more fun this way* or *because we
 couldn't afford to buy the parts needed to do it right.*)
 
-## Critical Design Requirements
+### Critical Design Elements
 
 Regardless of the mission objectives, the HAB system must meet several
 key design requirements in order to achieve mission success. These
@@ -28,23 +28,15 @@ to cost, manufacturability, which stem from the Brickworks organization's
 own budgets. These critical requirements supercede any mission or design
 requirements that contribute to meeting the mission's objectives.
 
-## Mission Success Criteria
-
-The objectives listed in this section provide the basis for TerraHAB's
-criteria for success and drive all other mission requirements. These
-objectives steer the vision and end goals for the mission and every
-subsystem or feature in the end result should support at least one of
-these objectives.
-
 ### Stretch Goals
 
 There are several design features that are specific requests from
-TerraHAB engineers. The flight system should meet these requests or
+Brickworks engineers. The flight system should meet these requests or
 provide justification for not including them. These features are not
-required for mission success, but it is expected that the TerraHAB team
+required for mission success, but it is expected that the Brickworks team
 strives to accomplish these goals.
 
-## System Requirements
+<!-- ## System Requirements
 
 The intent of this specification is to quantify and control the criteria
 by which mission success is defined, and to provide traceability to each
@@ -80,4 +72,5 @@ vehicle's design.
 
 ### Instruments & Sensors
 
-### Altitude Regulation
+### Altitude Regulation 
+-->
