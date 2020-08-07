@@ -40,7 +40,7 @@ required for mission success, but it is expected that the Brickworks team
 strives to accomplish these goals.
 
 ## ConOps
-<!-- PLACEHOLDER -->
+![Mission Profile (Detailed)](img/Mission%20Profile%20Detailed.png)
 
 <!-- ## System Requirements
 
