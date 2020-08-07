@@ -24,7 +24,7 @@ design trade space.
 Some requirements are non-negotiable, such as [FCC or FAA regulations](https://www.ecfr.gov/cgi-bin/text-idx?rgn=div5&node=14:2.0.1.3.15#sp14.2.101.d)
 for unmanned free balloons and other basic functions to ensure a safe,
 controlled flight. Other requirements may come from limitations related
-to cost, manufacturability, which stem from the TerraHAB organization's
+to cost, manufacturability, which stem from the Brickworks organization's
 own budgets. These critical requirements supercede any mission or design
 requirements that contribute to meeting the mission's objectives.
 
@@ -56,6 +56,15 @@ vehicle's design.
     tested on the ground prior to launch. Flight data and telemetry recorded
     during the flight should be consistent with behavior observed during
     testing.
+
+* Payload Mass < 3kg
+* Maximum run time 10 hours
+* Flight ceiling 100,000 ft
+* Target altitude hold at 80,000 ft +/- 500 ft for at least 1 hour
+* Real-time telemetry downlink up to 50 mile slant range
+* (Stretch) Real-time imagery downlink up to 25 mile slant range
+* (Stretch) Portable telemetry monitor module and UI for remote ops and chase
+  car
 
 ### Avionics
 
