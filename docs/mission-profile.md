@@ -14,6 +14,9 @@ commit to providing justification for doing so (even if the reason is
 *because we thought it would be more fun this way* or *because we
 couldn't afford to buy the parts needed to do it right.*)
 
+## Mission Objectives
+<!-- PLACEHOLDER -->
+
 ### Critical Design Elements
 
 Regardless of the mission objectives, the HAB system must meet several
@@ -35,6 +38,9 @@ Brickworks engineers. The flight system should meet these requests or
 provide justification for not including them. These features are not
 required for mission success, but it is expected that the Brickworks team
 strives to accomplish these goals.
+
+## ConOps
+<!-- PLACEHOLDER -->
 
 <!-- ## System Requirements
 
