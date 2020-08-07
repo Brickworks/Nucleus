@@ -36,25 +36,18 @@ must be weathered by a flight platform. More specifically, ambient
 temperatures and pressures between 65,000--100,000, feet altitude see
 extremes of -60C and 0.05 atm respectively.
 
-This opens the door for generic or payload-agnostic HAB platforms
-designed to carry an experiment or instruments in conditions that
-approximate space. One such platform is an avionics architecture called
-[µHAB](https://github.com/RIT-Space-Exploration/µHAB), which is
-specifically designed to be a robust and all-inclusive avionics package
-for HAB vehicles. The [Technology Readiness
-Level](https://esto.nasa.gov/technologists_trl.html) of µHAB is TRL 2 as
-of November 2018.
+HABs are an excellent platform to experiment with and learn aerospace
+engineering skills and techniques as a hobbyist without the prohibitively
+high capital requirements of building a spacecraft. This means engineers
+can also experiment with more novel ideas or gain experience on a
+risk-tolerant and short-turnaround project.
 
 ## What is Nucleus?
 
 Nucleus is a high altitude balloon technology demonstration mission.
-The key objectives of this mission are to validate the µHAB avionics
+The key objectives of this mission are to develop a robust avionics
 architecture, experiment with core technologies which enable long
-duration flights, and collect high quality images from high altitudes.
-As a technology demonstrator, Nucleus flight systems designed to be
-generic in order to support any future missions. Brickworks has selected
-long duration flights as a target for future missions, and as such many
-of the systems beyond the core avionics are building blocks toward this
-goal. At the time of launch, µHAB should be TRL 3, and upon the
-successful completion of the Nucleus mission this architecture will
-be TRL 5.
+duration flights, broadcast telemetry to a remote ground terminal,
+and optionally collect high quality images from high altitudes.
+As a technology demonstrator, Nucleus flight systems are designed 
+with the intent to be improved or expanded upon in future missions.
