@@ -4,6 +4,8 @@ nav:
   - Mission Concepts: concepts.md
   - Concept Selection: concept-selection.md
   - Mission Profile: mission-profile.md
+  - 'PDR':
+      - "Avionics Software": /pdr/avsw_pdr.md
   - Glossary: glossary.md
   - Contribute: contribute.md
 
