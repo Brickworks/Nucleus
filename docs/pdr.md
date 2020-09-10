@@ -8,13 +8,18 @@
 
 Lead: Austin Bodzas
 
+Jump to:
+
+* [Main Flight Computer](#main-flight-computer-software-design)
+* [Avionics Sensor Card](#avionics-sensor-card-software-design)
+
 **Overview**: The scope of this PDR covers all software running onboard the HAB. The flight software contains all of the instructions for capturing data, logging data, actuating the servos, controlling comms and commanding cut-down.
 
 ![Software System Interface Overview](img/pdr/sw_sys_interface.png)
 
 Above is the system level interface diagram for the HAB's Flight Software board level components.  The PDR will detail software executing on the Ballon Board, Power Supply Card, Avionics Sensor Card, and Main Flight Computer (MFC).  The Communications card does not require custom new software, and the Ground Computer System
 
-### Main Flight Computer
+### Main Flight Computer Software Design
 #### Overview
 The Main Flight Computer software is all software that runs on the Main Flight Computer (sometimes referenced as the processor on the main avionics board).   At a high level, it is this software that serves as the main brain on the HAB.  
 
@@ -86,4 +91,21 @@ Logs data to non-volatile persistent memory for post-flight consumption.
 ##### GNU Radio App
 * Ingest data from IPC to transmit over USB to the SDR
 * Post data from SDR received by USB to the IPC
+
+### Avionics Sensor Card Software Design
+#### Overview
+The Avionics Sensor Card software is all software that runs on the Avionics Sensor Card MCU .   At a high level, the software on this card streams down generic sensor telemetry to the MFC.
+
+#### Interfaces
+* CAN: Telemetry and Commands with the MFC
+* I2C/SPI: Reading from sensors
+
+#### Responsibilities
+* Send IMU, GPS, Temperature, and Pressure sensor data to the MFC
+* Drive the Recovery assist system
+
+#### Runtime Environment
+
+**Bare Metal** 
+ The tasks performed by this card are so simple.  A simple while loop hooked up to a simple block on a periodic clock should suffice. 
 ---
