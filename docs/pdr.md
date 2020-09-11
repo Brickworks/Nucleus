@@ -1,5 +1,5 @@
 # Preliminary Design
-**Overview**: 
+<!-- **Overview**:  -->
 ## Table of Contents
 - [Flight Avionics Software](#flight-avionics-software)
 
