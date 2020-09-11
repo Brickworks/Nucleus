@@ -1,4 +1,4 @@
-# PDR
+# Preliminary Design
 **Overview**: 
 ## Table of Contents
 - [Flight Avionics Software](#flight-avionics-software)
@@ -187,7 +187,7 @@ The power boards main job is to provide smooth regulated power to the rest of th
 **Bare Metal**:
 The tasks performed by this card are simple. A simple while loop blocking on a periodic clock should suffice.  Some hardware configuration needs to occur during an initialization period.
 
-## Verification Plans
+### Verification Plans
 The software verification strategy will be pretty low on the rigorous side; the set of test cases for each verification level will not be close to exhaustive.  However, tests should be done to minimize risk and uncertainty of the system. The HAB software will be tested at three different levels: System, Board, and Application where applicable.
 
 #### System Level
@@ -201,8 +201,8 @@ Test each board at it's interface.  For MFC this would involve stimulating the E
 #### MFC App Level Testing
 The MFC is running a full operating system, which in turn executes discrete applications.  These applications can be tested individually for proper behavior.  A Software in the Loop test environment can be created to allow for focused inspected on each of these apps.  Unit Testing frameworks can also be used to verify behavior.
 
-## Risk Assessment
-### Hazard Identification, Analysis, Mitigation
+### Risk Assessment
+#### Hazard Identification, Analysis, Mitigation
 The largest risk we face with this HAB is lack of redundancy.  Some individual faults can render the whole Avionics system inoperable.  The solution to this could be adding multiple strings, have redundant cards, and use voting.   This however does not meet the vague requirements for this mission to be light and affordable for a non-profit group.  No real analysis has been done at the time of PDR at exactly how likely we are to expect any of these faults.  There is reasonable expectation that the failure risk is low enough to still fly this mission with just one string of avionics.  Below will touch upon a few of these lack of redundancy risks among other avionics software risks.  Each risk is accompanied with a probability (1-3, 1 least likely) and a severity of the risk (1-3, 1 least probelematic). 
 
 **MFC Failure** (Prob=1, Sev=3):  If an MFC failure occurs, rendering the board inoperable, the Avionics will temporarily fail.  If this failure is not recoverable, the avionics system will be left inoperable for the rest of the mission.  This failure would most likely occur from hardware being damaged due to atmospheric elements.  Some level of mitigation such as using an onboard watchdog may allow the board to reboot and try again.
@@ -211,11 +211,11 @@ The largest risk we face with this HAB is lack of redundancy.  Some individual f
 
 **MFC Real Time Failure** (Prob=1 Sev=1):  The MFC slips on meeting it’s required timely behavior.  This may be slipping on transmitting a message on time, or not reacting to a control change fast enough.  A lack of real time behavior in these areas will cause for a lack of control performance.  But given the MFC is using an application processor that far passes our needs, this is not a likely outcome, and not a frequent one if that.
 
-## Cost
+### Cost
 $0, expecting to strictly use “free as in beer” software.
 
 But for developing pre-hardware release, devboards will be used.  $65 for the Beaglebone Black and $25 for a STM32F4 dev board for a total of **$90**.
-## Schedule
+### Schedule
 #### Common Work
 | Item | Time Needed | Due Date | 
 |---|---|---|
