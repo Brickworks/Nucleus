@@ -1,10 +1,4 @@
-# Preliminary Design
-<!-- **Overview**:  -->
-## Table of Contents
-- [Flight Avionics Software](#flight-avionics-software)
-
----
-## Flight Avionics Software
+# Flight Avionics Software
 
 Lead: Austin Bodzas
 
