@@ -2,13 +2,7 @@
 
 Lead: Philip Linden
 
-Jump to:
-
-* [Concept of Operations](#concept-of-operations)
-* [PID Control](#pid-control)
-* [Avionics](#avionics)
-* [System Design Parameters]()
-* [Risk Assessment]()
+[TOC]
 
 See also:
 
@@ -138,10 +132,10 @@ with a PID algorithm.
 The PID control algorithm works by modulating the inputs, u, to the Plant,
 which in our case means the bleed and ballast controls. The Plant is the
 physical response, so the balance of weight, buoyancy, and drag forces with the
-given mass properties and ambient conditions. (See [Simple Atmospheric Flight
-Model](../atmospheric_flight_model.md)) The output of the Plant is the actual
-altitude, *y*. For a given set point altitude, *r*, the PID controller attempts
-to reduce the error, *e=r-y*, to zero.
+given mass properties and ambient conditions. (See
+[1D Atmospheric Flight Model](../habtoolbox_1d-ascent-model.md)) The output of
+the Plant is the actual altitude, *y*. For a given set point altitude, *r*, the
+PID controller attempts to reduce the error, *e=r-y*, to zero.
 
 The PID controller consists of a set of gains applied to a proportional term,
 an integral term, and a derivative term that all operate on the error signal,
@@ -149,11 +143,16 @@ an integral term, and a derivative term that all operate on the error signal,
 
 ### Rules of thumb
 
-**Proportional gain**: How aggressively signal approaches setpoint. Too much causes overshoot. No impact on steady-state error.
+**Proportional gain**: How aggressively signal approaches setpoint. Too much
+causes overshoot. No impact on steady-state error.
 
-**Integral gain**: How much error matters over time. Reduces oscillations and steady-state errors. Prone to windup, where accumulated errors over a long time cause lag in the controller after it reaches the desired point.
+**Integral gain**: How much error matters over time. Reduces oscillations and
+steady-state errors. Prone to windup, where accumulated errors over a long time
+cause lag in the controller after it reaches the desired point.
 
-**Derivative gain**: How much rate of change matters. Reduces overshoot. Prone to oscillations. Noisy signals make it go crazy, but this can be mitigated by adding a lowpass filter.
+**Derivative gain**: How much rate of change matters. Reduces overshoot. Prone
+to oscillations. Noisy signals make it go crazy, but this can be mitigated by
+adding a lowpass filter.
 
 ![PID Diagram](img/pdr/altitudecontrol/pid-general-diagram.png)
 ![PID Tuning Example 1](img/pdr/altitudecontrol/pid-tuning-example-1.png) ![PID Tuning Example 2](img/pdr/altitudecontrol/pid-tuning-example-2.png)
@@ -166,10 +165,14 @@ an integral term, and a derivative term that all operate on the error signal,
 - [The Basics of Tuning PID Loops](https://www.crossco.com/blog/basics-tuning-pid-loops/)
 
 ### Tunable Parameters
-To achieve the desired behavior from the controller, we tune some of the parameters in software and tune other parameters as part of choosing or sizing elements of the system during the design process.
+To achieve the desired behavior from the controller, we tune some of the
+parameters in software and tune other parameters as part of choosing or sizing
+elements of the system during the design process.
 
 #### Pure Tunables
-I call the parameters that we can choose and change “for free” pure tunables, since tuning these values can be done as desired without extra engineering work.
+I call the parameters that we can choose and change “for free” pure tunables,
+since tuning these values can be done as desired without extra engineering
+work.
 
 - Target altitude
 - Controller dead zone (allowable steady state error)
@@ -180,11 +183,16 @@ I call the parameters that we can choose and change “for free” pure tunables
 - PID controller gains (which determine response time and percent overshoot)
 - Initial ballast mass
 - Initial lift gas mass
-- Lift gas reserve fraction (fraction of total mass of lift gas allocated for altitude control)
+- Lift gas reserve fraction (fraction of total mass of lift gas allocated for
+  altitude control)
 - Arm / disarm criteria
 
 #### Calibrated Tunables
-*Calibrated* tunables are what I call parameters that affect the controller’s behavior or system response but can’t be dialed in on a whim. These are things that require extra engineering or design changes to tune. We choose ideal values for these parameters during the design process, and then we measure the true values when the system is built.
+*Calibrated* tunables are what I call parameters that affect the controller’s
+behavior or system response but can’t be dialed in on a whim. These are things
+that require extra engineering or design changes to tune. We choose ideal
+values for these parameters during the design process, and then we measure the
+true values when the system is built.
 
 - Ballast mass flow rate
 - Bleed mass flow rate
@@ -195,10 +203,77 @@ I call the parameters that we can choose and change “for free” pure tunables
 - Maximum lift gas reserve fraction
 
 ## Avionics
-The altitude control flight software application ([Main Flight Computer Software Design](../pdr_avsw.md#main-flight-computer-software-design)) issues commands to open the ballast or bleed valves over the CAN bus. When a bleed or ballast command is received by the altitude control interface board ([Altitude Control/Dynamics Sensor Card](../pdr_avsw.md#avionics-sensor-card-software-design)) over CAN, it executes the corresponding subroutine to carry out the command. The software environment onboard the altitude control interface board (Altitude Control/Dynamics Card Software Design) includes drivers for the hardware interfaces, such as a PWM motor controller for the valve actuators. 
+The altitude control flight software application ([Main Flight Computer
+Software Design](../pdr_avsw.md#main-flight-computer-software-design)) issues
+commands to open the ballast or bleed valves over the CAN bus. When a bleed or
+ballast command is received by the altitude control interface board
+([Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#avionics-sensor-card))
+over CAN, it executes the corresponding subroutine to carry out the command.
+The software environment onboard the altitude control interface board
+([Altitude Control/Dynamics Card Software Design](../pdr_avsw.md#avionics-sensor-card-software-design))
+includes drivers for the hardware interfaces, such as a PWM motor controller
+for the valve actuators.
 
-The altitude control interface board is also responsible for polling sensors and actuators for telemetry and pre-processing the raw signals (e.g. voltages from a pressure sensor) into the appropriate derived values (e.g. values in units of pressure) before sending them to the CAN bus for use by other flight software and downlink.
+The altitude control interface board is also responsible for polling sensors
+and actuators for telemetry and pre-processing the raw signals (e.g. voltages
+from a pressure sensor) into the appropriate derived values (e.g. values in
+units of pressure) before sending them to the CAN bus for use by other flight
+software and downlink.
 
 ![Flight Software Diagram](img/pdr/altitudecontrol/fsw-diagram.png)
 
-### Hardware
+### Sensing
+- [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card)
+    - GPS altitude
+    - Barometric altitude
+    - Ambient pressure
+- [Balloon Sensor Board](../pdr_avhw.md#balloon-board)
+    - Balloon valve position/state
+    - Balloon internal pressure
+    - Remaining lift gas
+- [Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#altitude-control-dynamics-sensor-card)
+    - Ballast valve position/state
+    - Remaining ballast sensor
+
+### Actuation
+- **Raise altitude:** Decrease total mass by releasing ballast. (See [Ballast Hopper](../pdr_mechanics.md#ballast-hopper))
+- **Lower altitude:** Decrease buoyancy by venting lift gas. (See [Balloon Plug](../pdr_mechanics.md#balloon-plug))
+
+## System Design Parameters
+### Requirements
+
+| Requirement | Description | Target | Allowable Bounds |
+| --- | --- | --- | --- |
+| Settling time | Time for controller to transition from stabilize to cruise mode. | 20 minutes. | 10 minutes - 1 hour |
+| Steady state error (dead zone) | Magnitude of the difference between target altitude and actual altitude during cruise mode | 150 m | 0 m - 500 m |
+| Ballast mass budget | Portion of total system mass budget allocated to ballast material | 1 kg or 25% | 1 kg - 2 kg |
+| Bleed mass budget | Portion of total system lift gas allocated to altitude control. | 0.5 kg or 30% | No more than the mass of lift gas needed for positive lift with empty ballast |
+| Flight duration | Impact on total flight time (launch to recovery) with altitude control enabled compared to an equivalent flight with altitude control disabled | 7 hours | No less than the |modeled flight duration with controller disabled (upper bound constrained by geofencing and weather) |
+
+### System Elements
+| Configuration Item | Function | Location | Interfaces |
+|---|---|---|---|
+| Altitude Control Application | Executes control algorithm and issues commands to actuators. | [Main Flight Computer](../pdr_avsw.md#main-flight-computer-software-design)) | [Main Flight Computer](), [Telemetry RX App](), [Command TX App]() |
+| [Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#altitude-control-dynamics-sensor-card) | Receives commands, drives bleed and ballast actuators, collects and preprocesses raw signals from sensors and reports telemetry to the CAN bus. | [Avionics Rack]() | [Avionics Rack](), [Backplane Interface Board](), [CAN bus TX/RX]() |
+| [Ballast Valve Actuator]() | Dispenses ballast mass from the ballast hopper. | [Ballast Hopper]() | [Ballast Hopper](), [Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#altitude-control-dynamics-sensor-card) |
+| [Bleed Valve Actuator]() | Vents lift gas from the balloon. | [Balloon Plug]() | [Balloon Plug](), [Balloon Board](../pdr_avhw.md#balloon-board) |
+| Barometer | Measures ambient barometric pressure and is calibrated to provide approximate altitude based on standard altitudes of isobaric layers of the atmosphere. | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) |
+| GPS receiver | Measures GPS altitude. | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) |
+
+## Risk Assessment
+| Risk | Impact | Mitigation |
+|---|---|---|
+| Controller bleeds too much gas and the remaining gas in the balloon cannot lift the payload, even with an empty ballast hopper. | **Severe.** Flight terminated early. | Calibrate the bleed valve mass flow rate perhaps in correlation to balloon internal pressure and/or time spent with the valve open. <br><br> Software disarm based on estimated lift gas remaining. |
+| Altitude never converges to a stable altitude by the time actuation limits are reached. | **Minor.** Flight duration mission objective is compromised, but no impact to other impacts of the flight. | Tune the controller to minimize overshoot and oscillations, allowing for a longer response time. |
+| Bleed valve releases more gas than estimations or measurements report. | **Moderate.** It's okay if more gas is released than expected unless the remaining gas in the system cannot lift the "dry" mass of the system. | Add some margin to the lift gas reserve level so that the controller is disarmed due to low gas before reaching a dangerously low level. <br><br> Make a direct measurement from inside the balloon that correlates to the amount of gas remaining, such as a calibrated temperature and pressure corresponding to the amount of gas remaining. |
+| Bleed valve gets stuck in the open position. | **Severe.** Flight terminated early. | Add a redundant/emergency valve close mechanism to the balloon plug. <br><br> Build a cutdown threshold into the altitude controller so that if the controller is armed and altitude reaches the lower bound, the flight is terminated via cutdown. |
+| Bleed valve gets stuck in the closed position. | **Minor.** Altitude control is critically disabled, but no impact to other impacts of the flight. | Testing and pre-flight inspection. |
+| Ballast valve releases more ballast than estimations or measurements report. | **Moderate.** It’s okay if more ballast is released than expected unless the controller thinks there is more ballast to release but there is not. | Add some margin to the ballast reserve level so that the controller disarms due to ballast before reaching a dangerously low level. <br><br> Make a direct measurement from inside the ballast hopper correlated to the amount of ballast remaining, such as a calibrated mass flow rate corresponded to ballast remaining. |
+| Ballast valve gets stuck in the open position. | **Minor.** Altitude control is critically disabled, but no impact to other impacts of the flight. | Testing and pre-flight inspection. |
+| Ballast valve gets stuck in the closed position. | **Moderate.** If ballast is stuck closed and the vehicle is descending, this would terminate the flight as the vehicle would not be able to recover positive lift. | Redundant valve open mechanism or emergency (forcible) dumping of all ballast. <br><br> Store additional dry mass to release as emergency ballast. |
+| Controller is armed too early. | **Moderate.** Bleed and ballast reserves could be expended prior to reaching the target altitude or meeting the flight duration target. | Place conservative delays and lockouts on the arming criteria. |
+| Altitude measurements are noisy or inaccurate. | **Moderate.** Bleed and ballast reserves could be expended prior to reaching the target altitude or meeting the flight duration target. | Use a low-pass filter on sensor readings, introduce a dead zone to the controller activation scheme, and fuse altitude readings from multiple sensors. |
+| Drastic transient changes to ascent rate and altitude due to localized atmospheric wind shear. | **Moderate.** A localized area of the atmosphere could cause us to releast a lot of gas/ballast to compensate, then dump us back where we started, causing a lot of control mass to be wasted. | Look at local GFS weather data on launch day. If there is significant vertical wind shear in the area, stand down on launch. <br><br> For significant and sudden changes in ascent rate (or other measurement data like pressure, acceleration, etc), especially during cruise mode, temporarily disarm the altitude controller. |
+
+## Schedule
+![Altitude Control Schedule](img/pdr/altitudecontrol/altitudecontrol-timeline.png)

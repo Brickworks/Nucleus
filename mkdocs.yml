@@ -8,9 +8,6 @@ nav:
     - Mission Profile: mission-profile.md
     - Flight Avionics Software: pdr_avsw.md
     - Altitude Control Logic: pdr_altitudecontrol.md
-    - Flight Avionics Hardware: pdr.md
-  - HAB Toolbox:
-    - 1D Atmospheric Flight Model: habtoolbox_1d-ascent-model.md
   - Appendix:
     - Glossary: glossary.md
     - Contribute: contribute.md
