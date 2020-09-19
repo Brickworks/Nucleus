@@ -34,6 +34,7 @@ methods approximate atmospheric temperature, pressure, and density using a
 piecewise curve fit for the layers of the atmosphere based on this standard
 model.
 
+<!-- NOT READY FOR PRIME TIME --
 ### Implementation
 
 #### Simulink with MATLAB Aerospace Toolbox
@@ -46,7 +47,7 @@ model.
     {code snippet from python}
 
     {plots of temperature, pressure, volume, density with altitude}
-
+-->
 ### Limitations
 
 There are significant limitations to this atmosphere model, but it does well
@@ -170,6 +171,7 @@ which is used to calculate things like estimated max altitude.
 We use [Kaymont high altitude balloons](https://www.kaymont.com/habphotography)
 as a reference for balloon parameters.
 
+<!-- NOT READY FOR PRIME TIME --
 ## HAB Flight Simulation
 
 To demonstrate we use a set of standard conditions to compare how each
@@ -184,7 +186,6 @@ implementation looks in terms of a HAB’s ascent profile.
 | Balloon Mass | 3.00 kg |
 | Drag Coefficient | 0.25 |
 
-
 ### MATLAB
 
 ![matlab simulation](img/hab_toolbox/atmosphere_model/alt_no_control.jpg)
@@ -193,3 +194,4 @@ implementation looks in terms of a HAB’s ascent profile.
 
 !!! To-do
     {screenshot of plots from python}
+-->

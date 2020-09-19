@@ -6,20 +6,19 @@ Lead: Philip Linden
 
 See also:
 
-* [Main Flight Computer](../pdr_avsw.md#main-flight-computer-software-design)
-* [Avionics Sensor Card](../pdr_avsw.md#avionics-sensor-card-software-design)
-* [Balloon Board](../pdr_avsw.md#balloon-board-software-design)
-* [Altitude Control/Dynamics
-  Card](../pdr_avsw.md#altitude-controldynamics-card-software-design)
-* [Balloon Bleed Valve]()
+* [Main Flight Computer](pdr_avsw.md#main-flight-computer-software-design)
+* [Avionics Sensor Card](pdr_avsw.md#avionics-sensor-card-software-design)
+* [Balloon Board](pdr_avsw.md#balloon-board-software-design)
+* [Altitude Control/Dynamics Card](pdr_avsw.md#altitude-controldynamics-card-software-design)
+* [Balloon Bleed Valve](placeholder.md)
 * [Ballast Hopper]()
 
 **Overview**: The scope of this PDR covers the logic and operations of the
 altitude controller system on the HAB, including arm and disarm criteria,
 approach for calculating when to actuate controllers, and risk mitigation
 strategies. The design of actuation mechanisms and electronic components are
-discussed in [Mechanical Systems](./pdr_mechanical.md) and [Flight Avionics
-Hardware](./pdr_avhw.md), respectively.
+discussed in [Mechanical Systems](placeholder.md) and [Flight Avionics
+Hardware](placeholder.md), respectively.
 
 **Objective**: Actively control the weight and buoyancy of the HAB in order to
 maintain equilibrium at a prescribed altitude.
@@ -82,15 +81,15 @@ altitude hold.
     3. There is ballast mass remaining in the reservoir.
         1. Calibrate the mass flow rate at the ballast release valve prior to
            flight and keep a tally of remaining ballast mass.
-   1. There is enough lifting gas in the balloon for the HAB to rise if the
-      reservoir were empty.
-      1. Use a pressure sensor in the balloon to compute the mass flow rate at
-         the bleed valve from the gauge pressure and temperature of lifting gas
-         inside the balloon and keep a tally of remaining lifting gas.
+    4. There is enough lifting gas in the balloon for the HAB to rise if the
+       reservoir were empty.
+        1. Use a pressure sensor in the balloon to compute the mass flow rate
+           at the bleed valve from the gauge pressure and temperature of
+           lifting gas inside the balloon and keep a tally of remaining lifting
+           gas.
 3. Use a tuned PI control to drive a ballast release valve and a gas bleed
    valve. The controller is designed for disturbance rejection of a noisy
-   altitude signal. <br/> ![Bleed Ballast
-   Ops](img/pdr/altitudecontrol/bleedballast-ops.png)
+   altitude signal.
     1. In order to conserve control effort, we must tune the controller such
        that overshoot and oscillations are minimized.
     2. Response time and settling time should be tuned to be small compared to
@@ -123,6 +122,8 @@ altitude hold.
     1. Lock the ballast valve in the open position.
     2. Lock the bleed valve in the closed position.
 
+![Bleed Ballast Ops](img/pdr/altitudecontrol/bleedballast-ops.png)
+
 ## PID Control
 In order to dynamically determine how much to bleed or ballast, we implement a
 PID controller to determine the percentage of time of each control cycle to
@@ -133,7 +134,7 @@ The PID control algorithm works by modulating the inputs, u, to the Plant,
 which in our case means the bleed and ballast controls. The Plant is the
 physical response, so the balance of weight, buoyancy, and drag forces with the
 given mass properties and ambient conditions. (See
-[1D Atmospheric Flight Model](../habtoolbox_1d-ascent-model.md)) The output of
+[1D Atmospheric Flight Model](habtoolbox_1d-ascent-model.md)) The output of
 the Plant is the actual altitude, *y*. For a given set point altitude, *r*, the
 PID controller attempts to reduce the error, *e=r-y*, to zero.
 
@@ -207,10 +208,10 @@ The altitude control flight software application ([Main Flight Computer
 Software Design](../pdr_avsw.md#main-flight-computer-software-design)) issues
 commands to open the ballast or bleed valves over the CAN bus. When a bleed or
 ballast command is received by the altitude control interface board
-([Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#avionics-sensor-card))
+([Altitude Control/Dynamics Sensor Card](placeholder.md))
 over CAN, it executes the corresponding subroutine to carry out the command.
 The software environment onboard the altitude control interface board
-([Altitude Control/Dynamics Card Software Design](../pdr_avsw.md#avionics-sensor-card-software-design))
+([Altitude Control/Dynamics Card Software Design](pdr_avsw.md#avionics-sensor-card-software-design))
 includes drivers for the hardware interfaces, such as a PWM motor controller
 for the valve actuators.
 
@@ -223,21 +224,21 @@ software and downlink.
 ![Flight Software Diagram](img/pdr/altitudecontrol/fsw-diagram.png)
 
 ### Sensing
-- [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card)
+- [Avionics Sensor Card](placeholder.md)
     - GPS altitude
     - Barometric altitude
     - Ambient pressure
-- [Balloon Sensor Board](../pdr_avhw.md#balloon-board)
+- [Balloon Sensor Board](placeholder.md)
     - Balloon valve position/state
     - Balloon internal pressure
     - Remaining lift gas
-- [Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#altitude-control-dynamics-sensor-card)
+- [Altitude Control/Dynamics Sensor Card](placeholder.md)
     - Ballast valve position/state
     - Remaining ballast sensor
 
 ### Actuation
-- **Raise altitude:** Decrease total mass by releasing ballast. (See [Ballast Hopper](../pdr_mechanics.md#ballast-hopper))
-- **Lower altitude:** Decrease buoyancy by venting lift gas. (See [Balloon Plug](../pdr_mechanics.md#balloon-plug))
+- **Raise altitude:** Decrease total mass by releasing ballast. (See [Ballast Hopper](placeholder.md))
+- **Lower altitude:** Decrease buoyancy by venting lift gas. (See [Balloon Plug](placeholder.md))
 
 ## System Design Parameters
 ### Requirements
@@ -253,12 +254,12 @@ software and downlink.
 ### System Elements
 | Configuration Item | Function | Location | Interfaces |
 |---|---|---|---|
-| Altitude Control Application | Executes control algorithm and issues commands to actuators. | [Main Flight Computer](../pdr_avsw.md#main-flight-computer-software-design)) | [Main Flight Computer](), [Telemetry RX App](), [Command TX App]() |
-| [Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#altitude-control-dynamics-sensor-card) | Receives commands, drives bleed and ballast actuators, collects and preprocesses raw signals from sensors and reports telemetry to the CAN bus. | [Avionics Rack]() | [Avionics Rack](), [Backplane Interface Board](), [CAN bus TX/RX]() |
-| [Ballast Valve Actuator]() | Dispenses ballast mass from the ballast hopper. | [Ballast Hopper]() | [Ballast Hopper](), [Altitude Control/Dynamics Sensor Card](../pdr_avhw.md#altitude-control-dynamics-sensor-card) |
-| [Bleed Valve Actuator]() | Vents lift gas from the balloon. | [Balloon Plug]() | [Balloon Plug](), [Balloon Board](../pdr_avhw.md#balloon-board) |
-| Barometer | Measures ambient barometric pressure and is calibrated to provide approximate altitude based on standard altitudes of isobaric layers of the atmosphere. | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) |
-| GPS receiver | Measures GPS altitude. | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) | [Avionics Sensor Card](../pdr_avhw.md#avionics-sensor-card) |
+| Altitude Control Application | Executes control algorithm and issues commands to actuators. | [Main Flight Computer](pdr_avsw.md#main-flight-computer-software-design)) | [Main Flight Computer](pdr_avsw.md#main-flight-computer-software-design), [Telemetry RX App](pdr_avsw.md#can-tlm-rx), [Command TX App](placeholder.md) |
+| [Altitude Control/Dynamics Sensor Card](placeholder.md) | Receives commands, drives bleed and ballast actuators, collects and preprocesses raw signals from sensors and reports telemetry to the CAN bus. | [Avionics Rack](placeholder.md) | [Avionics Rack](placeholder.md), [Backplane Interface Board](placeholder.md), [CAN bus TX/RX](pdr_avsw.md#can-tlm-rx) |
+| [Ballast Valve Actuator](placeholder.md) | Dispenses ballast mass from the ballast hopper. | [Ballast Hopper](placeholder.md) | [Ballast Hopper](placeholder.md), [Altitude Control/Dynamics Sensor Card](placeholder.md) |
+| [Bleed Valve Actuator](placeholder.md) | Vents lift gas from the balloon. | [Balloon Plug](placeholder.md) | [Balloon Plug](placeholder.md), [Balloon Board](placeholder.md) |
+| Barometer | Measures ambient barometric pressure and is calibrated to provide approximate altitude based on standard altitudes of isobaric layers of the atmosphere. | [Avionics Sensor Card](placeholder.md) | [Avionics Sensor Card](placeholder.md) |
+| GPS receiver | Measures GPS altitude. | [Avionics Sensor Card](placeholder.md) | [Avionics Sensor Card](placeholder.md) |
 
 ## Risk Assessment
 | Risk | Impact | Mitigation |
