@@ -1,12 +1,18 @@
 site_name: Nucleus
 nav:
   - Introduction: index.md
-  - Mission Concepts: concepts.md
-  - Concept Selection: concept-selection.md
-  - Mission Profile: mission-profile.md
-  - Preliminary Design: pdr.md
-  - Glossary: glossary.md
-  - Contribute: contribute.md
+  - Mission Selection:
+    - Mission Concepts: concepts.md
+    - Concept Selection: concept-selection.md
+  - Preliminary Design:
+    - Mission Profile: mission-profile.md
+    - Flight Avionics Software: pdr_avsw.md
+    - Altitude Control Logic: pdr_altitudecontrol.md
+  - HAB Toolbox:
+    - 1D Atmospheric Flight Model: habtoolbox_1d-ascent-model.md
+  - Appendix:
+    - Glossary: glossary.md
+    - Contribute: contribute.md
 
 theme: readthedocs
 markdown_extensions:
