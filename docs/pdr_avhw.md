@@ -1,24 +1,11 @@
-# Altitude Control Logic
+# Flight Hardware
 
-Lead: Philip Linden
+Lead: Matthew Glazer
 
 [TOC]
 
-See also:
-
-* [Main Flight Computer](pdr_avsw.md#main-flight-computer-software-design)
-* [Avionics Sensor Card](pdr_avsw.md#avionics-sensor-card-software-design)
-* [Balloon Board](pdr_avsw.md#balloon-board-software-design)
-* [Altitude Control/Dynamics Card](pdr_avsw.md#altitude-controldynamics-card-software-design)
-* [Balloon Bleed Valve](placeholder.md)
-* [Ballast Hopper]()
-
-**Overview**: The scope of this PDR covers the logic and operations of the
-altitude controller system on the HAB, including arm and disarm criteria,
-approach for calculating when to actuate controllers, and risk mitigation
-strategies. The design of actuation mechanisms and electronic components are
-discussed in [Mechanical Systems](placeholder.md) and [Flight Avionics
-Hardware](placeholder.md), respectively.
+**Overview**: The scope of this PDR covers all hardware design and development as it currently stands for the Nucleus HAB launch. Development approaches, timelines and overall board information are provided. The design of payload, actuation mechanisms and software design are
+discussed in [Altitude Control Logic](pdr_altitudecontrol.md), [Mechanical Systems](placeholder.md) and [Flight Avionics Software](pdr_avsw.md), respectively.
 
 **Overview**: The Flight Hardware system for the nucleus mission provides all the power, computing and control elements required for mission success. There are seven primary PCBs and an assortment of secondary PCBs as part of this system.
 
