@@ -1,0 +1,294 @@
+# Altitude Control Logic
+
+Lead: Philip Linden
+
+[TOC]
+
+See also:
+
+* [Main Flight Computer](pdr_avsw.md#main-flight-computer-software-design)
+* [Avionics Sensor Card](pdr_avsw.md#avionics-sensor-card-software-design)
+* [Balloon Board](pdr_avsw.md#balloon-board-software-design)
+* [Altitude Control/Dynamics Card](pdr_avsw.md#altitude-controldynamics-card-software-design)
+* [Balloon Bleed Valve](placeholder.md)
+* [Ballast Hopper]()
+
+**Overview**: The scope of this PDR covers the logic and operations of the
+altitude controller system on the HAB, including arm and disarm criteria,
+approach for calculating when to actuate controllers, and risk mitigation
+strategies. The design of actuation mechanisms and electronic components are
+discussed in [Mechanical Systems](placeholder.md) and [Flight Avionics
+Hardware](placeholder.md), respectively.
+
+**Overview**: The Flight Hardware system for the nucleus mission provides all the power, computing and control elements required for mission success. There are seven primary PCBs and an assortment of secondary PCBs as part of this system.
+
+Boards in work:
+
+Backplane Interface Board- Schematic completedMain Flight Computer Card - Template Schematic startedAvionics Sensor Card - Template Schematic startedAltitude Control/Dynamics Sensor Card - Template Schematic startedCommunications Card - Template Schematic startedPower Supply Card - Template Schematic startedBalloon Board
+
+Design Path Forward
+
+Commonality
+
+The Main Flight Computer and Payload Cards are based on a template. The MFC Card template approach is more useful for future development of additional missions. However the Payload Card template is the base of all card development. The template will include connector interfaces, switching regulators, communication interfaces and finally the MCU. From here the cards can be tailored to the individual payload cards. 
+
+The intent is to complete this template and then reuse to develop the individual cards, this will reduce development time and provide a basis for future missions.
+
+Card design
+
+Compartmentalization
+
+Continuing the idea of basing each card off a template, the designs are compartmentalized and common across all cards. The goal is for major subsections to be a “copy and paste” approach, i.e. using the same components and schematic blocks wherever possible. Likely schematic blocks include:
+
+Microcontroller
+
+3.3V/1.8V regulators
+
+Sensors (IMU etc)
+
+Ethernet/CAN
+
+Mechanical
+
+All Cards are designed to roughly the same dimensions, depending on card. Currently all cards are specified to the following dimensions of 100x100mm with a provision to increase to 105x200mm if additional space is needed. There will be three primary “configuration options” for board length, 100mm, 150mm and 200mm. Mounting points will be based off the three configuration options.
+
+All cards have M3 mounting holes 5mm x 5mm from the corner, except for the MFC’s mounting holes by the backplane connector which are 5mm x 15mm from card edge.
+
+Need is unexpected, but any large components would likely be “potted” for strength. 
+
+Design Rules
+
+Electrical signals routed on all cards and boards fall into three categories: Differential Routing, GPIO and Power. 
+
+Differential routing will follow Ethernet and CAN design requirements, i.e. 50 or 100 ohm differential pairs etc. These signals will be routed primarily on layer one of the PCB and grouped together away from all power and GPIO signals. A full ground plane will be routed underneath. 
+
+On four layer boards, power will be routed on layer three, on two layer boards power will be routed on layer one. High current paths, such as on the backplane will be implemented through copper pours, while all other routing of power will be through a different trace width versus signals to differentiate trace types.
+
+GPIO will be routed on either layer one or four, depending on keepout zones for the ethernet and CAN routing. Less dependent on a ground layer underneath but all effort will be made to maintain the same style of trace coupling.  
+
+Trace width’s will be dictated by PCB manufacturer’s guidelines. For initial development will likely use the MacroFab design rules guidelines and then tweak as necessary based on final selected vendor.
+
+Positioning is determined by mechanical design’s CAD model as well as card spacing. 
+
+Common Interfaces
+
+Backplane
+
+Interfaces between cards are implemented through Molex Milli-Grid connectors. Backplane mounted connectors are vertical receptacles while card mounted connectors are right angle shrouded connectors. Ground station interface is through a molex MicroFit power header and RJ45 connector. These then attach to a panel mount style interface on outside of HAB enclosure. Balloon board backplane interface runs through a paired JST connector.
+
+Cards
+
+External interfaces to the cards will be implemented through JST PH connectors of varying conductor counts. Specifically for the Power Supply Card, a Molex Microfit power header will be used for battery interface. GPS antenna will be an SMA connector interface.
+
+Manufacturing
+
+Board Stackups
+
+ENIG plating Blue soldermaskWhite silkscreen1oz copper (outer layers) 0.5oz (inner layers)
+
+4 layer PCB 
+
+Signal - Differential Pairs
+
+Ground
+
+Power
+
+Signal - GPIO/Ground
+
+2 layer PCB 
+
+Signal/Power
+
+Ground
+
+Card Specifics  
+
+Backplane 
+
+PCB design is primarily through hole with some surface mount capacitors. No issues expected with manufacturing. This is the simplest card of the whole stack. Assembly expected to be by hand, by Brickworks members.  
+
+Starting point for stackup: 4 layer PCB
+
+Main Flight Computer
+
+If reasonably priced then impedance matching will be added to PCB ordering. 99% surface mount design, only connectors will be through hole. This card is the only card currently being considered for professional manufacturing.
+
+Starting point for stackup: 4 layer PCB
+
+Payload cards
+
+99% surface mount design, only connectors will be through hole. No significant impedance match trace work expected, except potentially on the communications Card.
+
+Starting point for stackup: 2 layer PCB
+
+Battery Pack
+
+Pack will be 18650 cells, these are sourced from matt’s personal stockpile, they are not new manufacture cells but no issues expected as they were salvaged out of a Model S.
+
+Pack Design
+
+3.7V nominal; 3100mAh cells. Pack would be configured in a 4 series, 2 parallel (4S2P) design with the option of expanding the packs to larger quantities as mission configuration requires. 
+
+Current mission design is a 14.8V nominal (12-16.8V range), 6200mAh pack. Expected temperatures at altitude will reduce total capacity to a currently unknown amount but a conservative approach is an expectation of 40% total capacity loss at max altitude. This can be accounted for using thermal insulation and potentially a small heater.
+
+Manufacturing
+
+Battery pack will be tab welded together for electrical connections, cells well be hotglued together for initial mechanical stability with additional framing to be added as necessary.
+
+Testing
+
+All boards will be designed with large #'s of test points. This points will sit on all voltage rails and major signal paths (where possible). Will allow for testing of most signalling/power, especially useful when testing subsystems such as CAN and Ethernet.
+
+Before power-up, a full continuity test will be performed, checking for opens and shorts where needed/unwanted on all signals and power lines.
+
+Bring-up plan will be power supplies first, testing successful operation and confirming efficiency. Full board assembly will progress after that. Power supplies will be tested for basic output levels, output ripple, load testing and overall efficiency.
+
+Thermal analysis
+
+Major Constraints
+
+Board outline constraints subject to change per CAD model. 
+
+Backplane
+
+Pinout needs to be determined and set in stone as soon as physically possible.
+
+Main Flight Computer Card
+
+Heavy focus on proper trace routing for processor and Ethernet/CAN/USB. Processor SoM is a BGA package with wide pin pitch, care needs to be taken during design and manufacturing. Will likely require special constraints for PCB manufacturing.
+
+Power Supply Card
+
+This card is heavily driven by software, basic functionality requires a software package and cannot run in an “analog” sense. Primarily the battery management system. The switching regulator system will function normally without software function.
+
+Avionics Sensor Card
+
+GPS system is currently TBD
+
+COTS APRS interface is currently TBD
+
+Recovery assist still needs concept determined to create design. 
+
+Communications Card
+
+Implementation of this will rely heavily on Dan’s amplifier designs and overall implementation, however major portions have already been decided such as the SDR so work can begin. Block diagram and basic interaction outside of SDR TBD.
+
+Timeline
+
+MFC Card Development
+
+3 weeks to complete schematic
+
+3 weeks to complete PCB
+
+3 weeks for manufacturing
+
+Payload Card development
+
+2 weeks to complete template schematic
+
+1 week to complete customized payload card schematic
+
+3 weeks to complete PCB
+
+3 weeks for manufacturing
+
+Development plan
+
+I believe this is literally waterfall design. There will be some jumping around between cards as plans are finalized however see below for the approximate development path. The goal will be to simultaneously work on two project points at one point to near completion ( i.e. enough to put down to pick up the next two points. Currently the Backplane schematic is “complete” and work has started on the Backplane PCB and MFC Card schematic. 
+
+PCB assembly will potentially occur during this development process based on how the card design finalizes and the needs of the software development side of things.
+
+Cost:
+
+Backplane - $150 eaMain Flight Computer Card - $300 eaAvionics Sensor Card - $200 eaAltitude Control/Dynamics Sensor Card - $200 eaCommunications Card - $300 eaPower Supply Card - $200 eaBalloon Board - $150 eaTotal: $1500 per set
+
+Please note, this is a very rough estimate. The goal is to drive costs lower while maintaining high levels of features (I promise I'm not on the marketing team)
+
+Card Specific Information
+
+Backplane
+
+ 
+
+CI’s:
+
+Main Flight Computer InterfacePayload Card InterfacesPower Supply Card Interface
+
+Interfaces:
+
+Backplane - EthernetBackplane - CANBackplane - USBBackplane - Power
+
+Main Flight Computer Card
+
+ 
+
+CI’s:
+
+Processor SoMEthernet Switch
+
+Interfaces:
+
+Backplane - EthernetBackplane - CANBackplane - Power
+
+Power Supply Card
+
+ 
+
+CI’s:
+
+MicrocontrollerSwitching RegulatorsBattery Pack ChargerBattery Pack MonitorRemove Before Flight Circuit
+
+Interfaces:
+
+Backplane - CANBackplane - PowerBattery Pack
+
+Avionics Sensor Card
+
+ 
+
+CI’s:
+
+MicrocontrollerSensor NetworkGPS systemRecovery AssistSwitching Regulators
+
+Interfaces:
+
+Backplane - EthernetBackplane - CANBackplane - PowerGPS Radio antennaRecovery LEDs/Buzzer
+
+Altitude Control/Dynamics Sensor Card
+
+ 
+
+CI’s:
+
+MicrocontrollerSensor Network - Altitude ControlSensor Network - DynamicsBallast ControllerSwitching Regulators
+
+Interfaces:
+
+Backplane - EthernetBackplane - CANBackplane - PowerDynamics Sensor Nodes
+
+Communications Card
+
+ 
+
+CI’s:
+
+MicrocontrollerRadio BackendRadio Front EndSwitching Regulators
+
+Interfaces:
+
+Backplane - EthernetBackplane - CANBackplane - USBBackplane - PowerRadio antennas
+
+Balloon Board
+
+ 
+
+CI’s:
+
+MicrocontrollerBalloon MonitoringGas Relief SystemSwitching Regulators
+
+Interfaces:
+
+Backplane - CANBackplane - PowerGas Relief System
+
