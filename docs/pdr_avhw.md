@@ -207,10 +207,10 @@ Please note, this is a very rough estimate. The goal is to drive costs lower whi
 
 #### CI’s:
 
-Main Flight Computer Interface
-Payload Card Interfaces
-Communications Card Interface
-Power Supply Card Interface
+* Main Flight Computer Interface
+* Payload Card Interfaces
+* Communications Card Interface
+* Power Supply Card Interface
 
 #### Interfaces:
 
@@ -223,8 +223,8 @@ Power Supply Card Interface
 
 #### CI’s:
 
-Processor SoM
-Ethernet Switch
+* Processor SoM
+* Ethernet Switch
 
 #### Interfaces:
 
@@ -238,11 +238,11 @@ Ethernet Switch
 
 #### CI’s:
 
-Microcontroller
-Switching Regulators
-Battery Pack Charger
-Battery Pack Monitor
-Remove Before Flight Circuit
+* Microcontroller
+* Switching Regulators
+* Battery Pack Charger
+* Battery Pack Monitor
+* Remove Before Flight Circuit
 
 #### Interfaces:
 
@@ -254,11 +254,11 @@ Remove Before Flight Circuit
 
 #### CI’s:
 
-Microcontroller
-Sensor Network
-GPS system
-Recovery Assist
-Switching Regulators
+* Microcontroller
+* Sensor Network
+* GPS system
+* Recovery Assist
+* Switching Regulators
 
 #### Interfaces:
 
@@ -273,11 +273,11 @@ Switching Regulators
 
 #### CI’s:
 
-Microcontroller
-Sensor Network - Altitude Control
-Sensor Network - Dynamics
-Ballast Controller
-Switching Regulators
+* Microcontroller
+* Sensor Network - Altitude Control
+* Sensor Network - Dynamics
+* Ballast Controller
+* Switching Regulators
 
 #### Interfaces:
 
@@ -291,10 +291,10 @@ Switching Regulators
 
 #### CI’s:
 
-Microcontroller
-Radio Backend
-Radio Front End
-Switching Regulators
+* Microcontroller
+* Radio Backend
+* Radio Front End
+* Switching Regulators
 
 #### Interfaces:
 
@@ -309,10 +309,10 @@ Switching Regulators
 
 #### CI’s:
 
-Microcontroller
-Balloon Monitoring
-Gas Relief System
-Switching Regulators
+* Microcontroller
+* Balloon Monitoring
+* Gas Relief System
+* Switching Regulators
 
 #### Interfaces:
 
