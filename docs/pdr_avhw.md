@@ -184,6 +184,8 @@ Implementation of this will rely heavily on Dan’s amplifier designs and overal
 
 I believe this is literally waterfall design. There will be some jumping around between cards as plans are finalized however see below for the approximate development path. The goal will be to simultaneously work on two project points at one point to near completion ( i.e. enough to put down to pick up the next two points. Currently the Backplane schematic is “complete” and work has started on the Backplane PCB and MFC Card schematic. 
 
+![timeline](https://user-images.githubusercontent.com/12124823/93687139-a3d6bc00-fa78-11ea-8a13-1b4806cb1e51.png)
+
 PCB assembly will potentially occur during this development process based on how the card design finalizes and the needs of the software development side of things.
 
 ## Cost:
