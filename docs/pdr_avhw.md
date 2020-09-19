@@ -213,6 +213,19 @@ Backplane Concepting  - Ethernet Sheet
 ##### Connectors
 There is one 40 pin Molex MilliGrid vertical receptacle, one 34 pin Molex MilliGrid vertical receptacle and six 28 pin Molex MilliGrid vertical receptacles providing the interfaces between the various avionics cards. There is also a Molex Microfit header and RJ45 connector for ground station interface and a 10 pin JST header for connection to the balloon board.
 
+###### Main Flight Computer Interface
+Power/GPIO Interface Molex Part #: 0791077016 
+Ethernet Interface Molex Part #: 0791077019
+
+###### Payload Card Slot 1 through 4
+Molex Part #: 0791077013 
+
+###### Communications Card
+Molex Part #: 0791077013 
+
+###### Power Supply Card
+Molex Part #: 0791077013 
+
 #### CI’s:
 * Main Flight Computer Interface
 * Payload Card Interfaces
@@ -261,6 +274,21 @@ There is one 34 pin and one 40 pin Molex MilliGrid Shrouded Right angle Connecto
 
 ###### Power/GPIO Connector
 Molex Part #: 0878333420
+
+![34pin_generic](https://user-images.githubusercontent.com/12124823/93690794-c9c08880-fa99-11ea-9e76-2b966f52da12.png)
+
+Reference view for pinout of connector is from FRONT of card.
+
+![34pin_MFC_GPIO](https://user-images.githubusercontent.com/12124823/93690796-d1802d00-fa99-11ea-909d-bf122b47d8cd.png)
+
+###### Ethernet Connector
+Molex Part #: 0878334020
+
+![40pin_generic](https://user-images.githubusercontent.com/12124823/93690790-ba413f80-fa99-11ea-8933-e910e02a3188.png)
+
+Reference view for pinout of connector is from FRONT of card.
+
+![40pin_MFC_Interface](https://user-images.githubusercontent.com/12124823/93690795-d1802d00-fa99-11ea-96eb-d0c9cd4c60c1.png)
 
 #### CI’s:
 * Processor SoM
@@ -326,7 +354,15 @@ Battery Management - BQ76920
 
 ##### Connectors
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Power Supply Card to the Backplane and the rest of the avionics stack.
- 
+
+###### Backplane Connector
+Molex Part #: 0878332820
+
+![28pin_generic](https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png)
+
+Reference view for pinout of connector is from FRONT of card.
+
+![28pin_Powercard](https://user-images.githubusercontent.com/12124823/93690836-8a466c00-fa9a-11ea-8a80-4e860dc7cecf.png)
 
 #### CI’s:
 
@@ -438,8 +474,16 @@ No usage (TBD)
 
 ##### Connectors
 
-###### Backplane
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.
+
+###### Backplane Connector
+Molex Part #: 0878332820
+
+![28pin_generic](https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png)
+
+Reference view for pinout of connector is from FRONT of card.
+
+![28pin_altcontrldyn](https://user-images.githubusercontent.com/12124823/93690876-f88b2e80-fa9a-11ea-8b50-664c4248a641.png)
 
 #### CI’s:
 
@@ -461,11 +505,9 @@ There is one 28 pin Molex MilliGrid shrouded right angle connector providing all
 #### Theory of Operation
 
 ###### SDR
-An off the shelf SDR will be mounted to the communications card, it will communicate with the MFC through a USB 2.0 (3.0 if time/complexity is doable) link. 
-
+An off the shelf SDR will be mounted to the communications card, it will communicate with the MFC through a USB 2.0 link. 
 
 ###### RF Front End
- 
 
 
 #### Electrical Interface
@@ -485,6 +527,15 @@ No usage (TBD)
 
 ###### Connectors
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.
+
+###### Backplane Connector
+Molex Part #: 0878332820
+
+![28pin_generic](https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png)
+
+Reference view for pinout of connector is from FRONT of card.
+
+![28pin_comms](https://user-images.githubusercontent.com/12124823/93690897-34be8f00-fa9b-11ea-8a90-d7a02604cd54.png)
 
 #### CI’s:
 
@@ -508,18 +559,13 @@ There is one 28 pin Molex MilliGrid shrouded right angle connector providing all
 ##### Altitude Control
 The Balloon Board will control the gas regulation portion of the altitude control system. Board will supply the required interfaces and systems to operate a valve used to release helium from the balloon. The valve will be controlled by a servo motor.
 
-
 ##### Balloon Monitoring
 The Balloon Board will be capable of monitoring internal conditions of the balloon through the use of pressure and temperature sensors. Pressure sensor will be board mounted and have a tap off the balloon plug to allow for local monitoring of the gas pressure, operating under the assumption that pressure is uniform within the balloon.
 
 A INSERT TYPE HERE temperature sense will be mounted inside the balloon plug and will have a wiring harness run back to the balloon board where any required filtering/amplification will be performed.
 
-
 ##### Flight Control
 In the event of an issue requiring flight termination the Balloon Board also includes functionality to operate a nichrome based balloon cutoff. Additionally the valve can be commanded to open up and release all pressure.
-
- 
-
 
 #### Electrical Interface
 
@@ -544,6 +590,15 @@ No usage (TBD)
 ##### Connectors
 There is one 10 pin JST PH shrouded right angle connector providing all interfaces to and from the Balloon Board to the Backplane and Main Flight Computer.
 
+###### Backplane Connector
+JST Part #: S10B-PH-K-S(LF)(SN)
+
+![10pin_generic](https://user-images.githubusercontent.com/12124823/93690914-69cae180-fa9b-11ea-9887-d93d8617f71c.png)
+
+Reference view for pinout of connector is from FRONT of card.
+
+![10pin_balloon](https://user-images.githubusercontent.com/12124823/93690913-69324b00-fa9b-11ea-8d38-8df2c772d73b.png)
+
 #### CI’s:
 
 * Microcontroller
@@ -556,4 +611,3 @@ There is one 10 pin JST PH shrouded right angle connector providing all interfac
 * Backplane - CAN
 * Backplane - Power
 * Gas Relief System
-
