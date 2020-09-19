@@ -186,7 +186,7 @@ I believe this is literally waterfall design. There will be some jumping around 
 
 ![timeline](https://user-images.githubusercontent.com/12124823/93687139-a3d6bc00-fa78-11ea-8a13-1b4806cb1e51.png)
 
-PCB assembly will potentially occur during this development process based on how the card design finalizes and the needs of the software development side of things.
+PCB assembly will potentially occur during this development process based on how the card design finalizes and the needs of the software development side of things. However assembly and test of PCBAs is not included in this development schedule. Current expectation is that boards will be ordered and assembled after CDR.
 
 ## Cost:
 
@@ -220,6 +220,45 @@ Please note, this is a very rough estimate. The goal is to drive costs lower whi
 * Backplane - Power
 
 ### Main Flight Computer Card 
+
+#### Theory of Operation
+The Main Flight Computer Card is the brain of the avionics stack. This card handles all primary functions and receives data from all other cards in the stack.
+
+
+##### Main Processor
+An Octavo OSD3358 SoM is the processor on this card. It is a single core application processor that can run linux, providing many options for the software team to develop flight programs. It also contains 512MB of RAM and 4GB of eMMC NAND flash for storage. There are no major external components required to complete the processor design beyond the SOM. The SOM also contains 3.3V and 1.8V regulators on board, simplifying the required external hardware, the SOM accepts 5V input. The SOM interfaces with the Ethernet and CAN drivers through dedicated ports on the processor. 
+
+##### Ethernet Interface
+This card contains an Ethernet switch providing access to all payload cards except the power card and balloon board. The switch also interfaces back to the main processor providing the interconnect between all cards. 
+
+##### Secondary Storage
+This Card will contain an SD card interface for expanded secondary data storage. 
+
+
+#### Electrical Interface
+
+##### Major components
+Processor - OSD3358 SoM 
+CAN Transceiver - TCAN1051
+
+##### Power Supplies
+
+###### 12V Power Rail
+No usage
+
+###### 5V Power Rail
+* Octavo OSD3358
+* SD Card
+* Temperature Sensor
+* Ethernet Switch
+
+
+##### Connectors
+There are two 34 pin Molex MilliGrid Shrouded Right angle Connectors providing all interfaces to and from the Flight computer to the Backplane and other payload cards.
+
+
+###### Power/GPIO Connector
+Molex Part #: 0878333420
 
 #### CI’s:
 
