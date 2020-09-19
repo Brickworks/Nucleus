@@ -11,7 +11,13 @@ discussed in [Altitude Control Logic](pdr_altitudecontrol.md), [Mechanical Syste
 
 ### Boards in work:
 
-Backplane Interface Board- Schematic completedMain Flight Computer Card - Template Schematic startedAvionics Sensor Card - Template Schematic startedAltitude Control/Dynamics Sensor Card - Template Schematic startedCommunications Card - Template Schematic startedPower Supply Card - Template Schematic startedBalloon Board
+* Backplane Interface Board- Schematic completed
+* Main Flight Computer Card - Template Schematic started
+* Avionics Sensor Card - Template Schematic started
+* Altitude Control/Dynamics Sensor Card - Template Schematic started
+* Communications Card - Template Schematic started
+* Power Supply Card - Template Schematic started
+* Balloon Board
 
 ## Design Path Forward
 
