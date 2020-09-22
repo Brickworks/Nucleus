@@ -206,23 +206,24 @@ Backplane Concepting  - Ethernet Sheet
 
 #### Electrical Interface
 
-##### Connectors
+**Connectors**
+
 There is one 40 pin Molex MilliGrid vertical receptacle, one 34 pin Molex MilliGrid vertical receptacle and six 28 pin Molex MilliGrid vertical receptacles providing the interfaces between the various avionics cards. There is also a Molex Microfit header and RJ45 connector for ground station interface and a 10 pin JST header for connection to the balloon board.
 
-**Main Flight Computer Interface**
+*Main Flight Computer Interface*
 
 Power/GPIO Interface Molex Part #: 0791077016 
 Ethernet Interface Molex Part #: 0791077019
 
-**Payload Card Slot 1 through 4**
+*Payload Card Slot 1 through 4*
 
 Molex Part #: 0791077013 
 
-**Communications Card**
+*Communications Card*
 
 Molex Part #: 0791077013 
 
-**Power Supply Card**
+*Power Supply Card*
 
 Molex Part #: 0791077013 
 
@@ -243,38 +244,43 @@ Molex Part #: 0791077013
 #### Theory of Operation
 The Main Flight Computer Card is the brain of the avionics stack. This card handles all primary functions and receives data from all other cards in the stack.
 
-##### Main Processor
+**Main Processor**
+
 An Octavo OSD3358 SoM is the processor on this card. It is a single core application processor that can run linux, providing many options for the software team to develop flight programs. It also contains 512MB of RAM and 4GB of eMMC NAND flash for storage. There are no major external components required to complete the processor design beyond the SOM. The SOM also contains 3.3V and 1.8V regulators on board, simplifying the required external hardware, the SOM accepts 5V input. The SOM interfaces with the Ethernet and CAN drivers through dedicated ports on the processor. 
 
-##### Ethernet Interface
+**Ethernet Interface**
+
 This card contains an Ethernet switch providing access to all payload cards except the power card and balloon board. The switch also interfaces back to the main processor providing the interconnect between all cards. 
 
-##### Secondary Storage
+**Secondary Storage**
+
 This Card will contain an SD card interface for expanded secondary data storage. 
 
 #### Electrical Interface
 
-##### Major components
+**Major components**
+
 Processor - OSD3358 SoM 
 CAN Transceiver - TCAN1051
 
-##### Power Supplies
+**Power Supplies**
 
-**12V Power Rail**
+*12V Power Rail*
 
 No usage
 
-**5V Power Rail**
+*5V Power Rail*
 
 * Octavo OSD3358
 * SD Card
 * Temperature Sensor
 * Ethernet Switch
 
-##### Connectors
+**Connectors**
+
 There is one 34 pin and one 40 pin Molex MilliGrid Shrouded Right angle Connectors providing all interfaces to and from the Flight computer to the Backplane and other payload cards.
 
-**Power/GPIO Connector**
+*Power/GPIO Connector*
 
 Molex Part #: 0878333420
 
@@ -284,7 +290,7 @@ Reference view for pinout of connector is from FRONT of card.
 
 ![34pin_MFC_GPIO](https://user-images.githubusercontent.com/12124823/93690796-d1802d00-fa99-11ea-909d-bf122b47d8cd.png)
 
-**Ethernet Connector**
+*Ethernet Connector*
 
 Molex Part #: 0878334020
 
@@ -308,61 +314,70 @@ Reference view for pinout of connector is from FRONT of card.
 #### Theory of Operation
 This card acts as the main power supply for the avionics stack. It has a battery input for a 18650 lithium ion battery pack as well as power rail outputs to the rest of the stack. It is capable of monitoring, controlling and charging the battery as well as supplying that power to its internal systems a
 
-##### Power On Reset
+**Power On Reset**
+
 The card is capable of sending a POR (Power On Reset) digital logic command to all cards in the avionics based off a digital logic command from the Main Flight Computer or from the ground station. A Watchdog timer will operate on the MFC and toggle a dedicated logic pin that runs to only the power supply card. The Power supply card will receive this and then toggle the GPIO - Common pin to trigger a reset on all cards in the avionics stack.
 
-##### Battery Management
+**Battery Management**
+
 The Card will be able to manage, protect and charge the battery pack on board. Features available will include cell level voltage monitoring and balancing. Over/under-voltage cutoffs and over-current protection.   Charging with programmable cutoffs as well as powerpath between charging and load and power monitoring in the form of a coloumb counter. Finally, temperature monitoring is part of both parts of the subsystem and all of the subsystem is digitally monitored by the Power Supply Card MCU.
 
 Cell monitoring/balancing and protection is provided by: BQ76920
 Charging, Powerpath and power monitoring is provided by: LTC4015
 
-##### Power Regulation
+**Power Regulation**
+
 The primary purpose of this card is to supply power to the rest of the avionics stack, this is accomplished through two switching regulators. A +5V and +12V rail is generated from the battery supply, both rails are generated from buck converter regulator designs. The 5V rail is designed to supply 4A max load while the 12V rail is designed for a max of 2A max load. 
 
-##### Power Monitoring
+**Power Monitoring**
+
 All voltage rails on the card are monitored for both voltage and current output. The output of these sensors will be fed to the MCU on the power card for both logging and fault detection. Over/under-voltage as well as over-current will be detectable and trigger a system reset. Each sensor will log both voltage and current at a rate of 25hz and create a rolling average at a rate of 5hz for datalogging.
 
-##### Remove before flight
+**Remove before flight**
+
 A remove before flight pin will directly control the battery pack, by isolating the pack while the remove before flight pin is inserted. This pin will be removed the day of launch operations (or during testing) to enable the battery pack and power up the Power Supply Card itself or the entire avionics stack.
 
-##### Remove before flight pins
+**Remove before flight pins**
+
 -POR command before startup?
 
 #### Electrical Interface
 
-##### Major components
+**Major components**
+
 Microcontroller - STM32F429VET6TR
 CAN Transceiver - TCAN1051
 Battery Charger - LTC4015
 Battery Management - BQ76920
 
-##### Battery Pack
+**Battery Pack**
+
 4S2P 18650 Lithium Ion battery 
 
-##### Power Supplies
+**Power Supplies**
 
-**Output 12V Power Rail**
+*Output 12V Power Rail*
 
 * Balloon Board
 * Altitude Control/Dynamics Sensor Card
 
-**Output 5V Power Rail**
+*Output 5V Power Rail*
 
 * Main Flight Computer Card
 * Avionics Sensor Card
 * Communications Card
 * Altitude Control/Dynamics Sensor Card
 
-**3.3V Power Rail**
+*3.3V Power Rail*
 
 * Microcontroller
 * Card logic
 
-##### Connectors
+**Connectors**
+
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Power Supply Card to the Backplane and the rest of the avionics stack.
 
-**Backplane Connector**
+*Backplane Connector*
 
 Molex Part #: 0878332820
 
@@ -391,7 +406,8 @@ Reference view for pinout of connector is from FRONT of card.
 #### Theory of Operation
 This card is the “eyes and ears” of the Main Flight Computer Card and contains all interfaces that are beyond the main processing and network management of the MFC. All sensors, interfaces and control systems used by the MFC directly and not in coordination with a payload mission live on this card.
 
-##### Sensor Systems
+**Sensor Systems**
+
 This card will contain a set of sensors (IMU, pressure, temperature) that supplies the Main Flight Computer with telemetry seperate of any payload card. This provides redundancy in telemetry as well as allowing the MFC to fly with only the Avionics Sensor Card if needed.
 
 These sensors are common with similar sensors on the payload cards and include the following part numbers:
@@ -400,34 +416,38 @@ These sensors are common with similar sensors on the payload cards and include t
 * BMP388
 * TEMP SENSOR TBD
 
-##### External Interfaces
+**External Interfaces**
+
 This card provides two distinct external interfaces, one for GPS and one for Recovery Assistance
 
-##### GPS
+**GPS**
+
 Provides an SMA header for the antenna connected to the GPS antenna. This GPS unit provides the HAB with its own GPS tracking and will eventually become the primary input for GPS. Currently this subsystem will act as the secondary, backup to the APRS tracking provides by a COTS board.
 
-##### Recovery Assistance 
+**Recovery Assistance**
+
 This interface will connect out to buzzers and LEDs to assist in the recovery of the payload after landing. Activated only during the end of the flight. 
 
 #### Electrical Interface
 
-##### Major components
+**Major components**
+
 * Microcontroller - STM32F429VET6TR
 * CAN Transceiver - TCAN1051
 
-##### Power Supplies
+**Power Supplies**
 
-**12V Power Rail**
+*12V Power Rail*
 
 No usage (TBD)
 
-**5V Power Rail**
+*5V Power Rail*
 
 * 3.3V Switching Regulator
 * CAN Transceiver 
 * GPS
 
-**1.8V Switching Regulator**
+*1.8V Switching Regulator*
 
 * Sensors
 * Recovery Functions
@@ -455,43 +475,46 @@ There is one 28 pin Molex MilliGrid shrouded right angle connector providing all
 
 #### Theory of Operation
 
-##### Altitude Control System
+**Altitude Control System**
+
 This subsystem contains the systems required to control the ballast portion of altitude control. Primarily servo drivers and additional monitoring to confirm proper operation of release system.
 
-##### Dynamics Sensors
+**Dynamics Sensors**
+
 This subsystem is primarily a set of interfaces off the card to sensor nodes located throughout the HAB. The goal is to collect data from multiple points to create a model of the vehicle during flight. This will assist in validating movement/motion models and inform decisions for future attitude control systems. 
 
 #### Electrical Interface
 
-##### Major components
+**Major components**
+
 * Microcontroller - STM32F429VET6TR
 * CAN Transceiver - TCAN1051
 
-##### Power Supplies
+**Power Supplies**
 
-**12V Power Rail**
+*12V Power Rail*
 
 No usage (TBD)
 
-**5V Power Rail**
+*5V Power Rail*
 
 * 3.3V Switching Regulator
 * 1.8V Switching Regulator
 * Servos
 
-**3.3V Switching Regulator**
+*3.3V Switching Regulator*
 
 * Sensors
 
-**1.8V Switching Regulator**
+*1.8V Switching Regulator*
 
 * Sensors
 
-##### Connectors
+**Connectors**
 
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.
 
-**Backplane Connector**
+*Backplane Connector*
 
 Molex Part #: 0878332820
 
@@ -520,7 +543,8 @@ Reference view for pinout of connector is from FRONT of card.
 
 #### Theory of Operation
 
-###### SDR
+**SDR**
+
 An off the shelf SDR will be mounted to the communications card, it will communicate with the MFC through a USB 2.0 link. 
 
 <!-- ###### RF Front End -->
@@ -528,26 +552,27 @@ An off the shelf SDR will be mounted to the communications card, it will communi
 
 #### Electrical Interface
 
-##### Power Supplies
+**Power Supplies**
 
-**12V Power Rail**
+*12V Power Rail*
 
 No usage (TBD)
 
-**5V Power Rail**
+*5V Power Rail*
 
 * SDR
 * 3.3V Switching Regulator
 * RF Front end
 
-**3.3V Switching Regulator**
+*3.3V Switching Regulator*
 
 * RF Front end
 
-###### Connectors
+**Connectors**
+
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.
 
-**Backplane Connector**
+*Backplane Connector*
 
 Molex Part #: 0878332820
 
@@ -576,44 +601,50 @@ Reference view for pinout of connector is from FRONT of card.
 
 #### Theory of Operation
 
-##### Altitude Control
+**Altitude Control**
+
 The Balloon Board will control the gas regulation portion of the altitude control system. Board will supply the required interfaces and systems to operate a valve used to release helium from the balloon. The valve will be controlled by a servo motor.
 
-##### Balloon Monitoring
+**Balloon Monitoring**
+
 The Balloon Board will be capable of monitoring internal conditions of the balloon through the use of pressure and temperature sensors. Pressure sensor will be board mounted and have a tap off the balloon plug to allow for local monitoring of the gas pressure, operating under the assumption that pressure is uniform within the balloon.
 
 A INSERT TYPE HERE temperature sense will be mounted inside the balloon plug and will have a wiring harness run back to the balloon board where any required filtering/amplification will be performed.
 
-##### Flight Control
+**Flight Control**
+
 In the event of an issue requiring flight termination the Balloon Board also includes functionality to operate a nichrome based balloon cutoff. Additionally the valve can be commanded to open up and release all pressure.
 
 #### Electrical Interface
 
-##### Major components
+**Major components**
+
 * Microcontroller - STM32F429VET6TR
 * CAN Transceiver - TCAN1051
 
-##### Power Supplies
+**Power Supplies**
 
-**12V Power Rail**
+*12V Power Rail*
 
 No usage (TBD)
 
-**5V Power Rail**
+*5V Power Rail*
 
 * 1.8V Switching Regulator
 * Sensors
 * CAN Transceiver
 
-**1.8V Switching Regulator**
+*1.8V Switching Regulator*
 
 * Sensors
 * Servo Control
 
-##### Connectors
+**Connectors**
+
 There is one 10 pin JST PH shrouded right angle connector providing all interfaces to and from the Balloon Board to the Backplane and Main Flight Computer.
 
-**Backplane Connector**
+*Backplane Connector*
+
 JST Part #: S10B-PH-K-S(LF)(SN)
 
 ![10pin_generic](https://user-images.githubusercontent.com/12124823/93690914-69cae180-fa9b-11ea-9887-d93d8617f71c.png)
