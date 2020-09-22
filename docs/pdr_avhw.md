@@ -2,7 +2,12 @@
 
 Lead: Matthew Glazer
 
-[TOC]
+* [Design Path Forward](#design-path-forward)
+* [Major Constraints](#major-constraints)
+* [Timeline](#timeline)
+* [Cost](#cost)
+* [Card Specific Information](#card-specific-information)
+
 
 **Overview**: The scope of this PDR covers all hardware design and development as it currently stands for the Nucleus HAB launch. Development approaches, timelines and overall board information are provided. The design of payload, actuation mechanisms and software design are
 discussed in [Altitude Control Logic](pdr_altitudecontrol.md), [Mechanical Systems](placeholder.md) and [Flight Avionics Software](pdr_avsw.md), respectively.
