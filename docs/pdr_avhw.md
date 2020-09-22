@@ -9,16 +9,6 @@ discussed in [Altitude Control Logic](pdr_altitudecontrol.md), [Mechanical Syste
 
 **Overview**: The Flight Hardware system for the nucleus mission provides all the power, computing and control elements required for mission success. There are seven primary PCBs and an assortment of secondary PCBs as part of this system.
 
-### Boards in work:
-
-* Backplane Interface Board- Schematic completed
-* Main Flight Computer Card - Template Schematic started
-* Avionics Sensor Card - Template Schematic started
-* Altitude Control/Dynamics Sensor Card - Template Schematic started
-* Communications Card - Template Schematic started
-* Power Supply Card - Template Schematic started
-* Balloon Board
-
 ## Design Path Forward
 
 ### Commonality
@@ -334,7 +324,7 @@ A remove before flight pin will directly control the battery pack, by isolating 
 #### Electrical Interface
 
 ##### Major components
-Microcontroller - STM32F407VET6TR
+Microcontroller - STM32F429VET6TR
 CAN Transceiver - TCAN1051
 Battery Charger - LTC4015
 Battery Management - BQ76920
@@ -410,7 +400,7 @@ This interface will connect out to buzzers and LEDs to assist in the recovery of
 #### Electrical Interface
 
 ##### Major components
-* Microcontroller - STM32F407VET6TR
+* Microcontroller - STM32F429VET6TR
 * CAN Transceiver - TCAN1051
 
 ##### Power Supplies
@@ -459,7 +449,7 @@ This subsystem is primarily a set of interfaces off the card to sensor nodes loc
 #### Electrical Interface
 
 ##### Major components
-* Microcontroller - STM32F407VET6TR
+* Microcontroller - STM32F429VET6TR
 * CAN Transceiver - TCAN1051
 
 ##### Power Supplies
@@ -513,7 +503,7 @@ Reference view for pinout of connector is from FRONT of card.
 ###### SDR
 An off the shelf SDR will be mounted to the communications card, it will communicate with the MFC through a USB 2.0 link. 
 
-###### RF Front End
+<!-- ###### RF Front End -->
 
 
 #### Electrical Interface
@@ -576,7 +566,7 @@ In the event of an issue requiring flight termination the Balloon Board also inc
 #### Electrical Interface
 
 ##### Major components
-Microcontroller - STM32F407VET6TR
+Microcontroller - STM32F429VET6TR
 CAN Transceiver - TCAN1051
 
 ##### Power Supplies
