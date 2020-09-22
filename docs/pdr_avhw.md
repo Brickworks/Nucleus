@@ -70,33 +70,33 @@ External interfaces to the cards will be implemented through JST PH connectors o
 * 1oz copper (outer layers) 
 * 0.5oz copper (inner layers)
 
-##### 4 layer PCB 
+**4 layer PCB**
 
 1. Signal - Differential Pairs
 2. Ground
 3. Power
 4. Signal - GPIO/Ground
 
-##### 2 layer PCB 
+**2 layer PCB**
 
 1. Signal/Power
 2. Ground
 
 #### Card Specifics  
 
-##### Backplane 
+**Backplane**
 
 PCB design is primarily through hole with some surface mount capacitors. No issues expected with manufacturing. This is the simplest card of the whole stack. Assembly expected to be by hand, by Brickworks members.  
 
 Starting point for stackup: 4 layer PCB
 
-##### Main Flight Computer
+**Main Flight Computer**
 
 If reasonably priced then impedance matching will be added to PCB ordering. 99% surface mount design, only connectors will be through hole. This card is the only card currently being considered for professional manufacturing.
 
 Starting point for stackup: 4 layer PCB
 
-##### Payload cards
+**Payload cards**
 
 99% surface mount design, only connectors will be through hole. No significant impedance match trace work expected, except potentially on the communications Card.
 
@@ -209,17 +209,21 @@ Backplane Concepting  - Ethernet Sheet
 ##### Connectors
 There is one 40 pin Molex MilliGrid vertical receptacle, one 34 pin Molex MilliGrid vertical receptacle and six 28 pin Molex MilliGrid vertical receptacles providing the interfaces between the various avionics cards. There is also a Molex Microfit header and RJ45 connector for ground station interface and a 10 pin JST header for connection to the balloon board.
 
-###### Main Flight Computer Interface
+**Main Flight Computer Interface**
+
 Power/GPIO Interface Molex Part #: 0791077016 
 Ethernet Interface Molex Part #: 0791077019
 
-###### Payload Card Slot 1 through 4
+**Payload Card Slot 1 through 4**
+
 Molex Part #: 0791077013 
 
-###### Communications Card
+**Communications Card**
+
 Molex Part #: 0791077013 
 
-###### Power Supply Card
+**Power Supply Card**
+
 Molex Part #: 0791077013 
 
 #### CI’s:
@@ -256,10 +260,12 @@ CAN Transceiver - TCAN1051
 
 ##### Power Supplies
 
-###### 12V Power Rail
+**12V Power Rail**
+
 No usage
 
-###### 5V Power Rail
+**5V Power Rail**
+
 * Octavo OSD3358
 * SD Card
 * Temperature Sensor
@@ -268,7 +274,8 @@ No usage
 ##### Connectors
 There is one 34 pin and one 40 pin Molex MilliGrid Shrouded Right angle Connectors providing all interfaces to and from the Flight computer to the Backplane and other payload cards.
 
-###### Power/GPIO Connector
+**Power/GPIO Connector**
+
 Molex Part #: 0878333420
 
 ![34pin_generic](https://user-images.githubusercontent.com/12124823/93690794-c9c08880-fa99-11ea-9e76-2b966f52da12.png)
@@ -277,7 +284,8 @@ Reference view for pinout of connector is from FRONT of card.
 
 ![34pin_MFC_GPIO](https://user-images.githubusercontent.com/12124823/93690796-d1802d00-fa99-11ea-909d-bf122b47d8cd.png)
 
-###### Ethernet Connector
+**Ethernet Connector**
+
 Molex Part #: 0878334020
 
 ![40pin_generic](https://user-images.githubusercontent.com/12124823/93690790-ba413f80-fa99-11ea-8933-e910e02a3188.png)
@@ -334,24 +342,28 @@ Battery Management - BQ76920
 
 ##### Power Supplies
 
-###### Output 12V Power Rail
+**Output 12V Power Rail**
+
 * Balloon Board
 * Altitude Control/Dynamics Sensor Card
 
-###### Output 5V Power Rail
+**Output 5V Power Rail**
+
 * Main Flight Computer Card
 * Avionics Sensor Card
 * Communications Card
 * Altitude Control/Dynamics Sensor Card
 
-###### 3.3V Power Rail
+**3.3V Power Rail**
+
 * Microcontroller
 * Card logic
 
 ##### Connectors
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Power Supply Card to the Backplane and the rest of the avionics stack.
 
-###### Backplane Connector
+**Backplane Connector**
+
 Molex Part #: 0878332820
 
 ![28pin_generic](https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png)
@@ -405,15 +417,18 @@ This interface will connect out to buzzers and LEDs to assist in the recovery of
 
 ##### Power Supplies
 
-###### 12V Power Rail
+**12V Power Rail**
+
 No usage (TBD)
 
-###### 5V Power Rail
+**5V Power Rail**
+
 * 3.3V Switching Regulator
 * CAN Transceiver 
 * GPS
 
-###### 1.8V Switching Regulator
+**1.8V Switching Regulator**
+
 * Sensors
 * Recovery Functions
 
@@ -454,25 +469,30 @@ This subsystem is primarily a set of interfaces off the card to sensor nodes loc
 
 ##### Power Supplies
 
-###### 12V Power Rail
+**12V Power Rail**
+
 No usage (TBD)
 
-###### 5V Power Rail
+**5V Power Rail**
+
 * 3.3V Switching Regulator
 * 1.8V Switching Regulator
 * Servos
 
-###### 3.3V Switching Regulator
+**3.3V Switching Regulator**
+
 * Sensors
 
-###### 1.8V Switching Regulator
+**1.8V Switching Regulator**
+
 * Sensors
 
 ##### Connectors
 
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.
 
-###### Backplane Connector
+**Backplane Connector**
+
 Molex Part #: 0878332820
 
 ![28pin_generic](https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png)
@@ -510,21 +530,25 @@ An off the shelf SDR will be mounted to the communications card, it will communi
 
 ##### Power Supplies
 
-###### 12V Power Rail
+**12V Power Rail**
+
 No usage (TBD)
 
-###### 5V Power Rail
+**5V Power Rail**
+
 * SDR
 * 3.3V Switching Regulator
 * RF Front end
 
-###### 3.3V Switching Regulator
+**3.3V Switching Regulator**
+
 * RF Front end
 
 ###### Connectors
 There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.
 
-###### Backplane Connector
+**Backplane Connector**
+
 Molex Part #: 0878332820
 
 ![28pin_generic](https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png)
@@ -566,20 +590,23 @@ In the event of an issue requiring flight termination the Balloon Board also inc
 #### Electrical Interface
 
 ##### Major components
-Microcontroller - STM32F429VET6TR
-CAN Transceiver - TCAN1051
+* Microcontroller - STM32F429VET6TR
+* CAN Transceiver - TCAN1051
 
 ##### Power Supplies
 
 **12V Power Rail**
+
 No usage (TBD)
 
 **5V Power Rail**
+
 * 1.8V Switching Regulator
 * Sensors
 * CAN Transceiver
 
 **1.8V Switching Regulator**
+
 * Sensors
 * Servo Control
 
