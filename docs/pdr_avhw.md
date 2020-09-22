@@ -571,22 +571,22 @@ CAN Transceiver - TCAN1051
 
 ##### Power Supplies
 
-###### 12V Power Rail
+**12V Power Rail**
 No usage (TBD)
 
-###### 5V Power Rail
+**5V Power Rail**
 * 1.8V Switching Regulator
 * Sensors
 * CAN Transceiver
 
-###### 1.8V Switching Regulator
+**1.8V Switching Regulator**
 * Sensors
 * Servo Control
 
 ##### Connectors
 There is one 10 pin JST PH shrouded right angle connector providing all interfaces to and from the Balloon Board to the Backplane and Main Flight Computer.
 
-###### Backplane Connector
+**Backplane Connector**
 JST Part #: S10B-PH-K-S(LF)(SN)
 
 ![10pin_generic](https://user-images.githubusercontent.com/12124823/93690914-69cae180-fa9b-11ea-9887-d93d8617f71c.png)
