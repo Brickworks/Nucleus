@@ -117,11 +117,11 @@ Pack will be 18650 cells, these are sourced from matt’s personal stockpile, th
 
 Current mission design is a 14.8V nominal (12-16.8V range), 6200mAh pack. Expected temperatures at altitude will reduce total capacity to a currently unknown amount but a conservative approach is an expectation of 40% total capacity loss at max altitude. This can be accounted for using thermal insulation and potentially a small heater.
 
-#### Manufacturing
+#### Pack Assembly
 
 Battery pack will be tab welded together for electrical connections, cells well be hotglued together for initial mechanical stability with additional framing to be added as necessary.
 
-Testing
+### Testing
 
 All boards will be designed with large #'s of test points. This points will sit on all voltage rails and major signal paths (where possible). Will allow for testing of most signalling/power, especially useful when testing subsystems such as CAN and Ethernet.
 
