@@ -16,6 +16,8 @@ nav:
     - Contribute: contribute.md
 
 theme: readthedocs
+plugins:
+  - search
 markdown_extensions:
   - toc
   - admonition
