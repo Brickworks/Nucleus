@@ -15,12 +15,10 @@ nav:
     - Glossary: glossary.md
     - Contribute: contribute.md
 
-theme: readthedocs
+theme: material
 plugins:
   - search
 markdown_extensions:
   - toc
   - admonition
   - footnotes
-extra_javascript:
-  - js/extra.js
