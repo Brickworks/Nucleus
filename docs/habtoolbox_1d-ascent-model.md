@@ -4,26 +4,7 @@ A simple, one-dimensional flight model is used to predict the HAB’s flight
 profile in the vertical axis, including altitude, ascent rate, and ascent
 accelerations.
 
-Try it out yourself!
-```bash
-# clone the Brickworks HAB Toolbox
-git clone git@github.com:Brickworks/HAB-toolbox.git
-
-# navigate to the hab-toolbox root directory
-cd HAB-toolbox
-```
-
-```bash
-# simulate ascent with config values
-python hab_toolbox/cli.py sim config.json -o outputs.csv
-
-# same thing but verbose mode and plot outputs
-python hab_toolbox/cli.py --verbose sim config.json --save_output outputs.csv --plot
-```
-
-**Table of Contents**
-
-[TOC]
+[Try it out!](https://brickworks.github.io/HAB-toolbox/)
 
 ## 1976 COESA Atmosphere Model
 

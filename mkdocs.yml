@@ -1,4 +1,7 @@
 site_name: Nucleus
+site_description: A high altitude balloon and the first mission from Brickworks.
+repo_url: https://github.com/Brickworks/Nucleus
+repo_name: Brickworks/Nucleus
 nav:
   - Introduction: index.md
   - Mission Selection:
@@ -15,12 +18,18 @@ nav:
     - Glossary: glossary.md
     - Contribute: contribute.md
 
-theme: readthedocs
+theme:
+  name: material
+  icon:
+    logo: fontawesome/solid/dice-d6
+  favicon: img/favicon.ico
+  palette:
+  - scheme: default
+    primary: blue
+    accent: blue
+
 plugins:
   - search
 markdown_extensions:
-  - toc
   - admonition
   - footnotes
-extra_javascript:
-  - js/extra.js
