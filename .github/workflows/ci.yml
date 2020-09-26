@@ -16,8 +16,4 @@ jobs:
         with:
           python-version: 3.x
       - name: Deploy docs
-<<<<<<< HEAD
-        run: poetry run mkdocs gh-deploy --force
-=======
         run: mkdocs gh-deploy --force
->>>>>>> CI: fix workflows for docs deployments
