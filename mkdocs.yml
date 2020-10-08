@@ -12,8 +12,6 @@ nav:
     - Flight Avionics Software: pdr_avsw.md
     - Flight Avionics Hardware: pdr_avhw.md
     - Altitude Control Logic: pdr_altitudecontrol.md
-  - HAB Toolbox:
-    - 1D Atmospheric Flight Model: habtoolbox_1d-ascent-model.md
   - Appendix:
     - Glossary: glossary.md
     - Contribute: contribute.md

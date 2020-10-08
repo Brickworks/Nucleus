@@ -123,9 +123,10 @@ The PID control algorithm works by modulating the inputs, u, to the Plant,
 which in our case means the bleed and ballast controls. The Plant is the
 physical response, so the balance of weight, buoyancy, and drag forces with the
 given mass properties and ambient conditions. (See
-[1D Atmospheric Flight Model](habtoolbox_1d-ascent-model.md)) The output of
-the Plant is the actual altitude, *y*. For a given set point altitude, *r*, the
-PID controller attempts to reduce the error, *e=r-y*, to zero.
+[1D Atmospheric Flight Model]([habtoolbox_1d-ascent-model.md](https://brickworks.github.io/HAB-toolbox/ascent_model/))) 
+The output of the Plant is the actual altitude, *y*. For a given set point
+altitude, *r*, the PID controller attempts to reduce the error, *e=r-y*, to 
+zero.
 
 The PID controller consists of a set of gains applied to a proportional term,
 an integral term, and a derivative term that all operate on the error signal,
@@ -267,3 +268,15 @@ software and downlink.
 
 ## Schedule
 ![Altitude Control Schedule](img/pdr/altitudecontrol/altitudecontrol-timeline.png)
+
+## Proof of Concept
+
+A PID controller of this nature has been demonstrated using MATLAB/Simulink
+integrated with an implementation of a
+[1D Simple Atmospheric Ascent Model](https://brickworks.github.io/HAB-toolbox/ascent_model/).
+
+The model [source code is available on GitHub](https://github.com/Brickworks/HAB-toolbox/tree/master/etc/Simulink)
+along with a [PDF version of the schematic](etc/simulink_ascent_model_variable_mass_displayorganization.pdf).
+
+![Altitude Control Proof of Concept 1](img/pdr/altitudecontrol/ProofOfConcept1.png)
+![Altitude Control Proof of Concept 2](img/pdr/altitudecontrol/ProofOfConcept2.png)
