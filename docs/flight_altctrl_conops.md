@@ -82,9 +82,9 @@ atmosphere.
     3.  Control loop PWM frequency is tuned to be much faster than the response
         time.
 
-4.  **GPS altitude hold (Stabilize)** Enter _stabilize_ control mode when the
-    controller is armed and remain in this mode until ascent rate and/or
-    altitude error are greater than the allowable bounds.
+4.  Enter _stabilize_ control mode when the controller is armed and remain in
+    this mode until ascent rate and/or altitude error are greater than the
+    allowable bounds.
     1.  Use GPS altitude to converge to a geometric altitude that may cross
         isobaric layer boundaries.
     2.  This control mode uses more control mass than _barometric altitude
@@ -94,9 +94,9 @@ atmosphere.
     4.  If the GPS module cannot obtain a solid lock, fall back to
         barometric altitude for this phase.
 
-5.  **Barometric altitude hold (Cruise)** Once the vehicle is near the target
-    altitude and has reached a steady state, transition to _cruise_ mode to
-    maintain an altitude near the target for an extended period of time.
+5.  Once the vehicle is near the target altitude and has reached a steady
+    state, transition to _cruise_ mode to maintain an altitude near the target
+    for an extended period of time.
     1.  Use barometric altitude to equalize to an isobaric layer of the
         atmosphere corresponding to a calibrated approximate altitude.
     2.  This control mode uses less control mass because it is able to equalize
@@ -198,17 +198,11 @@ values for these parameters during the design process, and then we measure the
 true values when the system is built.
 
 *   Ballast mass flow rate
-
 *   Bleed mass flow rate
-
 *   Actuator and component dry mass
-
 *   Maximum control loop cycle time (compute)
-
 *   Maximum control loop cycle time (actuation PWM)
-
 *   Maximum sensor measurement sample time
-
 *   Maximum lift gas reserve fraction
 
 ## Avionics
