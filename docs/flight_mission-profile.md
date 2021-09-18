@@ -1,5 +1,7 @@
 # Flight Profile
 
+This section outlines the notional mission profile for Nucleus.
+
 ![Flight Profile (Detailed)](img/Flight%20Profile%20Detailed.png)
 
 1.  **Pre-Launch**

@@ -35,7 +35,7 @@ nav:
 theme:
   name: material
   icon:
-    logo: fontawesome/solid/dice-d6
+    logo: fontawesome/solid/parachute-box
   favicon: img/favicon.ico
   palette:
   - scheme: default
