@@ -194,7 +194,7 @@ true values when the system is built.
 
 ## Avionics
 The altitude control flight software application ([Main Flight Computer
-Software Design](../pdr_avsw.md#main-flight-computer-software-design)) issues
+Software Design](pdr_avsw.md#main-flight-computer-software-design)) issues
 commands to open the ballast or bleed valves over the CAN bus. When a bleed or
 ballast command is received by the altitude control interface board
 ([Altitude Control/Dynamics Sensor Card](placeholder.md))

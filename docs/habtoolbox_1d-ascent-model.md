@@ -119,7 +119,7 @@ drag_force = 1/2 * (ascent_rate ** 2) * atmospheric_density * drag_coefficient *
 
 #### Sum of Forces / Net Force
 
-![free body diagram](img/hab_toolbox/atmosphere_model/Free_Body_Diagram.png)
+[free body diagram](placeholder.md)
 
 The net force on the balloon-payload system is the sum of three primary forces:
 buoyancy, weight, and drag.
