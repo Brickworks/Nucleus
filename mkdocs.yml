@@ -1,23 +1,49 @@
 site_name: Nucleus
+site_description: A high altitude balloon and the first mission from Brickworks.
+repo_url: https://github.com/Brickworks/Nucleus
+repo_name: Brickworks/Nucleus
 nav:
   - Introduction: index.md
   - Mission Selection:
-    - Mission Concepts: concepts.md
-    - Concept Selection: concept-selection.md
-  - Preliminary Design:
-    - Mission Profile: mission-profile.md
+    - Mission Concepts: mission_concepts.md
+    - Concept Selection: mission_concept-selection.md
+  - Preliminary Design (08/2020):
+    - Mission Profile: pdr_mission-profile.md
     - Flight Avionics Software: pdr_avsw.md
+    - Flight Avionics Hardware: pdr_avhw.md
     - Altitude Control Logic: pdr_altitudecontrol.md
-  - HAB Toolbox:
-    - 1D Atmospheric Flight Model: habtoolbox_1d-ascent-model.md
-  - Appendix:
-    - Glossary: glossary.md
-    - Contribute: contribute.md
+  - Final Design (09/2021): 
+    - Mission Profile: flight_mission-profile.md
+    - Altitude Control System:
+      - Concept of Operations: flight_altctrl_conops.md
+      - HAB Flight Model: placeholder.md
+      - Sensor Models: placeholder.md
+      - Choosing a Control Approach: placeholder.md
+      - PID Controller: placeholder.md
+      - Plant Dynamics in State Space: placeholder.md
+    - Flight Avionics Hardware:
+      - HAB Avionics Architecture: flight_avhw_arch.md
+      - Main Flight Computer Card: flight_avhw_mfc.md
+      - Avionics Sensor Card: placeholder.md
+      - Altitude Control Card: placeholder.md
+      - Communications Card: placeholder.md
+      - Power Supply Card: placeholder.md
+      - Backplane Interface Board: placeholder.md
+      - Balloon Board: placeholder.md
+  - Contribute: contribute.md
 
-theme: readthedocs
+theme:
+  name: material
+  icon:
+    logo: fontawesome/solid/dice-d6
+  favicon: img/favicon.ico
+  palette:
+  - scheme: default
+    primary: blue
+    accent: blue
+
+plugins:
+  - search
 markdown_extensions:
-  - toc
   - admonition
   - footnotes
-extra_javascript:
-  - js/extra.js

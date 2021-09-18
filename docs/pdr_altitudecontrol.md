@@ -2,17 +2,6 @@
 
 Lead: Philip Linden
 
-[TOC]
-
-See also:
-
-* [Main Flight Computer](pdr_avsw.md#main-flight-computer-software-design)
-* [Avionics Sensor Card](pdr_avsw.md#avionics-sensor-card-software-design)
-* [Balloon Board](pdr_avsw.md#balloon-board-software-design)
-* [Altitude Control/Dynamics Card](pdr_avsw.md#altitude-controldynamics-card-software-design)
-* [Balloon Bleed Valve](placeholder.md)
-* [Ballast Hopper]()
-
 **Overview**: The scope of this PDR covers the logic and operations of the
 altitude controller system on the HAB, including arm and disarm criteria,
 approach for calculating when to actuate controllers, and risk mitigation
@@ -205,7 +194,7 @@ true values when the system is built.
 
 ## Avionics
 The altitude control flight software application ([Main Flight Computer
-Software Design](../pdr_avsw.md#main-flight-computer-software-design)) issues
+Software Design](pdr_avsw.md#main-flight-computer-software-design)) issues
 commands to open the ballast or bleed valves over the CAN bus. When a bleed or
 ballast command is received by the altitude control interface board
 ([Altitude Control/Dynamics Sensor Card](placeholder.md))

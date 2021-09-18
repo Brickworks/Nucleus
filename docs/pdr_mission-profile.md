@@ -1,5 +1,6 @@
-# Mission Profile
+# Flight Profile
 
+<!-- IDEALS ARE IDEAL
 Nucleus's technical design is driven by making engineering decisions
 to meet the design requirements listed in this section. All of these
 requirements must be met before the mission takes flight, with test data
@@ -44,8 +45,9 @@ required for mission success, but it is expected that the Brickworks team
 strives to accomplish these goals.
 
 ## ConOps
+-->
 
-![Mission Profile (Detailed)](img/Mission%20Profile%20Detailed.png)
+![Flight Profile (Detailed)](img/Flight%20Profile%20Detailed.png)
 
 * Payload Mass < 3kg
 * Maximum run time 10 hours

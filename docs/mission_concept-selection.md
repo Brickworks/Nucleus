@@ -166,9 +166,9 @@ From the concept selection matrix and team discussion, the following
 experiments were selected for development:
 
 * [Advanced Dynamics Modelling](#advanced-dynamics-modelling)
-* [Altitude Control](concepts.md#altitude-control)
-* [On-board Image Processing](concepts.md#on-board-image-processing)
-* [Real-Time Communication](concepts.md#real-time-data-transfer)
+* [Altitude Control](mission_concepts.md#altitude-control)
+* [On-board Image Processing](mission_concepts.md#on-board-image-processing)
+* [Real-Time Communication](mission_concepts.md#real-time-data-transfer)
 * (Stretch) [Long Distance Communications](#long-distance-communications) 
 * (Stretch) [Mission Monitoring Ground Station](#mission-monitoring-ground-station)
 * (Stretch) [Launch Platform](#launch-platform)

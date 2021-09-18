@@ -17,7 +17,7 @@ Jump to:
 
 ![Software System Interface Overview](img/pdr/avsw/sw_sys_interface.png)
 
-Above is the system level interface diagram for the HAB's Flight Software board level components.  The PDR will detail software executing on the Ballon Board, Power Supply Card, Avionics Sensor Card, and Main Flight Computer (MFC).  The Communications card does not require custom new software, and the Ground Computer System
+Above is the system level interface diagram for the HAB's Flight Software board level components.  The PDR will detail software executing on the Balloon Board, Power Supply Card, Avionics Sensor Card, and Main Flight Computer (MFC).  The Communications card does not require custom new software, and the Ground Computer System
 
 ## Main Flight Computer Software Design
 ### Overview
@@ -138,7 +138,7 @@ The Balloon board needs to receive commands from the MFC in order to command the
 
 ## Altitude Control/Dynamics Card Software Design
 ### Overview
-The Altitude Control/Dynamics Card Software reports sensors relevant to these payloads, along with commanding the ballast actuator. This board software-wise looks near identical to the balloon board in design.  It abstractly has sensors, actuators.  It reports telemetry from these sensors, and acts upon MFC commands to drive actuators.  Refer to the [Ballon Board section](#balloon-board-software-design) for more information.
+The Altitude Control/Dynamics Card Software reports sensors relevant to these payloads, along with commanding the ballast actuator. This board software-wise looks near identical to the balloon board in design.  It abstractly has sensors, actuators.  It reports telemetry from these sensors, and acts upon MFC commands to drive actuators.  Refer to the [Balloon Board section](#balloon-board-software-design) for more information.
 
 ### Interfaces
 * CAN: MFC commands/telemetry

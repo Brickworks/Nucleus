@@ -11,7 +11,7 @@ design process from concept selection to post-flight analysis.
     Brickworks team, see the **[Contribute](contribute.md)** page.
 
     - **GitHub**: [github.com/Brickworks/Nucleus](https://github.com/Brickworks/Nucleus)
-    - **JIRA**: [brickworks.atlassian.net](https://brickworks.atlassian.net/)
+    - **Confluence**: [brickworks.atlassian.net](https://brickworks.atlassian.net/wiki/spaces/NUCLEUS/overview)
 
 ## What is Brickworks?
 
