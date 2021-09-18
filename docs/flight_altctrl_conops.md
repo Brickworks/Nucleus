@@ -231,6 +231,7 @@ software and downlink.
 [Altitude Control/Dynamics Sensor Card](https://brickworks.atlassian.net/wiki/spaces/NUCLEUS/pages/142803082)
 
 **Sensing**
+
 *   GPS (altitude)
     *   Location?
 *   Barometric altimeter
@@ -242,6 +243,7 @@ software and downlink.
     *   Ambient pressure: [Avionics Sensor Card](https://brickworks.atlassian.net/wiki/spaces/NUCLEUS/pages/142376970/Avionics+Sensor+Card)
 
 **Actuation**
+
 *   Ballast: See [Ballast Hopper](https://brickworks.atlassian.net/wiki/spaces/NUCLEUS/pages/130121740/Ballast+Hopper)
 *   Bleed: See [Balloon Plug](https://brickworks.atlassian.net/wiki/spaces/NUCLEUS/pages/129957889/Balloon+Plug)
 
