@@ -1,5 +1,6 @@
 # Mission Profile
 
+<!-- IDEALS ARE IDEAL
 Nucleus's technical design is driven by making engineering decisions
 to meet the design requirements listed in this section. All of these
 requirements must be met before the mission takes flight, with test data
@@ -42,6 +43,7 @@ Brickworks engineers. The flight system should meet these requests or
 provide justification for not including them. These features are not
 required for mission success, but it is expected that the Brickworks team
 strives to accomplish these goals.
+-->
 
 ## ConOps
 

@@ -7,16 +7,14 @@ nav:
   - Mission Selection:
     - Mission Concepts: concepts.md
     - Concept Selection: concept-selection.md
-  - Preliminary Design:
-    - Mission Profile: mission-profile.md
+  - Preliminary Design (08/2020):
+    - Mission Profile: pdr_mission-profile.md
     - Flight Avionics Software: pdr_avsw.md
     - Flight Avionics Hardware: pdr_avhw.md
     - Altitude Control Logic: pdr_altitudecontrol.md
-  - HAB Toolbox:
-    - 1D Atmospheric Flight Model: habtoolbox_1d-ascent-model.md
-  - Appendix:
-    - Glossary: glossary.md
-    - Contribute: contribute.md
+  - Final Design (09/2021): 
+    - Mission Profile: placeholder.md
+  - Contribute: contribute.md
 
 theme:
   name: material

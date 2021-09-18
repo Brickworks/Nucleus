@@ -15,7 +15,7 @@ Submit your contributions as a pull request to this repository!
 ## Adding to documentation
 Nucleus documentation is powered by [MkDocs](https://www.mkdocs.org/), the
 backend that builds markdown files into a beautiful website. Whenever changes
-to get pushed to `master`, MkDocs is run via GitHub Actions and serves the
+to get pushed to `main`, MkDocs is run via GitHub Actions and serves the
 result at
 [brickworks.github.io/Nucleus/](https://brickworks.github.io/Nucleus/).
 
