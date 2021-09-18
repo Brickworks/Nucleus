@@ -15,7 +15,7 @@ nav:
   - Final Design (09/2021): 
     - Mission Profile: flight_mission-profile.md
     - Altitude Control System:
-      - Concept of Operations: placeholder.md
+      - Concept of Operations: flight_altctrl_conops.md
       - HAB Flight Model: placeholder.md
       - Sensor Models: placeholder.md
       - Choosing a Control Approach: placeholder.md
