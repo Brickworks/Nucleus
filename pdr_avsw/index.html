@@ -1,0 +1,1870 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A high altitude balloon and the first mission from Brickworks.">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Flight Avionics Software - Nucleus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flight-avionics-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nucleus" class="md-header__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nucleus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flight Avionics Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nucleus" class="md-nav__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    Nucleus
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Mission Selection
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mission Selection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mission Selection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concepts/" class="md-nav__link">
+        Mission Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concept-selection/" class="md-nav__link">
+        Concept Selection
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Preliminary Design (08/2020)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preliminary Design (08/2020)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Preliminary Design (08/2020)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Flight Avionics Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Flight Avionics Software
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-flight-computer-software-design" class="md-nav__link">
+    Main Flight Computer Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Flight Computer Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-environment" class="md-nav__link">
+    Runtime Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#altitude-controller" class="md-nav__link">
+    Altitude Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-monitor" class="md-nav__link">
+    System Monitor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-manager" class="md-nav__link">
+    System Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    Logger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-tlm-rx" class="md-nav__link">
+    CAN TLM RX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-tlm-tx" class="md-nav__link">
+    CAN TLM TX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eth-tlm-rx" class="md-nav__link">
+    ETH TLM RX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eth-tlm-tx" class="md-nav__link">
+    ETH TLM TX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnu-radio-app" class="md-nav__link">
+    GNU Radio App
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avionics-sensor-card-software-design" class="md-nav__link">
+    Avionics Sensor Card Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Avionics Sensor Card Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_1" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_1" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-environment_1" class="md-nav__link">
+    Runtime Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balloon-board-software-design" class="md-nav__link">
+    Balloon Board Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Balloon Board Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_2" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_2" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-environment_2" class="md-nav__link">
+    Runtime Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#altitude-controldynamics-card-software-design" class="md-nav__link">
+    Altitude Control/Dynamics Card Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Altitude Control/Dynamics Card Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_3" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_3" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_3" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-board-software-design" class="md-nav__link">
+    Power Board Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Board Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_4" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_4" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_4" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment_1" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-plans" class="md-nav__link">
+    Verification Plans
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification Plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-level" class="md-nav__link">
+    System Level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-level" class="md-nav__link">
+    Board Level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mfc-app-level-testing" class="md-nav__link">
+    MFC App Level Testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment" class="md-nav__link">
+    Risk Assessment
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hazard-identification-analysis-mitigation" class="md-nav__link">
+    Hazard Identification, Analysis, Mitigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    Cost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-work" class="md-nav__link">
+    Common Work
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mfc-work" class="md-nav__link">
+    MFC Work
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcu-cards-work" class="md-nav__link">
+    MCU Cards Work
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avhw/" class="md-nav__link">
+        Flight Avionics Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_altitudecontrol/" class="md-nav__link">
+        Altitude Control Logic
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Final Design (09/2021)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Final Design (09/2021)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Final Design (09/2021)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Altitude Control System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Altitude Control System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Altitude Control System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_altctrl_conops/" class="md-nav__link">
+        Concept of Operations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        HAB Flight Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Sensor Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Choosing a Control Approach
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        PID Controller
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Plant Dynamics in State Space
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Flight Avionics Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Flight Avionics Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Flight Avionics Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_arch/" class="md-nav__link">
+        HAB Avionics Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_mfc/" class="md-nav__link">
+        Main Flight Computer Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Avionics Sensor Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Altitude Control Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Communications Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Power Supply Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Backplane Interface Board
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Balloon Board
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-flight-computer-software-design" class="md-nav__link">
+    Main Flight Computer Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Flight Computer Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-environment" class="md-nav__link">
+    Runtime Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#altitude-controller" class="md-nav__link">
+    Altitude Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-monitor" class="md-nav__link">
+    System Monitor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-manager" class="md-nav__link">
+    System Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    Logger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-tlm-rx" class="md-nav__link">
+    CAN TLM RX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-tlm-tx" class="md-nav__link">
+    CAN TLM TX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eth-tlm-rx" class="md-nav__link">
+    ETH TLM RX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eth-tlm-tx" class="md-nav__link">
+    ETH TLM TX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnu-radio-app" class="md-nav__link">
+    GNU Radio App
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avionics-sensor-card-software-design" class="md-nav__link">
+    Avionics Sensor Card Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Avionics Sensor Card Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_1" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_1" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-environment_1" class="md-nav__link">
+    Runtime Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balloon-board-software-design" class="md-nav__link">
+    Balloon Board Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Balloon Board Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_2" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_2" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_2" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-environment_2" class="md-nav__link">
+    Runtime Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#altitude-controldynamics-card-software-design" class="md-nav__link">
+    Altitude Control/Dynamics Card Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Altitude Control/Dynamics Card Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_3" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_3" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_3" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-board-software-design" class="md-nav__link">
+    Power Board Software Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Board Software Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_4" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_4" class="md-nav__link">
+    Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities_4" class="md-nav__link">
+    Responsibilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment_1" class="md-nav__link">
+    Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-plans" class="md-nav__link">
+    Verification Plans
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification Plans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-level" class="md-nav__link">
+    System Level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#board-level" class="md-nav__link">
+    Board Level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mfc-app-level-testing" class="md-nav__link">
+    MFC App Level Testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment" class="md-nav__link">
+    Risk Assessment
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hazard-identification-analysis-mitigation" class="md-nav__link">
+    Hazard Identification, Analysis, Mitigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    Cost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-work" class="md-nav__link">
+    Common Work
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mfc-work" class="md-nav__link">
+    MFC Work
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcu-cards-work" class="md-nav__link">
+    MCU Cards Work
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Brickworks/Nucleus/edit/master/docs/pdr_avsw.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="flight-avionics-software">Flight Avionics Software</h1>
+<p>Lead: Austin Bodzas</p>
+<p>Jump to:</p>
+<ul>
+<li><a href="#main-flight-computer-software-design">Main Flight Computer</a></li>
+<li><a href="#avionics-sensor-card-software-design">Avionics Sensor Card</a></li>
+<li><a href="#balloon-board-software-design">Balloon Board</a></li>
+<li><a href="#altitude-controldynamics-card-software-design">Altitude Control/Dynamics Card</a></li>
+<li><a href="#power-board-software-design">Power Board</a></li>
+<li><a href="#verification-plans">Verification Plans</a></li>
+<li><a href="#risk-assessment">Risk Assessment</a></li>
+<li><a href="#avionics-software-development-cost">Cost</a></li>
+</ul>
+<p><strong>Overview</strong>: The scope of this PDR covers all software running onboard the HAB. The flight software contains all of the instructions for capturing data, logging data, actuating the servos, controlling comms and commanding cut-down.</p>
+<p><img alt="Software System Interface Overview" src="../img/pdr/avsw/sw_sys_interface.png" /></p>
+<p>Above is the system level interface diagram for the HAB's Flight Software board level components.  The PDR will detail software executing on the Balloon Board, Power Supply Card, Avionics Sensor Card, and Main Flight Computer (MFC).  The Communications card does not require custom new software, and the Ground Computer System</p>
+<h2 id="main-flight-computer-software-design">Main Flight Computer Software Design</h2>
+<h3 id="overview">Overview</h3>
+<p>The Main Flight Computer software is all software that runs on the Main Flight Computer (sometimes referenced as the processor on the main avionics board).   At a high level, it is this software that serves as the main brain on the HAB.  </p>
+<p><img alt="Main Flight Computer Apps" src="../img/pdr/avsw/mfc_apps.png" /></p>
+<h3 id="interfaces">Interfaces</h3>
+<ul>
+<li>CAN: IO board telemetry and commands</li>
+<li>Ethernet: Ground telemetry and commands, SSH</li>
+<li>USB: Connection to SDR for telemetry and commands</li>
+</ul>
+<h3 id="responsibilities">Responsibilities</h3>
+<ul>
+<li>Handling commands from the ground</li>
+<li>Telemetering out mission data</li>
+<li>Logging mission data</li>
+<li>Receiving data from IO boards</li>
+<li>Sending commands to IO boards</li>
+<li>Running control application(s)</li>
+<li>Monitoring health of the system</li>
+</ul>
+<h3 id="runtime-environment">Runtime Environment</h3>
+<p>Since we are running on the same processor as a beaglebone, we can use RT Linux (PREEMPT_RT). Great, this gives us a great environment to develop applications in.  We can ssh easily into the boards, have a file system, and it’s widely used. Applications are unique binaries, so we can test a flight binary control application in isolation against a plant model.</p>
+<p>At the time of writing I am decently unfamiliar with actually writing applications for RT linux.  My understanding is that an application needs to be written within a pthread, so languages like C/C++ are safe.  I’m sure upon further investigation we can see if other languages like Rust allow for easy pthread creation.</p>
+<p><strong>IPC</strong>: For communication between applications, Unix socket datagrams will be used.  As of PDR, this has not been flushed out further.  How these sockets are managed, the datagram format, and the communication model (PubSub) has not been chosen.</p>
+<h3 id="applications">Applications</h3>
+<h4 id="altitude-controller">Altitude Controller</h4>
+<p>This is a payload application that runs a control loop for maintaining the HAB’s altitude.  This application will consume sensor data from the Altitude Control IO card to feed the control loop.  Commands will then be produced and sent out back to the Altitude Control IO card.</p>
+<h4 id="system-monitor">System Monitor</h4>
+<p>Analyzing health of the full craft and the MFC.</p>
+<ul>
+<li>Tracks tx/rx counters for CAN bus messages between MFC and other cards</li>
+<li>Tracks resource utilization</li>
+<li>Performs geofencing checks, informs System Manager (belongs as it’s monitoring it’s situation) </li>
+<li>Determines remaining helium (if not in control app?), useful to report to ground</li>
+<li>Determines world time using GPS data</li>
+</ul>
+<h4 id="system-manager">System Manager</h4>
+<p>The boss of HAB that dictates the state and actions of the HAB bus to support payloads.  (Note: commanding of payload actuators are left up to payload control applications). </p>
+<ul>
+<li>Manages the power board (sending commands to do whatever it does)</li>
+<li>Manages/Dictates the “state” of the flight → ties into apps changing tlm frequencies and such? </li>
+<li>Responds to ground commands</li>
+<li>Commands cutdown of balloon</li>
+<li>Arms/disarms the HAB (dictating that commands to actuators won’t be sent out or acted upon)</li>
+</ul>
+<h4 id="logger">Logger</h4>
+<p>Logs data to non-volatile persistent memory for post-flight consumption.</p>
+<ul>
+<li>Logs avionics system status data (battery data, IO metrics, # of faults, flight state, time of flight, ascent rate)</li>
+<li>Logs payload data <ul>
+<li>altitude control (ascent rate, time since active, predicted correction value {helium}, valve open time, predicted correction value {ballast}, time ballast cap open)</li>
+<li>dynamics data (3 IMUs, 4 pressure sensors, Loadcell, timestamp for each data point, altitude for each datapoint, GPS for each datapoint)</li>
+</ul>
+</li>
+<li>Logs avionics sensor data (sensors on the avionics sensor card such as: GPS, altitude/pressure, temperature, IMU)</li>
+<li>Future Scope: Dynamically change data logging rates depending on the HAB flight state </li>
+</ul>
+<h4 id="can-tlm-rx">CAN TLM RX</h4>
+<ul>
+<li>Handle processing of incoming CAN messages</li>
+<li>Publish data to IPC </li>
+<li>Monitor and report RX metrics</li>
+</ul>
+<h4 id="can-tlm-tx">CAN TLM TX</h4>
+<ul>
+<li>Ingest data from IPC</li>
+<li>Format and transmit CAN messages to their destination</li>
+</ul>
+<h4 id="eth-tlm-rx">ETH TLM RX</h4>
+<ul>
+<li>Handle the processing of incoming network packets</li>
+<li>Publish data to IPC</li>
+<li>Monitor and report RX matrix</li>
+</ul>
+<h4 id="eth-tlm-tx">ETH TLM TX</h4>
+<ul>
+<li>Ingest data from IPC</li>
+<li>Format and transmit network messages to their destinations</li>
+</ul>
+<h4 id="gnu-radio-app">GNU Radio App</h4>
+<ul>
+<li>Ingest data from IPC to transmit over USB to the SDR</li>
+<li>Post data from SDR received by USB to the IPC</li>
+</ul>
+<h2 id="avionics-sensor-card-software-design">Avionics Sensor Card Software Design</h2>
+<h3 id="overview_1">Overview</h3>
+<p>The Avionics Sensor Card software is all software that runs on the Avionics Sensor Card MCU .   At a high level, the software on this card streams down generic sensor telemetry to the MFC.</p>
+<h3 id="interfaces_1">Interfaces</h3>
+<ul>
+<li>CAN: Telemetry and Commands with the MFC</li>
+<li>I2C/SPI: Reading from sensors</li>
+</ul>
+<h3 id="responsibilities_1">Responsibilities</h3>
+<ul>
+<li>Send IMU, GPS, Temperature, and Pressure sensor data to the MFC</li>
+<li>Drive the Recovery assist system</li>
+</ul>
+<h3 id="runtime-environment_1">Runtime Environment</h3>
+<p><strong>Bare Metal</strong> 
+ The tasks performed by this card are so simple.  A simple while loop hooked up to a simple block on a periodic clock should suffice. </p>
+<h2 id="balloon-board-software-design">Balloon Board Software Design</h2>
+<h3 id="overview_2">Overview</h3>
+<p>The Balloon Board software is all software that runs on the Balloon Board MCU .  The Balloon Board software 's primary tasks are streaming down Balloon sensor data, and acting upon commands for the relief controller.</p>
+<h3 id="interfaces_2">Interfaces</h3>
+<ul>
+<li>CAN: Telemetry and Commands with the MFC</li>
+<li>I2C/SPI: Reading from sensors</li>
+<li>PWM: Commanding actuators</li>
+</ul>
+<h3 id="responsibilities_2">Responsibilities</h3>
+<ul>
+<li>Read IMU, Temperature, and Pressure sensor data from peripherals, transform to usable units, and telemeter to the MFC</li>
+<li>Drive the gas relief system in response to commands from the MFC</li>
+<li>Perform Cut Down in response to commands from the MFC</li>
+</ul>
+<h3 id="runtime-environment_2">Runtime Environment</h3>
+<p><strong>Bare Metal</strong> 
+ The tasks performed by this card are so simple.  A simple while loop hooked up to a simple block on a periodic clock should suffice. </p>
+<h3 id="design">Design</h3>
+<p>The Balloon board needs to receive commands from the MFC in order to command the servo valve on the balloon.</p>
+<p><strong>Arm Command</strong>: The software loop sets the arm flag to the boolean value received from the MFC. The arm flag will be boolean, with true indicating that the servo valve power should be activated.  A value of true will result in a GPIO line being held high to command a MOSFET to connect power to the servo valves.  False will result in holding this GPIO line low.</p>
+<p><strong>Valve Command</strong> - This command is received as a percentage.  This percentage is interpreted by the balloon board as the duration percentage of a [5] second duty cycle that the valve should be fully open.  Only the last command is accepted per duty cycle, and acted upon for the next cycle. All other subsequent packets are discarded.</p>
+<h2 id="altitude-controldynamics-card-software-design">Altitude Control/Dynamics Card Software Design</h2>
+<h3 id="overview_3">Overview</h3>
+<p>The Altitude Control/Dynamics Card Software reports sensors relevant to these payloads, along with commanding the ballast actuator. This board software-wise looks near identical to the balloon board in design.  It abstractly has sensors, actuators.  It reports telemetry from these sensors, and acts upon MFC commands to drive actuators.  Refer to the <a href="#balloon-board-software-design">Balloon Board section</a> for more information.</p>
+<h3 id="interfaces_3">Interfaces</h3>
+<ul>
+<li>CAN: MFC commands/telemetry</li>
+<li>I2C/SPI: Sensors</li>
+<li>PWM: Ballast Actuator</li>
+</ul>
+<h3 id="responsibilities_3">Responsibilities</h3>
+<ul>
+<li>Report Sensor data to MFC</li>
+<li>Drive the Ballast Actuator in response to commands from the MFC</li>
+<li>Maintain a safe state per commands from the MFC</li>
+</ul>
+<h3 id="environment">Environment</h3>
+<p><strong>Bare Metal</strong> 
+ The tasks performed by this card are so simple.  A simple while loop hooked up to a simple block on a periodic clock should suffice. </p>
+<h2 id="power-board-software-design">Power Board Software Design</h2>
+<h3 id="overview_4">Overview</h3>
+<p>The power boards main job is to provide smooth regulated power to the rest of the HAB across 2 rails, 5V and 12V. The power board is also tasked with monitoring the conditions of said rails, and reporting the voltage and current draw from each to the main fight computer. The final task attributed to the power board is battery management. The board is in charge of charging, and monitoring the voltage in the batteries.</p>
+<h3 id="interfaces_4">Interfaces</h3>
+<ul>
+<li>CAN: MFC commands/telemetry</li>
+<li>I2C: BQ76920 (Battery monitor)</li>
+<li>I2C: LTC4015 (Charger Controller)</li>
+</ul>
+<h3 id="responsibilities_4">Responsibilities</h3>
+<ul>
+<li>Configure BQ76920 to the minimum allowable voltage upon initialization</li>
+<li>Configure BQ76920 to maximum allowable voltage upon initialization</li>
+<li>Configure BQ76920 to overcurrent value</li>
+<li>Read individual cell voltages from BQ76920, report pack voltage to MFC</li>
+<li>Read pack temperature from BQ76920, report to MFC</li>
+<li>Configure charger temperature LTC4015 with input current upon initialization</li>
+<li>Report charger temperature from LTC4015 to the MFC</li>
+<li>Read coulomb count from LTC4015, and report to MFC</li>
+<li>Report low battery flag when low on battery based off coulomb count to the MFC**</li>
+<li>Report voltages of 5V and 12V rails to the MFC</li>
+<li>Report currents of 5V and 12V rails to the MFC</li>
+<li>Report board [thermistor] temperature reading to MFC</li>
+</ul>
+<h3 id="environment_1">Environment</h3>
+<p><strong>Bare Metal</strong>:
+The tasks performed by this card are simple. A simple while loop blocking on a periodic clock should suffice.  Some hardware configuration needs to occur during an initialization period.</p>
+<h2 id="verification-plans">Verification Plans</h2>
+<p>The software verification strategy will be pretty low on the rigorous side; the set of test cases for each verification level will not be close to exhaustive.  However, tests should be done to minimize risk and uncertainty of the system. The HAB software will be tested at three different levels: System, Board, and Application where applicable.</p>
+<h3 id="system-level">System Level</h3>
+<p>Refer to the Simulation &amp; Test PDR for more system level testing information.</p>
+<p>Verify at the fully avionics system level that the HAB avionics software is performing it’s required behavior.  This will be tricky to perform on a shoestring budget, not allowing for mocking out sensors. The extent of this testing may be testing the HAB’s response to stimulus other than the sensors.  This could be testing the ground state while still connected to the ground system, testing a timed cutoff, or other timed behaviors.  There is the possibility of testing with a verification control application instead of the control application, but the value of this still needs to be evaluated.</p>
+<h3 id="board-level">Board Level</h3>
+<p>Test each board at it's interface.  For MFC this would involve stimulating the ETH/CAN interfaces, and observing the output over the same interfaces.  The other MCU boards are trickier.  Their CAN bus can be easily stimulated/inspected, but behavior of the actuators/sensors is tricker to control and inspect.  More test harnessing would be involved, but perhaps already accomplished to meet system level testing.</p>
+<h3 id="mfc-app-level-testing">MFC App Level Testing</h3>
+<p>The MFC is running a full operating system, which in turn executes discrete applications.  These applications can be tested individually for proper behavior.  A Software in the Loop test environment can be created to allow for focused inspected on each of these apps.  Unit Testing frameworks can also be used to verify behavior.</p>
+<h2 id="risk-assessment">Risk Assessment</h2>
+<h3 id="hazard-identification-analysis-mitigation">Hazard Identification, Analysis, Mitigation</h3>
+<p>The largest risk we face with this HAB is lack of redundancy.  Some individual faults can render the whole Avionics system inoperable.  The solution to this could be adding multiple strings, have redundant cards, and use voting.   This however does not meet the vague requirements for this mission to be light and affordable for a non-profit group.  No real analysis has been done at the time of PDR at exactly how likely we are to expect any of these faults.  There is reasonable expectation that the failure risk is low enough to still fly this mission with just one string of avionics.  Below will touch upon a few of these lack of redundancy risks among other avionics software risks.  Each risk is accompanied with a probability (1-3, 1 least likely) and a severity of the risk (1-3, 1 least probelematic). </p>
+<p><strong>MFC Failure</strong> (Prob=1, Sev=3):  If an MFC failure occurs, rendering the board inoperable, the Avionics will temporarily fail.  If this failure is not recoverable, the avionics system will be left inoperable for the rest of the mission.  This failure would most likely occur from hardware being damaged due to atmospheric elements.  Some level of mitigation such as using an onboard watchdog may allow the board to reboot and try again.</p>
+<p><strong>Actuator Card Failure</strong> (Prob=1, Sev=2):  The cards driving the ballast or balloon valve actuators might fail in an undesired state.  This may cause for unsafe conditions by fully emptying the ballast or balloon at an inappropriate time.  The mission might uncontrollably be extended or shortened. Watchdogs could be used to attempt to restart these boards, but are not guaranteed to work if the hardware is permanently damaged.</p>
+<p><strong>MFC Real Time Failure</strong> (Prob=1 Sev=1):  The MFC slips on meeting it’s required timely behavior.  This may be slipping on transmitting a message on time, or not reacting to a control change fast enough.  A lack of real time behavior in these areas will cause for a lack of control performance.  But given the MFC is using an application processor that far passes our needs, this is not a likely outcome, and not a frequent one if that.</p>
+<h2 id="cost">Cost</h2>
+<p>$0, expecting to strictly use “free as in beer” software.</p>
+<p>But for developing pre-hardware release, devboards will be used.  $65 for the Beaglebone Black and $25 for a STM32F4 dev board for a total of <strong>$90</strong>.</p>
+<h2 id="schedule">Schedule</h2>
+<h3 id="common-work">Common Work</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Time Needed</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create ICDs between boards</td>
+<td>1 mo</td>
+<td>2020/10/01</td>
+</tr>
+<tr>
+<td>Setup Common MCU SW Framework</td>
+<td>1.5 mo</td>
+<td>2020/10/14</td>
+</tr>
+<tr>
+<td>Control App Testing Environment</td>
+<td>1 mo</td>
+<td>2020/11/01</td>
+</tr>
+<tr>
+<td>Software Integration Testing</td>
+<td>2 mo</td>
+<td>2021/03/01</td>
+</tr>
+<tr>
+<td>Hardware Integration  Testing</td>
+<td>2 mo</td>
+<td>2021/05/01</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mfc-work">MFC Work</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Time Needed</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux Application Environment</td>
+<td>1 mo</td>
+<td>2020/10/01</td>
+</tr>
+<tr>
+<td>System Manager App</td>
+<td>1.5mo</td>
+<td>2020/11/14</td>
+</tr>
+<tr>
+<td>RX Apps</td>
+<td>1 mo</td>
+<td>2020/11/01</td>
+</tr>
+<tr>
+<td>TX Apps</td>
+<td>1 mo</td>
+<td>2020/12/01</td>
+</tr>
+<tr>
+<td>Control App Integration</td>
+<td>1 mo</td>
+<td>2021/01/01</td>
+</tr>
+<tr>
+<td>System Monitor App</td>
+<td>1.5 mo</td>
+<td>2021/01/01</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mcu-cards-work">MCU Cards Work</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Time Needed</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avionics Sensor Card loop</td>
+<td>1 mo</td>
+<td>2020/12/01</td>
+</tr>
+<tr>
+<td>Altitude Control/Dynamics Sensor card</td>
+<td>1 mo</td>
+<td>2020/12/01</td>
+</tr>
+<tr>
+<td>Balloon Board loop</td>
+<td>1 mo</td>
+<td>2021/01/01</td>
+</tr>
+<tr>
+<td>Power Board loop</td>
+<td>1 mo</td>
+<td>2021/02/01</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pdr_mission-profile/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mission Profile" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Mission Profile
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pdr_avhw/" class="md-footer__link md-footer__link--next" aria-label="Next: Flight Avionics Hardware" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Flight Avionics Hardware
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

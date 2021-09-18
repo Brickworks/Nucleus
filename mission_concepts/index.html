@@ -1,0 +1,1612 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A high altitude balloon and the first mission from Brickworks.">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Mission Concepts - Nucleus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mission-concepts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nucleus" class="md-header__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nucleus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mission Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nucleus" class="md-nav__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    Nucleus
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Mission Selection
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mission Selection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mission Selection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mission Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mission Concepts
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-experiment-ideas" class="md-nav__link">
+    List of Experiment Ideas
+  </a>
+  
+    <nav class="md-nav" aria-label="List of Experiment Ideas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stable-imaging-platform-bus-attitude-control" class="md-nav__link">
+    Stable Imaging Platform / Bus Attitude Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altitude-control" class="md-nav__link">
+    Altitude Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intra-balloon-environment-sensors" class="md-nav__link">
+    Intra-balloon Environment Sensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-board-image-processing" class="md-nav__link">
+    On-board Image Processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-data-transfer" class="md-nav__link">
+    Real-time Data Transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characterize-atmospheric-composition" class="md-nav__link">
+    Characterize Atmospheric Composition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characterize-radiation-environment" class="md-nav__link">
+    Characterize Radiation Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-and-test-latex-balloon-burst-conditions" class="md-nav__link">
+    Model and Test Latex Balloon Burst Conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlled-descent" class="md-nav__link">
+    Controlled Descent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vegetation-density-experiment" class="md-nav__link">
+    Vegetation Density Experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-flight-software-ecosystem" class="md-nav__link">
+    F' Flight Software Ecosystem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-distance-communications" class="md-nav__link">
+    Long Distance Communications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multispectral-hyperspectral-instrument" class="md-nav__link">
+    Multispectral / Hyperspectral Instrument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#star-tracker" class="md-nav__link">
+    Star Tracker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-image-quality-enhancement" class="md-nav__link">
+    Synthetic Image Quality Enhancement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-dynamics-modelling" class="md-nav__link">
+    Advanced Dynamics Modelling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-monitoring-ground-station" class="md-nav__link">
+    Mission Monitoring Ground Station
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mothership-for-smaller-vehicles" class="md-nav__link">
+    Mothership for Smaller Vehicles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprawled-small-scale-habs" class="md-nav__link">
+    Sprawled Small Scale HABs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-platform" class="md-nav__link">
+    Launch Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balloon-movement-sensors" class="md-nav__link">
+    Balloon Movement Sensors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-missions" class="md-nav__link">
+    Reference Missions
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference Missions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vegetation-density-mapper" class="md-nav__link">
+    Vegetation Density Mapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flight-conditions-characterizer" class="md-nav__link">
+    Flight Conditions Characterizer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flying-robot" class="md-nav__link">
+    Flying Robot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rocket-technology-testbed" class="md-nav__link">
+    Rocket Technology Testbed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concept-selection/" class="md-nav__link">
+        Concept Selection
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Preliminary Design (08/2020)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preliminary Design (08/2020)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Preliminary Design (08/2020)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avsw/" class="md-nav__link">
+        Flight Avionics Software
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avhw/" class="md-nav__link">
+        Flight Avionics Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_altitudecontrol/" class="md-nav__link">
+        Altitude Control Logic
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Final Design (09/2021)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Final Design (09/2021)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Final Design (09/2021)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Altitude Control System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Altitude Control System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Altitude Control System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_altctrl_conops/" class="md-nav__link">
+        Concept of Operations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        HAB Flight Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Sensor Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Choosing a Control Approach
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        PID Controller
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Plant Dynamics in State Space
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Flight Avionics Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Flight Avionics Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Flight Avionics Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_arch/" class="md-nav__link">
+        HAB Avionics Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_mfc/" class="md-nav__link">
+        Main Flight Computer Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Avionics Sensor Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Altitude Control Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Communications Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Power Supply Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Backplane Interface Board
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Balloon Board
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-of-experiment-ideas" class="md-nav__link">
+    List of Experiment Ideas
+  </a>
+  
+    <nav class="md-nav" aria-label="List of Experiment Ideas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stable-imaging-platform-bus-attitude-control" class="md-nav__link">
+    Stable Imaging Platform / Bus Attitude Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altitude-control" class="md-nav__link">
+    Altitude Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intra-balloon-environment-sensors" class="md-nav__link">
+    Intra-balloon Environment Sensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-board-image-processing" class="md-nav__link">
+    On-board Image Processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-data-transfer" class="md-nav__link">
+    Real-time Data Transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characterize-atmospheric-composition" class="md-nav__link">
+    Characterize Atmospheric Composition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characterize-radiation-environment" class="md-nav__link">
+    Characterize Radiation Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-and-test-latex-balloon-burst-conditions" class="md-nav__link">
+    Model and Test Latex Balloon Burst Conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlled-descent" class="md-nav__link">
+    Controlled Descent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vegetation-density-experiment" class="md-nav__link">
+    Vegetation Density Experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-flight-software-ecosystem" class="md-nav__link">
+    F' Flight Software Ecosystem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-distance-communications" class="md-nav__link">
+    Long Distance Communications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multispectral-hyperspectral-instrument" class="md-nav__link">
+    Multispectral / Hyperspectral Instrument
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#star-tracker" class="md-nav__link">
+    Star Tracker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-image-quality-enhancement" class="md-nav__link">
+    Synthetic Image Quality Enhancement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-dynamics-modelling" class="md-nav__link">
+    Advanced Dynamics Modelling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-monitoring-ground-station" class="md-nav__link">
+    Mission Monitoring Ground Station
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mothership-for-smaller-vehicles" class="md-nav__link">
+    Mothership for Smaller Vehicles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprawled-small-scale-habs" class="md-nav__link">
+    Sprawled Small Scale HABs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-platform" class="md-nav__link">
+    Launch Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balloon-movement-sensors" class="md-nav__link">
+    Balloon Movement Sensors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-missions" class="md-nav__link">
+    Reference Missions
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference Missions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vegetation-density-mapper" class="md-nav__link">
+    Vegetation Density Mapper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flight-conditions-characterizer" class="md-nav__link">
+    Flight Conditions Characterizer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flying-robot" class="md-nav__link">
+    Flying Robot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rocket-technology-testbed" class="md-nav__link">
+    Rocket Technology Testbed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Brickworks/Nucleus/edit/master/docs/mission_concepts.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="mission-concepts">Mission Concepts</h1>
+<p>Nucleus was conceived as a payload-agnostic high altitude balloon
+architecture. In addition, Nucleus should host one or more technical
+or scientific experiments. These experiments serve as a means to validate the
+design and architecture while stressing the system in a real-world use case.</p>
+<h2 id="list-of-experiment-ideas">List of Experiment Ideas</h2>
+<h3 id="stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</h3>
+<p>Active gimbals make for a (power hungry) off-the-shelf solution for
+image stabilization. For a challenge one could build a gimballed camera
+mount from scratch.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>A more novel idea would be to control bus attitude. A senior design team
+from 2017 attempted to do attitude control with a reaction wheel, but I
+don't think they had a way to dump momentum. A simpler (and more novel)
+approach would be to use RC aircraft engines or drone motors to actively
+counteract wind forces. A simpler objective could be using drone
+propellers for anti-spin control or active ballast weights for
+anti-rocking control.</p>
+<p><strong>Pairs with:</strong> <a href="#on-board-image-processing">On-board Image Processing</a>,
+<a href="#rocket-technology-testbed">Rocket Technology Testbed</a></p>
+<h3 id="altitude-control">Altitude Control</h3>
+<p>Actively change the ascent or descent rate. For a simpler demonstration,
+only control the ascent rate. For a challenge, maintain an altitude set
+point. For a greater challenge, extend the flight duration by
+controlling altitude.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p><strong>Pairs with:</strong> <a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a></p>
+<h3 id="intra-balloon-environment-sensors">Intra-balloon Environment Sensors</h3>
+<p>Develop a sensor platform to measure environmental conditions
+(temperature, pressure, humidity) within the balloon from ambient,
+through filling, and finally through the burst event. Send the data to
+the main payload storage over a wired or wireless link.</p>
+<p>As a stretch goal, instrument the bus with environmental sensors.
+Compare balloon internal conditions to ambient ones add correlate it
+with altitude rate of change or burst events.</p>
+<p><strong>Pairs with:</strong> <a href="#altitude-control">Altitude Control</a>,
+<a href="#characterize-atmospheric-composition">Characterize Atmospheric Composition</a>,
+<a href="#model-and-test-latex-balloon-burst-conditions">Model and Test Latex Balloon Burst Conditions</a></p>
+<h3 id="on-board-image-processing">On-board Image Processing</h3>
+<p>Perform image processing (of any level) on images or video on the
+payload electronics in flight.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> For an extra challenge, apply any of
+the following constraints:</p>
+<ul>
+<li>Payload electronics do not exceed $30.</li>
+<li>Image processing algorithms have a practical or scientific usebeyond a simple
+  demonstrator.</li>
+<li>Image processing takes place on an FPGA. Bonus if it occurs in realtime.</li>
+<li>Image processing includes data fusion with additional sensors orcamera sources.</li>
+</ul>
+<p><strong>Pairs with:</strong> <a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a></p>
+<h3 id="real-time-data-transfer">Real-time Data Transfer</h3>
+<p>Receive real time telemetry and payload data in flight. For a greater
+challenge, send commands from a ground station during the flight. For a
+simple demonstration, send limited health and status telemetry. As a
+stretch, send rich data (like photos or live video) to a ground station
+in flight.</p>
+<p><strong>Pairs with:</strong> <a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a>,
+<a href="#characterize-atmospheric-composition">Characterize Atmospheric Composition</a>,
+<a href="#characterize-radiation-environment">Characterize Radiation Environment</a>,
+<a href="#altitude-control">Altitude Control</a>, 
+<a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#rocket-technology-testbed">Rocket Technology Testbed</a></p>
+<h3 id="characterize-atmospheric-composition">Characterize Atmospheric Composition</h3>
+<p>Measure atmospheric composition along the balloon's ascent. Characterize
+how composition changes with altitude. For a greater challenge, use
+multiple flights to see how composition changes with altitude from
+different geographic locations, time of day, time of year, or different
+weather conditions.</p>
+<p><strong>Pairs with:</strong> <a href="#altitude-control">Altitude Control</a>,
+<a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a></p>
+<h3 id="characterize-radiation-environment">Characterize Radiation Environment</h3>
+<p>Measure radiation intensity along the balloon's ascent. Characterize how
+intensity changes with altitude. For a greater challenge, use multiple
+flights to see how intensity changes with altitude from different
+geographic locations, time of day, time of year, or different weather
+conditions.</p>
+<p><strong>Pairs with:</strong> <a href="#altitude-control">Altitude Control</a>,
+<a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a></p>
+<h3 id="model-and-test-latex-balloon-burst-conditions">Model and Test Latex Balloon Burst Conditions</h3>
+<p>Prior to launch, predict the conditions that lead to the balloon's burst
+event. Instrument the payload and balloon to test the model in flight.
+For an extra challenge, apply any of the following constraints:</p>
+<ul>
+<li>Model the burst event only using parameters that can be measured in
+  flight.</li>
+<li>Test the model on the ground with simulated atmospheric conditions
+  and a sub- or full-scale balloon.</li>
+<li>Record high-speed video of the balloon bursting in flight.</li>
+</ul>
+<p><strong>Pairs with:</strong> <a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a></p>
+<h3 id="controlled-descent">Controlled Descent</h3>
+<p>After balloon cutdown, control the descent of the payload. For a simpler
+challenge, use a reefed parachute. For a greater challenge, steer the
+descent path using a parafoil or aero control surfaces.</p>
+<p><strong>Pairs with:</strong> 
+<a href="#rocket-technology-testbed">Rocket Technology Testbed</a>,
+<a href="#advanced-dynamics-modelling">Advanced Dynamics Modelling</a></p>
+<h3 id="vegetation-density-experiment">Vegetation Density Experiment</h3>
+<p>Measure vegetation density using NDVI with cameras in flight. For a
+greater challenge, do the image processing on-board.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></p>
+<p><strong>Pairs with:</strong> <a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#on-board-image-processing">On-board Image Processing</a></p>
+<h3 id="f-flight-software-ecosystem">F' Flight Software Ecosystem</h3>
+<p>F' (F Prime) is a component-driven framework that enables rapid
+development and deployment of spaceflight and other embedded software
+applications.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> F' is part of NASA Jet Propultion Lab's technology
+ecosystem, open source, and also has demos that are meant to be run on a
+Raspberry Pi.</p>
+<p>F' can be used to create common HAB flight software leveraging existing
+components. The team will create additional components to meet the needs
+of specific HABs, with the ability to open source for use by other HAB
+teams.</p>
+<ul>
+<li>Run HAB FSW with F' using a one off greedy customization, not going
+  out of the way for code reuse.</li>
+<li>Design HAB FSW with F' to be common and for use by other HAB teams
+  as a base.</li>
+<li>Design hardware payloads with accompanying F' components to be
+  common for use by teams that want a plug and play HAB payload.</li>
+</ul>
+<p><strong>Pairs with:</strong> </p>
+<h3 id="long-distance-communications">Long Distance Communications</h3>
+<p>Send or receive data to the HAB in flight while it is beyond visual
+range. For a greater challenge, send or receive data while the HAB is
+beyond the geographical horizon of the ground station.</p>
+<p><strong>Pairs with:</strong> <a href="#real-time-data-transfer">Real-time Data Transfer</a></p>
+<h3 id="multispectral-hyperspectral-instrument">Multispectral / Hyperspectral Instrument</h3>
+<p>Image the Earth, sky, or atmospheric limb with a camera sensitive to two
+or more spectral bands. Optionally apply any of the following
+constraints:</p>
+<ul>
+<li>Use components which cost no more than $50.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></li>
+<li>Calibrate the instrument on the ground (optionally in flight-like
+  conditions)</li>
+</ul>
+<p><strong>Pairs with:</strong> <a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#on-board-image-processing">On-board Image Processing</a>,
+<a href="#vegetation-density-experiment">Vegetation Density Experiment</a></p>
+<h3 id="star-tracker">Star Tracker</h3>
+<p>Build an instrument that measures position of the payload bus based on
+optical measurements of the sky.<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup><sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup> Optionally apply any of the
+following constraints:</p>
+<ul>
+<li>Use components which cost no more than $50.</li>
+<li>Calibrate the instrument on the ground (optionally in flight-like
+  conditions)</li>
+<li>Implement a custom algorithm to derive orientation from images of
+  the sky.</li>
+</ul>
+<p><strong>Pairs with:</strong> <a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#on-board-image-processing">On-board Image Processing</a></p>
+<h3 id="synthetic-image-quality-enhancement">Synthetic Image Quality Enhancement</h3>
+<p>Use computer vision techniques to improve the effective resolution of
+images by either of the following methods:</p>
+<ol>
+<li>Stitch multiple image frames into a larger composite image of an
+   area wider than the camera's field of view.<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup></li>
+<li>Use multi-frame super-resolution algorithms to create high
+   resolution image products from low resolution images captured in
+   flight.<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup><sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></li>
+</ol>
+<p><strong>Pairs with</strong>: <a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#on-board-image-processing">On-board Image Processing</a></p>
+<h3 id="advanced-dynamics-modelling">Advanced Dynamics Modelling</h3>
+<p>Create a dynamics model for the HAB bus that accounts for differential drag
+bus geometry, variable wind speed and direction, variable ambient pressure,
+twist and tension from the balloon tether, and the center of gravity of the bus
+or mass and location of internal components. If attitude control is also under
+consideration, also model the effects of that control system and simulate its
+behavior in different situations.</p>
+<p><strong>Pairs with:</strong> 
+<a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#altitude-control">Altitude Control</a>,
+<a href="#controlled-descent">Controlled Descent</a>,
+<a href="#flight-conditions-characterizer">Flight Conditions Characterizer</a>,</p>
+<h3 id="mission-monitoring-ground-station">Mission Monitoring Ground Station</h3>
+<p>Monitor telemetry in flight or during tests and display telemetry and other
+information with an intuitive user interface. For a greater challenge, also
+implement command and control elements. Examples of UI elements that could be
+used are:</p>
+<ul>
+<li>Live-updating plots of telemetry values over time</li>
+<li>Live-updating log messages from the avionics</li>
+<li>Live video feeds from cameras on board</li>
+<li>Command and control interfaces for sending messages to the vehicle</li>
+</ul>
+<p><strong>Pairs with:</strong> <a href="#real-time-data-transfer">Real-time Data Transfer</a></p>
+<h3 id="mothership-for-smaller-vehicles">Mothership for Smaller Vehicles</h3>
+<p>Stow smaller vehicles such as tiny quadcopters on the HAB and release them in
+flight. For a greater challenge, use the HAB as a relay for recording data or
+sending data from the child vehicles back to Mission Control.</p>
+<p><strong>Pairs with:</strong> <a href="#real-time-data-transfer">Real-time Data Transfer</a>,
+<a href="#long-distance-communications">Long Distance Communications</a></p>
+<h3 id="sprawled-small-scale-habs">Sprawled Small Scale HABs</h3>
+<p>Design and build a small scale HAB (50 grams) which includes a downward facing camera. 
+The small scale HABs should be able to function for at least a few hours, this includes 
+power on time and storage requirements. Multiple of these small scale HABs will be connected 
+together with lightweight wire or string. The collective HABs can be used to map out the 
+terrain over large distances as connections between individual HABs will be lengthy (maybe 500m - 1km).</p>
+<p><strong>Pairs with:</strong> <a href="#vegetation-density-experiment">Vegetation Density Experiment</a></p>
+<h3 id="launch-platform">Launch Platform</h3>
+<p>Develop a launch platform system capable of controlling the payload during launch preparations. 
+Includes clamp system to retain payload to the ground during launch preparation. Data/Power/Fueling connections available to interface with the payload. 
+System would allow for hands off approach during setup from filling the balloon to last minute software updates and real time telemetry without relying on onboard radios.</p>
+<p>Design can be tiered, for example power and data would be primary goal and fueling cabilities as a stretch goal.</p>
+<p><strong>Pairs with:</strong> <a href="#mission-monitoring-ground-station">Mission Monitoring Ground Station</a></p>
+<h3 id="balloon-movement-sensors">Balloon Movement Sensors</h3>
+<p>Develop a sensor platform to measure inertial movement of balloon (acceleration, rotation, magnetic heading) through full flight of balloon. Send the data to
+the main payload storage over a wired or wireless link.</p>
+<p>Correlate data with similar sensors on the HAB bus to create better stabilization algorithms and control methods.</p>
+<p><strong>Pairs with:</strong> <a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>,
+<a href="#on-board-image-processing">On-board Image Processing</a>, <a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a></p>
+<hr />
+<h2 id="reference-missions">Reference Missions</h2>
+<p>This section outlines reference payloads and mission profiles for Nucleus which
+satisfy the main mission objective of demonstrating the avionics architecture
+by supporting a combination of technical or scientific experiments.</p>
+<h3 id="vegetation-density-mapper">Vegetation Density Mapper</h3>
+<p><em>The spiritual successor to</em> <a href="https://github.com/RIT-Space-Exploration/hab-cv">Where U At
+Plants?</a> <em>and Phil's
+vision for</em> <a href="https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/blob/master/HAB-CV/hab-cv.pdf">HAB
+CV</a>.</p>
+<p>Mount at least two ground-facing cameras to the HAB payload. Collect
+photos or videos of the ground in the Red and Near-Infrared spectral
+bands as needed to compute
+<a href="https://www.earthdatascience.org/courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/">NDVI</a>
+on the ground below. Calibrate spectral response and lens distortion of
+all payload cameras on the ground before flight.</p>
+<p><strong>Experiments (Level I):</strong></p>
+<ul>
+<li><a href="#vegetation-density-experiment">Vegetation Density Experiment</a>: Record
+  flight data (GPS coordinates, altitude, orientation) in sync with image
+  captures. Use flight data, camera field of view, and image data to project
+  image data onto a map. Flight data and imagery is stored to local memory. All
+  data processing and analysis takes place after flight data is recovered.</li>
+</ul>
+<p><strong>Experiments (Level II):</strong></p>
+<ul>
+<li><a href="#on-board-image-processing">On-board Image Processing</a>: Perform data
+  processing (linking flight data to imagery) and analysis (compute NDVI)
+  on-board during the flight.</li>
+<li><a href="#real-time-data-transfer">Real-time Data Transfer</a>: Downlink all or part of
+  the data to a ground station while in flight.</li>
+</ul>
+<p><strong>Experiments (Level III):</strong></p>
+<ul>
+<li><a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>: 
+  Use active control systems and actuators (reaction mass, ballast, electric
+  motors, thrust) to stabilize the platform where the payload cameras are
+  mounted. In addition to control actuators, pointing knowledge is necessary to
+  feed the control system.</li>
+</ul>
+<h3 id="flight-conditions-characterizer">Flight Conditions Characterizer</h3>
+<p><em>A knowledge-gathering mission to inform flight characteristics and
+environments on future HAB flights.</em></p>
+<p>Instrument the HAB bus to measure ambient conditions, internal
+conditions within the bus structure, and internal conditions within the
+balloon over a long-duration flight to gain detailed insights into the
+conditions subjected to the hardware. Calibrate all sensors on the
+ground in known conditions, ideally with an environmental test chamber,
+prior to the flight.</p>
+<p><strong>Experiments (Level I):</strong></p>
+<ul>
+<li><a href="#characterize-atmospheric-composition">Characterize Atmospheric Composition</a>: 
+  Measure temperature, humidity, pressure, and composition of the air over the
+  course of the flight.</li>
+<li><a href="#characterize-radiation-environment">Characterize Radiation Environment</a>:
+  Measure ionizing radiation flux (using a geiger counter) over the course of
+  the flight.</li>
+<li><a href="#advanced-dynamics-modelling">Advanced Dynamics Modelling</a>: Model the 
+  dynamics of the flight and validate the model with flight data.</li>
+</ul>
+<p><strong>Experiments (Level II):</strong></p>
+<ul>
+<li><a href="#intra-balloon-environment-sensors">Intra-balloon Environment Sensors</a>: 
+  Measure temperature, humidity, pressure and density of helium within the
+  balloon. Also measure detailed thermal gradients throughout the payload bus
+  and components.</li>
+<li><a href="#real-time-data-transfer">Real-time Data Transfer</a>: Downlink all or part of the data to a
+  ground station while in flight.</li>
+<li><a href="#model-and-test-latex-balloon-burst-conditions">Model and Test Latex Balloon Burst Conditions</a>:
+  Model and test (on the ground) the conditions that lead to the balloon's
+  burst event. Instrument the balloon and payload to validate this model and
+  characterize the burst event in detail.</li>
+</ul>
+<p><strong>Experiments (Level III):</strong></p>
+<ul>
+<li><a href="#altitude-control">Altitude Control</a>: Maintain flight at certain altitude(s)
+  to gain more data about the conditions at that height in order to smooth out
+  outliers and variations. Optionally extend mission flight time to gain more
+  data.</li>
+</ul>
+<h3 id="flying-robot">Flying Robot</h3>
+<p><em>A knowledge-building mission that develops key building blocks toward
+satellite-like operations tasks such as command and control, data links,
+and ACS systems (like detumbling).</em></p>
+<p>Send commands from a ground station that are executed by the HAB in
+flight. The HAB reacts to both command instructions and stimuli from its
+environment.</p>
+<p><strong>Experiments (Level I):</strong></p>
+<ul>
+<li><a href="#real-time-data-transfer">Real-time Data Transfer</a>: Downlink all or part
+  of the data to a ground station while in flight. Execute commands sent from a
+  ground station and report acknowledgement of a received command to the
+  ground.</li>
+</ul>
+<p><strong>Experiments (Level II):</strong></p>
+<ul>
+<li><a href="#controlled-descent">Controlled Descent</a>: Automatically detect a free-fall
+  state and use active controls and actuators (parafoil, control surfaces) to
+  change the speed and direction of descent. Descent should be controlled in a
+  way that makes recovery of the payload easier.</li>
+</ul>
+<p><strong>Experiments (Level III):</strong></p>
+<ul>
+<li><a href="#altitude-control">Altitude Control</a>: Maintain a set altitude in flight and
+  change the altitude set point in response to a command from the ground
+  station.</li>
+<li><a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>: 
+  Maintain a set attitude (of the imaging platform) and change the target
+  attitude in response to a command from the ground station.</li>
+</ul>
+<h3 id="rocket-technology-testbed">Rocket Technology Testbed</h3>
+<p><em>A technology demonstration mission for key technologies meant for use with
+rockets.</em></p>
+<p>Develop avionics, logic, and other foundational technologies for controls,
+telemetry, and ground stations using requirements based on what would be used
+in an M-class hobby rocket. Select experiments that can be demonstrated on a
+HAB and easily adapted for flight in a rocket.</p>
+<p><strong>Experiments (Level I):</strong></p>
+<ul>
+<li><a href="#real-time-data-transfer">Real-time Data Transfer</a>: Downlink all or part of
+  the data to a ground station while in flight.</li>
+</ul>
+<p><strong>Experiments (Level II):</strong></p>
+<ul>
+<li><a href="#controlled-descent">Controlled Descent</a>: Automatically detect a free-fall
+  state and use active controls and actuators (parafoil, control surfaces) to
+  change the speed and direction of descent. Descent should be controlled in a
+  way that makes recovery of the payload easier.</li>
+<li><a href="#advanced-dynamics-modelling">Advanced Dynamics Modelling</a>: Model the 
+  dynamics of the flight and validate the model with flight data.</li>
+</ul>
+<p><strong>Experiments (Level III):</strong></p>
+<ul>
+<li><a href="#stable-imaging-platform-bus-attitude-control">Stable Imaging Platform / Bus Attitude Control</a>: 
+  Use active control systems and actuators (reaction mass, ballast, control
+  surfaces, or thrust) to stabilize the roll axis (the axis along the balloon
+  tension line) during ascent and/or descent. In addition to control actuators,
+  pointing knowledge is necessary to feed the control system. Special
+  preference should be given to propulsive systems or aero control surfaces
+  that could also be adapted for use during a rocket's ascent phase.</li>
+</ul>
+<hr />
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Haumpton, Shane. 2018. <a href="https://www.diyphotography.net/how-to-create-a-diy-gimbal-stabilizer/">How to create a DIY gimbal
+stabilizer</a>.
+DIY Photography.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Sushko, Audrey, <em>et. al.</em> 2017. <a href="http://asl.stanford.edu/wp-content/papercite-data/pdf/Suskho.Tedjarati.ea.AERO2017.pdf">Low Cost, High Endurance,
+Altitude-Controlled Latex Balloon for Near-Space Research
+(ValBal)</a>.
+Standford Space Initiative.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Linden, Philip, <em>et. al.</em> 2018. <a href="https://github.com/RIT-Space-Exploration/hab-cv/blob/master/reports/Project%20Definition%20Document/hab-cv.pdf">On-Board Image Processing and
+Computer Vision Techniques on Low-Cost Consumer Electronics for
+Vegetation Density Mapping and Other
+Experiments</a>.
+RIT Space Exploration.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Linden, Philip. 2018. <a href="https://github.com/RIT-Space-Exploration/hab-cv">Where U At Plants? (WUAP): Capturing and
+Masking Images from Raspberry Pi 3 + Pi
+Camera</a>. RIT Space
+Exploration.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>NASA Jet Propulsion Lab. 2020. <a href="https://github.com/nasa/fprime">F´: A Flight-Proven,
+Multi-Platform, Open-Source Flight Software
+Framework</a>. GitHub.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Sigernes, Fred, <em>et. al.</em>. 2018. <a href="https://www.osapublishing.org/DirectPDFAccess/898DF890-994C-43DA-FBF0E930CF791000_382214/oe-26-5-6021.pdf">Do it yourself hyperspectral
+imager for handheld to airborne
+operations</a>.
+Optics Express.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>McBryde, Christopher Ryan. 2012. <a href="https://repositories.lib.utexas.edu/handle/2152/ETD-UT-2012-05-4608">A star tracker design for
+CubeSats</a>.
+University of Texas at Austin.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>Smith, Casey Grant. 2017. <a href="https://scholarsmine.mst.edu/masters_theses/7724/?utm_source=scholarsmine.mst.edu%2Fmasters_theses%2F7724&amp;utm_medium=PDF&amp;utm_campaign=PDFCoverPages">Development and implementation of star
+tracker based attitude
+determination</a>.
+Missouri University of Science and Technology.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p>Szeliski, Richard. 2006. <a href="http://www.cs.toronto.edu/~kyros/courses/2530/papers/Lecture-14/Szeliski2006.pdf">Image Alignment and Stitching: A
+Tutorial</a>.
+Foundations and Trends in Computer Graphics and Vision.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:10">
+<p>Nelson, Kyle, <em>et. al.</em> 2012. <a href="https://ieeexplore.ieee.org/abstract/document/6411669">Performance Evaluation of
+Multi-Frame Super-Resolution
+Algorithms</a>.
+IEEE.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>Farsiu, Sina, <em>et. al</em>. 2004. <a href="https://ieeexplore.ieee.org/abstract/document/1331445">Fast and robust multiframe super
+resolution</a>.
+IEEE.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mission_concept-selection/" class="md-footer__link md-footer__link--next" aria-label="Next: Concept Selection" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Concept Selection
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

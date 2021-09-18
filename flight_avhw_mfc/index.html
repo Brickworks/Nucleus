@@ -1,0 +1,1198 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A high altitude balloon and the first mission from Brickworks.">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Main Flight Computer Card - Nucleus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#main-flight-computer-card" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nucleus" class="md-header__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nucleus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Main Flight Computer Card
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nucleus" class="md-nav__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    Nucleus
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Mission Selection
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mission Selection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mission Selection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concepts/" class="md-nav__link">
+        Mission Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concept-selection/" class="md-nav__link">
+        Concept Selection
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Preliminary Design (08/2020)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preliminary Design (08/2020)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Preliminary Design (08/2020)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avsw/" class="md-nav__link">
+        Flight Avionics Software
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avhw/" class="md-nav__link">
+        Flight Avionics Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_altitudecontrol/" class="md-nav__link">
+        Altitude Control Logic
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Final Design (09/2021)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Final Design (09/2021)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Final Design (09/2021)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Altitude Control System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Altitude Control System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Altitude Control System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_altctrl_conops/" class="md-nav__link">
+        Concept of Operations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        HAB Flight Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Sensor Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Choosing a Control Approach
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        PID Controller
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Plant Dynamics in State Space
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Flight Avionics Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Flight Avionics Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Flight Avionics Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_arch/" class="md-nav__link">
+        HAB Avionics Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Main Flight Computer Card
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Main Flight Computer Card
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theory-of-operation" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+    <nav class="md-nav" aria-label="Theory of Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-processor" class="md-nav__link">
+    Main Processor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communication-and-control-interfaces" class="md-nav__link">
+    Communication and Control Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication and Control Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ethernet-interfaces-and-hub" class="md-nav__link">
+    Ethernet Interfaces and Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-bus" class="md-nav__link">
+    CAN bus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    GPIO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensors" class="md-nav__link">
+    Sensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-management" class="md-nav__link">
+    Power Management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-implementation" class="md-nav__link">
+    Electrical Implementation
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#major-components" class="md-nav__link">
+    Major components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supplies" class="md-nav__link">
+    Power Supplies
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Supplies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12v-power-rail" class="md-nav__link">
+    12V Power Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5v-power-rail" class="md-nav__link">
+    5V Power Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33v-power-rail-driven-by-pi4" class="md-nav__link">
+    3.3V Power Rail (driven by Pi4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25v-power-rail" class="md-nav__link">
+    2.5V Power Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12v-power-rail_1" class="md-nav__link">
+    1.2V Power Rail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectors" class="md-nav__link">
+    Connectors
+  </a>
+  
+    <nav class="md-nav" aria-label="Connectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powergpio-connector" class="md-nav__link">
+    Power/GPIO Connector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Avionics Sensor Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Altitude Control Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Communications Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Power Supply Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Backplane Interface Board
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Balloon Board
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theory-of-operation" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+    <nav class="md-nav" aria-label="Theory of Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-processor" class="md-nav__link">
+    Main Processor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communication-and-control-interfaces" class="md-nav__link">
+    Communication and Control Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication and Control Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ethernet-interfaces-and-hub" class="md-nav__link">
+    Ethernet Interfaces and Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-bus" class="md-nav__link">
+    CAN bus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    GPIO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensors" class="md-nav__link">
+    Sensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-management" class="md-nav__link">
+    Power Management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-implementation" class="md-nav__link">
+    Electrical Implementation
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#major-components" class="md-nav__link">
+    Major components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supplies" class="md-nav__link">
+    Power Supplies
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Supplies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12v-power-rail" class="md-nav__link">
+    12V Power Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5v-power-rail" class="md-nav__link">
+    5V Power Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33v-power-rail-driven-by-pi4" class="md-nav__link">
+    3.3V Power Rail (driven by Pi4)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25v-power-rail" class="md-nav__link">
+    2.5V Power Rail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12v-power-rail_1" class="md-nav__link">
+    1.2V Power Rail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectors" class="md-nav__link">
+    Connectors
+  </a>
+  
+    <nav class="md-nav" aria-label="Connectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powergpio-connector" class="md-nav__link">
+    Power/GPIO Connector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Brickworks/Nucleus/edit/master/docs/flight_avhw_mfc.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="main-flight-computer-card">Main Flight Computer Card</h1>
+<div class="admonition danger">
+<p class="admonition-title">Work in progress</p>
+<p>This page contains information that may be incorrect or out of date. Check <a href="https://brickworks.atlassian.net/wiki/spaces/NUCLEUS/overview">Confluence</a> for the latest project information.</p>
+</div>
+<h2 id="theory-of-operation">Theory of Operation</h2>
+<p>The Main Flight Computer Card (MFC) is the brain of the avionics stack. This card handles all primary functions and sends/receives data to/from all other cards in the stack.</p>
+<h3 id="main-processor">Main Processor</h3>
+<p>A Raspberry Pi 4 Compute Module is used as the main processor on this card. The minimum required configuration is listed below.</p>
+<p>CM4001008 - CM4, no wireless, 1GB of RAM, 8GB of eMMC</p>
+<p>Options for the Rpi4 compute module extend up to 8GB of RAM and 32GB of eMMC as well as wifi. These are easily incorporated into the HAB stack as necessary if compute requirements increase over time. This vastly simplifies the required hardware needed for the MFC.</p>
+<p>The Pi provides many of the needed interfaces for this project. Currently in use are the Ethernet, PCIe and I2C interfaces as well as the GPIO bank. The Ethernet interface is used for a direct connection to the outside world through the ground station while the PCIe link is used to interface with the Ethernet network build into the overall hardware stack. I2C is used for on card sensors and GPIO is distributed out to the rest of the cards within the stack.</p>
+<p>The design implementation of the Pi4 on the MFC follows the reference design for the Pi4 compute Module IO board. Power and activity LEDs are present as well as Ethernet status LEDs. The Pi external reset is buffered and routed to the PCIe/Ethernet bridge. Finally a watchdog timer IC, the same as the IO board, is implemented for use as part of a Real Time Clock for the Pi.</p>
+<p>Power for portions of the MFC is generated by the Pi’s onboard 3.3V and 1.8V regulators. The 1.8V regulator is broken out to the MFC however it is not currently used for any circuitry. 5V is supplied from the power board through the backplane. 1.2V and 2.5V are generated by switching regulators on the MFC itself but will be covered in a different section.  </p>
+<p>While most of the signal interfaces are used for this design, options such as camera and display outputs are not broken out and there are no plans to use within the design of the MFC. SD card interface is also like wise not broken out as there are no plans for using Pi’s without eMMC onboard.</p>
+<h3 id="communication-and-control-interfaces">Communication and Control Interfaces</h3>
+<h4 id="ethernet-interfaces-and-hub">Ethernet Interfaces and Hub</h4>
+<p><strong>PCIe to ETH Hub</strong></p>
+<p>The LAN7431 Low Power PCIe to Gigabit Ethernet Controller is implemented in this design to interface the Pi4 CM to the ETH switch. The LAN7431 was chosen as it has MII and RGMII support needed for the switch.</p>
+<p>While the IC has integrated switching regulators to generate certain voltages, these were disabled in favor of switching regulators implemented on the MFC itself. Benefits to this are mainly less power dissipated in the IC itself and the generated rails can be shared between multiple ICs, however there is likely some loss in switching efficiency. VDDVARIO and VDD_SW_IN have the option of 3.3V and 1.8V; 3.3V was used for power in this case.</p>
+<p>The IC is configured to operate in MII mode, with the MII_EN pin pulled high with a 10k resistor per the datasheet recommendation, tied to the same 3.3V rail as VDDVARIO. Other configuration settings include pulling the DUPLEX pin high to enable full duplex on the IC, allowing simultaneous communication between cards. Finally VAUX is pulled high to enable Power Management Event functions provided by the IC, allowing the IC to be woken from additional sleep states.</p>
+<p>The Pi4 CM output reset is fed into this IC, to provide a reset option in case the ETH interface needs to be cycled. This is also indirectly provided to the switch through the reset output provided by the bridge as well.</p>
+<p>Finally a 25MHz clock is implemented for this IC, per datasheet recommendations. It is also used to provide the clock for the ETH switch through the use of the IC’s passthrough feature. This reduced the total number of clock crystals that needed to be implemented on the MFC PCB</p>
+<p><strong>ETH Hub to ETH Switch, outputs</strong></p>
+<p>The KSZ9896CTXI 6-Port Gigabit Ethernet Switch is implemented in this design to provide connectivity to the rest of the HAB payload stack. It accepts MII interface from the LAN7431 and provides five outputs with full gigabit PHYs, however these are only expected to be used at 10mbps speeds.</p>
+<p>The IC is supplied through three voltage rails, 3.3V, 2.5V and 1.2V. VDDIO is the only rail powered by 3.3V, chosen for easy interface with the LAN7431 and anything else interfacing with the IC.</p>
+<p>Due to the design of the hardware stack, magnetic coupling for the ethernet pairs was not implemented. Capacitive coupling is used to connect the various payload cards through ethernet to the MFC. This implementation was chosen due to the use of a backplane PCB carrying all ethernet routing, the short runs of the ethernet lines (&lt;12” total) and the fact that all aspects of the links are controlled. This also deletes the need for reasonably bulky magnetics, instead replaced by series capacitors and pull up resistors. APP1 through APP3 (provided below) describe the implementation of the transformerless system used in this design.</p>
+<p>As described in APP3 the pull up resistors on the MFC ethernet lines were chosen to maintain a level greater than 1.3V and not have a large voltage swing.  </p>
+<p><em>Note: find math regarding pull up R’s, add references to white papers</em></p>
+<p><strong>External Output Ethernet</strong></p>
+<p>The Ethernet output provided by the Pi4 CM is routed straight to its respective backplane connector; ETH1_TX and ETH1_RX. This is then routed to the required Ethernet jack located on the backplane for use to communicate with the outside world. The port is routed with only two ETH pairs, providing an RX and TX pair for primarily a 10BASE-T, 10mbps connection. Routing follows the Pi4 CM datasheet recommendations</p>
+<h4 id="can-bus">CAN bus</h4>
+<p>talk about CAN, termination node, IC used and implementation</p>
+<h4 id="gpio">GPIO</h4>
+<p>30 odd GPIO lines, Common GPIO for reset. Pull down/up etc</p>
+<h3 id="sensors">Sensors</h3>
+<p>thermistors</p>
+<p>current sensor</p>
+<h3 id="power-management">Power Management</h3>
+<h2 id="electrical-implementation">Electrical Implementation</h2>
+<h3 id="major-components">Major components</h3>
+<p>Processor - <a href="http://datasheets.raspberrypi.org/cm4/cm4-datasheet.pdf">Raspberry Pi 4 Compute Module (CM4001008)</a><br />
+CAN Transceiver - <a href="https://drive.google.com/file/d/1bPYdGGAHQ8UGADwHJXhI7bHPEOMAaliX/view?usp=sharing">TCAN1051</a><br />
+Ethernet Switch - <a href="https://drive.google.com/open?id=1BcVsRIMbUcPpVZgEJKS6BH0zAj-ktjBd">KSZ9896C</a><br />
+Ethernet PHY - <a href="https://drive.google.com/open?id=1ojwhD2SAECR-vdq71QjNYsrBgU6Rgvzf">KSZ8081MNX</a><br />
+Voltage/current monitor - <a href="https://drive.google.com/open?id=1iLlukpqRAHC8xey13fP1A5Lo90kc0urR">INA3221</a></p>
+<h3 id="power-supplies">Power Supplies</h3>
+<h4 id="12v-power-rail">12V Power Rail</h4>
+<ul>
+<li>No usage</li>
+</ul>
+<h4 id="5v-power-rail">5V Power Rail</h4>
+<ul>
+<li>
+<p>Raspberry Pi 4</p>
+</li>
+<li>
+<p>CAN Transceiver</p>
+</li>
+<li>
+<p>2.5V Regulator</p>
+</li>
+<li>
+<p>1.2V Regulator</p>
+</li>
+</ul>
+<h4 id="33v-power-rail-driven-by-pi4">3.3V Power Rail (driven by Pi4)</h4>
+<ul>
+<li>
+<p>Temperature Sensor</p>
+</li>
+<li>
+<p>Ethernet Switch (I/O)</p>
+</li>
+<li>
+<p>Ethernet Phy</p>
+</li>
+<li>
+<p>CAN Transceiver</p>
+</li>
+</ul>
+<h4 id="25v-power-rail">2.5V Power Rail</h4>
+<ul>
+<li>Ethernet Switch (transceivers)</li>
+</ul>
+<h4 id="12v-power-rail_1">1.2V Power Rail</h4>
+<ul>
+<li>Ethernet Switch (core)</li>
+</ul>
+<h3 id="connectors">Connectors</h3>
+<p>There are two 34 pin Molex MilliGrid Shrouded Right angle Connectors providing all interfaces to and from the Flight computer to the Backplane and other payload cards.</p>
+<h4 id="powergpio-connector">Power/GPIO Connector</h4>
+<p>Molex Part #: 0878333420</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../flight_avhw_arch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HAB Avionics Architecture" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              HAB Avionics Architecture
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../placeholder/" class="md-footer__link md-footer__link--next" aria-label="Next: Avionics Sensor Card" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Avionics Sensor Card
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

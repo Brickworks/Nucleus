@@ -1,0 +1,2356 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A high altitude balloon and the first mission from Brickworks.">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Flight Avionics Hardware - Nucleus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flight-hardware" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nucleus" class="md-header__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nucleus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flight Avionics Hardware
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nucleus" class="md-nav__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    Nucleus
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Mission Selection
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mission Selection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mission Selection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concepts/" class="md-nav__link">
+        Mission Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concept-selection/" class="md-nav__link">
+        Concept Selection
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Preliminary Design (08/2020)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preliminary Design (08/2020)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Preliminary Design (08/2020)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avsw/" class="md-nav__link">
+        Flight Avionics Software
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Flight Avionics Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Flight Avionics Hardware
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-path-forward" class="md-nav__link">
+    Design Path Forward
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Path Forward">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commonality" class="md-nav__link">
+    Commonality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-design" class="md-nav__link">
+    Card design
+  </a>
+  
+    <nav class="md-nav" aria-label="Card design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compartmentalization" class="md-nav__link">
+    Compartmentalization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mechanical" class="md-nav__link">
+    Mechanical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-rules" class="md-nav__link">
+    Design Rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-interfaces" class="md-nav__link">
+    Common Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backplane" class="md-nav__link">
+    Backplane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manufacturing" class="md-nav__link">
+    Manufacturing
+  </a>
+  
+    <nav class="md-nav" aria-label="Manufacturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#board-stackups" class="md-nav__link">
+    Board Stackups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-specifics" class="md-nav__link">
+    Card Specifics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#battery-pack" class="md-nav__link">
+    Battery Pack
+  </a>
+  
+    <nav class="md-nav" aria-label="Battery Pack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pack-design" class="md-nav__link">
+    Pack Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pack-assembly" class="md-nav__link">
+    Pack Assembly
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-analysis" class="md-nav__link">
+    Thermal analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-constraints" class="md-nav__link">
+    Major Constraints
+  </a>
+  
+    <nav class="md-nav" aria-label="Major Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backplane_1" class="md-nav__link">
+    Backplane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-flight-computer-card" class="md-nav__link">
+    Main Flight Computer Card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supply-card" class="md-nav__link">
+    Power Supply Card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avionics-sensor-card" class="md-nav__link">
+    Avionics Sensor Card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communications-card" class="md-nav__link">
+    Communications Card
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    Timeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mfc-card-development" class="md-nav__link">
+    MFC Card Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload-card-development" class="md-nav__link">
+    Payload Card development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-plan" class="md-nav__link">
+    Development plan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    Cost:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#card-specific-information" class="md-nav__link">
+    Card Specific Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Card Specific Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backplane_2" class="md-nav__link">
+    Backplane
+  </a>
+  
+    <nav class="md-nav" aria-label="Backplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-flight-computer-card_1" class="md-nav__link">
+    Main Flight Computer Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Flight Computer Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_1" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_1" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_1" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_1" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supply-card_1" class="md-nav__link">
+    Power Supply Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Supply Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_2" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_2" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_2" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_2" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avionics-sensor-card_1" class="md-nav__link">
+    Avionics Sensor Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Avionics Sensor Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_3" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_3" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connectors" class="md-nav__link">
+    Connectors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_3" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_3" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altitude-controldynamics-sensor-card" class="md-nav__link">
+    Altitude Control/Dynamics Sensor Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Altitude Control/Dynamics Sensor Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_4" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_4" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_4" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_4" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communications-card_1" class="md-nav__link">
+    Communications Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Communications Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_5" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_5" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_5" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_5" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balloon-board" class="md-nav__link">
+    Balloon Board
+  </a>
+  
+    <nav class="md-nav" aria-label="Balloon Board">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_6" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_6" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_6" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_6" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_altitudecontrol/" class="md-nav__link">
+        Altitude Control Logic
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Final Design (09/2021)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Final Design (09/2021)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Final Design (09/2021)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Altitude Control System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Altitude Control System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Altitude Control System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_altctrl_conops/" class="md-nav__link">
+        Concept of Operations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        HAB Flight Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Sensor Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Choosing a Control Approach
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        PID Controller
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Plant Dynamics in State Space
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Flight Avionics Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Flight Avionics Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Flight Avionics Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_arch/" class="md-nav__link">
+        HAB Avionics Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_mfc/" class="md-nav__link">
+        Main Flight Computer Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Avionics Sensor Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Altitude Control Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Communications Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Power Supply Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Backplane Interface Board
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Balloon Board
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-path-forward" class="md-nav__link">
+    Design Path Forward
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Path Forward">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commonality" class="md-nav__link">
+    Commonality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-design" class="md-nav__link">
+    Card design
+  </a>
+  
+    <nav class="md-nav" aria-label="Card design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compartmentalization" class="md-nav__link">
+    Compartmentalization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mechanical" class="md-nav__link">
+    Mechanical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-rules" class="md-nav__link">
+    Design Rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-interfaces" class="md-nav__link">
+    Common Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backplane" class="md-nav__link">
+    Backplane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manufacturing" class="md-nav__link">
+    Manufacturing
+  </a>
+  
+    <nav class="md-nav" aria-label="Manufacturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#board-stackups" class="md-nav__link">
+    Board Stackups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-specifics" class="md-nav__link">
+    Card Specifics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#battery-pack" class="md-nav__link">
+    Battery Pack
+  </a>
+  
+    <nav class="md-nav" aria-label="Battery Pack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pack-design" class="md-nav__link">
+    Pack Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pack-assembly" class="md-nav__link">
+    Pack Assembly
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-analysis" class="md-nav__link">
+    Thermal analysis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-constraints" class="md-nav__link">
+    Major Constraints
+  </a>
+  
+    <nav class="md-nav" aria-label="Major Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backplane_1" class="md-nav__link">
+    Backplane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-flight-computer-card" class="md-nav__link">
+    Main Flight Computer Card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supply-card" class="md-nav__link">
+    Power Supply Card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avionics-sensor-card" class="md-nav__link">
+    Avionics Sensor Card
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communications-card" class="md-nav__link">
+    Communications Card
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    Timeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mfc-card-development" class="md-nav__link">
+    MFC Card Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload-card-development" class="md-nav__link">
+    Payload Card development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-plan" class="md-nav__link">
+    Development plan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    Cost:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#card-specific-information" class="md-nav__link">
+    Card Specific Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Card Specific Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backplane_2" class="md-nav__link">
+    Backplane
+  </a>
+  
+    <nav class="md-nav" aria-label="Backplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-flight-computer-card_1" class="md-nav__link">
+    Main Flight Computer Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Flight Computer Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_1" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_1" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_1" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_1" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-supply-card_1" class="md-nav__link">
+    Power Supply Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Supply Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_2" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_2" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_2" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_2" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avionics-sensor-card_1" class="md-nav__link">
+    Avionics Sensor Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Avionics Sensor Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_3" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_3" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Electrical Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connectors" class="md-nav__link">
+    Connectors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_3" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_3" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altitude-controldynamics-sensor-card" class="md-nav__link">
+    Altitude Control/Dynamics Sensor Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Altitude Control/Dynamics Sensor Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_4" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_4" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_4" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_4" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communications-card_1" class="md-nav__link">
+    Communications Card
+  </a>
+  
+    <nav class="md-nav" aria-label="Communications Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_5" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_5" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_5" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_5" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balloon-board" class="md-nav__link">
+    Balloon Board
+  </a>
+  
+    <nav class="md-nav" aria-label="Balloon Board">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation_6" class="md-nav__link">
+    Theory of Operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-interface_6" class="md-nav__link">
+    Electrical Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cis_6" class="md-nav__link">
+    CI’s:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces_6" class="md-nav__link">
+    Interfaces:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Brickworks/Nucleus/edit/master/docs/pdr_avhw.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="flight-hardware">Flight Hardware</h1>
+<p>Lead: Matthew Glazer</p>
+<ul>
+<li><a href="#design-path-forward">Design Path Forward</a></li>
+<li><a href="#major-constraints">Major Constraints</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#cost">Cost</a></li>
+<li><a href="#card-specific-information">Card Specific Information</a></li>
+</ul>
+<p><strong>Overview</strong>: The scope of this PDR covers all hardware design and development as it currently stands for the Nucleus HAB launch. Development approaches, timelines and overall board information are provided. The design of payload, actuation mechanisms and software design are
+discussed in <a href="../pdr_altitudecontrol/">Altitude Control Logic</a>, <a href="../placeholder/">Mechanical Systems</a> and <a href="../pdr_avsw/">Flight Avionics Software</a>, respectively.</p>
+<p><strong>Overview</strong>: The Flight Hardware system for the nucleus mission provides all the power, computing and control elements required for mission success. There are seven primary PCBs and an assortment of secondary PCBs as part of this system.</p>
+<h2 id="design-path-forward">Design Path Forward</h2>
+<h3 id="commonality">Commonality</h3>
+<p>The Main Flight Computer and Payload Cards are based on a template. The MFC Card template approach is more useful for future development of additional missions. However the Payload Card template is the base of all card development. The template will include connector interfaces, switching regulators, communication interfaces and finally the MCU. From here the cards can be tailored to the individual payload cards. </p>
+<p>The intent is to complete this template and then reuse to develop the individual cards, this will reduce development time and provide a basis for future missions.</p>
+<h3 id="card-design">Card design</h3>
+<h4 id="compartmentalization">Compartmentalization</h4>
+<p>Continuing the idea of basing each card off a template, the designs are compartmentalized and common across all cards. The goal is for major subsections to be a “copy and paste” approach, i.e. using the same components and schematic blocks wherever possible. Likely schematic blocks include:</p>
+<ul>
+<li>Microcontroller</li>
+<li>3.3V/1.8V regulators</li>
+<li>Sensors (IMU etc)</li>
+<li>Ethernet/CAN</li>
+</ul>
+<h4 id="mechanical">Mechanical</h4>
+<p>All Cards are designed to roughly the same dimensions, depending on card. Currently all cards are specified to the following dimensions of 100x100mm with a provision to increase to 105x200mm if additional space is needed. There will be three primary “configuration options” for board length, 100mm, 150mm and 200mm. Mounting points will be based off the three configuration options.</p>
+<p>All cards have M3 mounting holes 5mm x 5mm from the corner, except for the MFC’s mounting holes by the backplane connector which are 5mm x 15mm from card edge.</p>
+<p>Need is unexpected, but any large components would likely be “potted” for strength. </p>
+<h4 id="design-rules">Design Rules</h4>
+<p>Electrical signals routed on all cards and boards fall into three categories: Differential Routing, GPIO and Power. </p>
+<p>Differential routing will follow Ethernet and CAN design requirements, i.e. 50 or 100 ohm differential pairs etc. These signals will be routed primarily on layer one of the PCB and grouped together away from all power and GPIO signals. A full ground plane will be routed underneath. </p>
+<p>On four layer boards, power will be routed on layer three, on two layer boards power will be routed on layer one. High current paths, such as on the backplane will be implemented through copper pours, while all other routing of power will be through a different trace width versus signals to differentiate trace types.</p>
+<p>GPIO will be routed on either layer one or four, depending on keepout zones for the ethernet and CAN routing. Less dependent on a ground layer underneath but all effort will be made to maintain the same style of trace coupling.  </p>
+<p>Trace width’s will be dictated by PCB manufacturer’s guidelines. For initial development will likely use the MacroFab design rules guidelines and then tweak as necessary based on final selected vendor.</p>
+<p>Positioning is determined by mechanical design’s CAD model as well as card spacing. </p>
+<h3 id="common-interfaces">Common Interfaces</h3>
+<h4 id="backplane">Backplane</h4>
+<p>Interfaces between cards are implemented through Molex Milli-Grid connectors. Backplane mounted connectors are vertical receptacles while card mounted connectors are right angle shrouded connectors. Ground station interface is through a molex MicroFit power header and RJ45 connector. These then attach to a panel mount style interface on outside of HAB enclosure. Balloon board backplane interface runs through a paired JST connector.</p>
+<h4 id="cards">Cards</h4>
+<p>External interfaces to the cards will be implemented through JST PH connectors of varying conductor counts. Specifically for the Power Supply Card, a Molex Microfit power header will be used for battery interface. GPS antenna will be an SMA connector interface.</p>
+<h3 id="manufacturing">Manufacturing</h3>
+<h4 id="board-stackups">Board Stackups</h4>
+<ul>
+<li>ENIG plating</li>
+<li>Blue soldermask</li>
+<li>White silkscreen</li>
+<li>1oz copper (outer layers) </li>
+<li>0.5oz copper (inner layers)</li>
+</ul>
+<p><strong>4 layer PCB</strong></p>
+<ol>
+<li>Signal - Differential Pairs</li>
+<li>Ground</li>
+<li>Power</li>
+<li>Signal - GPIO/Ground</li>
+</ol>
+<p><strong>2 layer PCB</strong></p>
+<ol>
+<li>Signal/Power</li>
+<li>Ground</li>
+</ol>
+<h4 id="card-specifics">Card Specifics</h4>
+<p><strong>Backplane</strong></p>
+<p>PCB design is primarily through hole with some surface mount capacitors. No issues expected with manufacturing. This is the simplest card of the whole stack. Assembly expected to be by hand, by Brickworks members.  </p>
+<p>Starting point for stackup: 4 layer PCB</p>
+<p><strong>Main Flight Computer</strong></p>
+<p>If reasonably priced then impedance matching will be added to PCB ordering. 99% surface mount design, only connectors will be through hole. This card is the only card currently being considered for professional manufacturing.</p>
+<p>Starting point for stackup: 4 layer PCB</p>
+<p><strong>Payload cards</strong></p>
+<p>99% surface mount design, only connectors will be through hole. No significant impedance match trace work expected, except potentially on the communications Card.</p>
+<p>Starting point for stackup: 2 layer PCB</p>
+<h3 id="battery-pack">Battery Pack</h3>
+<p>Pack will be 18650 cells, these are sourced from matt’s personal stockpile, they are not new manufacture cells but no issues expected as they were salvaged out of a Model S.</p>
+<h4 id="pack-design">Pack Design</h4>
+<p>3.7V nominal; 3100mAh cells. Pack would be configured in a 4 series, 2 parallel (4S2P) design with the option of expanding the packs to larger quantities as mission configuration requires. </p>
+<p>Current mission design is a 14.8V nominal (12-16.8V range), 6200mAh pack. Expected temperatures at altitude will reduce total capacity to a currently unknown amount but a conservative approach is an expectation of 40% total capacity loss at max altitude. This can be accounted for using thermal insulation and potentially a small heater.</p>
+<h4 id="pack-assembly">Pack Assembly</h4>
+<p>Battery pack will be tab welded together for electrical connections, cells well be hotglued together for initial mechanical stability with additional framing to be added as necessary.</p>
+<h3 id="testing">Testing</h3>
+<p>All boards will be designed with large #'s of test points. This points will sit on all voltage rails and major signal paths (where possible). Will allow for testing of most signalling/power, especially useful when testing subsystems such as CAN and Ethernet.</p>
+<p>Before power-up, a full continuity test will be performed, checking for opens and shorts where needed/unwanted on all signals and power lines.</p>
+<p>Bring-up plan will be power supplies first, testing successful operation and confirming efficiency. Full board assembly will progress after that. Power supplies will be tested for basic output levels, output ripple, load testing and overall efficiency.</p>
+<h3 id="thermal-analysis">Thermal analysis</h3>
+<p>All boards will have a power analysis completed to provide input to a thermal simulation. Power dissipation can be calculated across the board with reasonable accuracy combined with known thermal impedance numbers based on vendor information. Using this information we can get an estimate of how the boards will fare temperature wise through the flight. Thermal numbers will be calculated based off a vacuum enviornment as that is "simpler" to generate information for. We do hit near vacuum level enviornments during flight and as such if the calculations/simulations show reasonable operation then this will act as a worst case that shows it will work in other enviornments.</p>
+<h2 id="major-constraints">Major Constraints</h2>
+<p>Board outline constraints subject to change per CAD model. </p>
+<h3 id="backplane_1">Backplane</h3>
+<p>Pinout needs to be determined and set in stone as soon as physically possible.</p>
+<h3 id="main-flight-computer-card">Main Flight Computer Card</h3>
+<p>Heavy focus on proper trace routing for processor and Ethernet/CAN/USB. Processor SoM is a BGA package with wide pin pitch, care needs to be taken during design and manufacturing. Will likely require special constraints for PCB manufacturing.</p>
+<h3 id="power-supply-card">Power Supply Card</h3>
+<p>This card is heavily driven by software, basic functionality requires a software package and cannot run in an “analog” sense. Primarily the battery management system. The switching regulator system will function normally without software function.</p>
+<h3 id="avionics-sensor-card">Avionics Sensor Card</h3>
+<p>GPS system is currently TBD</p>
+<p>COTS APRS interface is currently TBD</p>
+<p>Recovery assist still needs concept determined to create design. </p>
+<h3 id="communications-card">Communications Card</h3>
+<p>Implementation of this will rely heavily on Dan’s amplifier designs and overall implementation, however major portions have already been decided such as the SDR so work can begin. Block diagram and basic interaction outside of SDR TBD.</p>
+<h2 id="timeline">Timeline</h2>
+<h3 id="mfc-card-development">MFC Card Development</h3>
+<p>3 weeks to complete schematic</p>
+<p>3 weeks to complete PCB</p>
+<p>3 weeks for manufacturing</p>
+<h3 id="payload-card-development">Payload Card development</h3>
+<p>2 weeks to complete template schematic</p>
+<p>1 week to complete customized payload card schematic</p>
+<p>3 weeks to complete PCB</p>
+<p>3 weeks for manufacturing</p>
+<h3 id="development-plan">Development plan</h3>
+<p>I believe this is literally waterfall design. There will be some jumping around between cards as plans are finalized however see below for the approximate development path. The goal will be to simultaneously work on two project points at one point to near completion ( i.e. enough to put down to pick up the next two points. Currently the Backplane schematic is “complete” and work has started on the Backplane PCB and MFC Card schematic. </p>
+<p><img alt="timeline" src="https://user-images.githubusercontent.com/12124823/93687139-a3d6bc00-fa78-11ea-8a13-1b4806cb1e51.png" /></p>
+<p>PCB assembly will potentially occur during this development process based on how the card design finalizes and the needs of the software development side of things. However assembly and test of PCBAs is not included in this development schedule. Current expectation is that boards will be ordered and assembled after CDR.</p>
+<h2 id="cost">Cost:</h2>
+<ul>
+<li>Backplane - $150 ea</li>
+<li>Main Flight Computer Card - $300 ea</li>
+<li>Avionics Sensor Card - $200 ea</li>
+<li>Altitude Control/Dynamics Sensor Card - $200 ea</li>
+<li>Communications Card - $300 ea</li>
+<li>Power Supply Card - $200 ea</li>
+<li>Balloon Board - $150 ea
+Total: $1500 per set</li>
+</ul>
+<p>Please note, this is a very rough estimate. The goal is to drive costs lower while maintaining high levels of features (I promise I'm not on the marketing team)</p>
+<h2 id="card-specific-information">Card Specific Information</h2>
+<h3 id="backplane_2">Backplane</h3>
+<h4 id="theory-of-operation">Theory of Operation</h4>
+<p>This board acts as an interconnect between all payload cards and provides routing for all power and data connections. There is one dedicated card slot for the Main Flight Computer, Communications card and one for the Power Supply Card. In addition there are four payload card slots for various cards. Currently for Nucleus there is an Avionics Sensor Card, Altitude Control/Dynamics Sensor Card for payload cards</p>
+<p>Backplane Concepting  - Ethernet Sheet</p>
+<h4 id="electrical-interface">Electrical Interface</h4>
+<p><strong>Connectors</strong></p>
+<p>There is one 40 pin Molex MilliGrid vertical receptacle, one 34 pin Molex MilliGrid vertical receptacle and six 28 pin Molex MilliGrid vertical receptacles providing the interfaces between the various avionics cards. There is also a Molex Microfit header and RJ45 connector for ground station interface and a 10 pin JST header for connection to the balloon board.</p>
+<p><em>Main Flight Computer Interface</em></p>
+<p>Power/GPIO Interface Molex Part #: 0791077016 
+Ethernet Interface Molex Part #: 0791077019</p>
+<p><em>Payload Card Slot 1 through 4</em></p>
+<p>Molex Part #: 0791077013 </p>
+<p><em>Communications Card</em></p>
+<p>Molex Part #: 0791077013 </p>
+<p><em>Power Supply Card</em></p>
+<p>Molex Part #: 0791077013 </p>
+<h4 id="cis">CI’s:</h4>
+<ul>
+<li>Main Flight Computer Interface</li>
+<li>Payload Card Interfaces</li>
+<li>Communications Card Interface</li>
+<li>Power Supply Card Interface</li>
+</ul>
+<h4 id="interfaces">Interfaces:</h4>
+<ul>
+<li>Backplane - Ethernet</li>
+<li>Backplane - CAN</li>
+<li>Backplane - USB</li>
+<li>Backplane - Power</li>
+</ul>
+<h3 id="main-flight-computer-card_1">Main Flight Computer Card</h3>
+<h4 id="theory-of-operation_1">Theory of Operation</h4>
+<p>The Main Flight Computer Card is the brain of the avionics stack. This card handles all primary functions and receives data from all other cards in the stack.</p>
+<p><strong>Main Processor</strong></p>
+<p>An Octavo OSD3358 SoM is the processor on this card. It is a single core application processor that can run linux, providing many options for the software team to develop flight programs. It also contains 512MB of RAM and 4GB of eMMC NAND flash for storage. There are no major external components required to complete the processor design beyond the SOM. The SOM also contains 3.3V and 1.8V regulators on board, simplifying the required external hardware, the SOM accepts 5V input. The SOM interfaces with the Ethernet and CAN drivers through dedicated ports on the processor. </p>
+<p><strong>Ethernet Interface</strong></p>
+<p>This card contains an Ethernet switch providing access to all payload cards except the power card and balloon board. The switch also interfaces back to the main processor providing the interconnect between all cards. </p>
+<p><strong>Secondary Storage</strong></p>
+<p>This Card will contain an SD card interface for expanded secondary data storage. </p>
+<h4 id="electrical-interface_1">Electrical Interface</h4>
+<p><strong>Major components</strong></p>
+<p>Processor - OSD3358 SoM 
+CAN Transceiver - TCAN1051</p>
+<p><strong>Power Supplies</strong></p>
+<p><em>12V Power Rail</em></p>
+<p>No usage</p>
+<p><em>5V Power Rail</em></p>
+<ul>
+<li>Octavo OSD3358</li>
+<li>SD Card</li>
+<li>Temperature Sensor</li>
+<li>Ethernet Switch</li>
+</ul>
+<p><strong>Connectors</strong></p>
+<p>There is one 34 pin and one 40 pin Molex MilliGrid Shrouded Right angle Connectors providing all interfaces to and from the Flight computer to the Backplane and other payload cards.</p>
+<p><em>Power/GPIO Connector</em></p>
+<p>Molex Part #: 0878333420</p>
+<p><img alt="34pin_generic" src="https://user-images.githubusercontent.com/12124823/93690794-c9c08880-fa99-11ea-9e76-2b966f52da12.png" /></p>
+<p>Reference view for pinout of connector is from FRONT of card.</p>
+<p><img alt="34pin_MFC_GPIO" src="https://user-images.githubusercontent.com/12124823/93690796-d1802d00-fa99-11ea-909d-bf122b47d8cd.png" /></p>
+<p><em>Ethernet Connector</em></p>
+<p>Molex Part #: 0878334020</p>
+<p><img alt="40pin_generic" src="https://user-images.githubusercontent.com/12124823/93690790-ba413f80-fa99-11ea-8933-e910e02a3188.png" /></p>
+<p>Reference view for pinout of connector is from FRONT of card.</p>
+<p><img alt="40pin_MFC_Interface" src="https://user-images.githubusercontent.com/12124823/93690795-d1802d00-fa99-11ea-96eb-d0c9cd4c60c1.png" /></p>
+<h4 id="cis_1">CI’s:</h4>
+<ul>
+<li>Processor SoM</li>
+<li>Ethernet Switch</li>
+</ul>
+<h4 id="interfaces_1">Interfaces:</h4>
+<ul>
+<li>Backplane - Ethernet</li>
+<li>Backplane - CAN</li>
+<li>Backplane - Power</li>
+</ul>
+<h3 id="power-supply-card_1">Power Supply Card</h3>
+<h4 id="theory-of-operation_2">Theory of Operation</h4>
+<p>This card acts as the main power supply for the avionics stack. It has a battery input for a 18650 lithium ion battery pack as well as power rail outputs to the rest of the stack. It is capable of monitoring, controlling and charging the battery as well as supplying that power to its internal systems a</p>
+<p><strong>Power On Reset</strong></p>
+<p>The card is capable of sending a POR (Power On Reset) digital logic command to all cards in the avionics based off a digital logic command from the Main Flight Computer or from the ground station. A Watchdog timer will operate on the MFC and toggle a dedicated logic pin that runs to only the power supply card. The Power supply card will receive this and then toggle the GPIO - Common pin to trigger a reset on all cards in the avionics stack.</p>
+<p><strong>Battery Management</strong></p>
+<p>The Card will be able to manage, protect and charge the battery pack on board. Features available will include cell level voltage monitoring and balancing. Over/under-voltage cutoffs and over-current protection.   Charging with programmable cutoffs as well as powerpath between charging and load and power monitoring in the form of a coloumb counter. Finally, temperature monitoring is part of both parts of the subsystem and all of the subsystem is digitally monitored by the Power Supply Card MCU.</p>
+<p>Cell monitoring/balancing and protection is provided by: BQ76920
+Charging, Powerpath and power monitoring is provided by: LTC4015</p>
+<p><strong>Power Regulation</strong></p>
+<p>The primary purpose of this card is to supply power to the rest of the avionics stack, this is accomplished through two switching regulators. A +5V and +12V rail is generated from the battery supply, both rails are generated from buck converter regulator designs. The 5V rail is designed to supply 4A max load while the 12V rail is designed for a max of 2A max load. </p>
+<p><strong>Power Monitoring</strong></p>
+<p>All voltage rails on the card are monitored for both voltage and current output. The output of these sensors will be fed to the MCU on the power card for both logging and fault detection. Over/under-voltage as well as over-current will be detectable and trigger a system reset. Each sensor will log both voltage and current at a rate of 25hz and create a rolling average at a rate of 5hz for datalogging.</p>
+<p><strong>Remove before flight</strong></p>
+<p>A remove before flight pin will directly control the battery pack, by isolating the pack while the remove before flight pin is inserted. This pin will be removed the day of launch operations (or during testing) to enable the battery pack and power up the Power Supply Card itself or the entire avionics stack.</p>
+<p><strong>Remove before flight pins</strong></p>
+<p>-POR command before startup?</p>
+<h4 id="electrical-interface_2">Electrical Interface</h4>
+<p><strong>Major components</strong></p>
+<p>Microcontroller - STM32F429VET6TR
+CAN Transceiver - TCAN1051
+Battery Charger - LTC4015
+Battery Management - BQ76920</p>
+<p><strong>Battery Pack</strong></p>
+<p>4S2P 18650 Lithium Ion battery </p>
+<p><strong>Power Supplies</strong></p>
+<p><em>Output 12V Power Rail</em></p>
+<ul>
+<li>Balloon Board</li>
+<li>Altitude Control/Dynamics Sensor Card</li>
+</ul>
+<p><em>Output 5V Power Rail</em></p>
+<ul>
+<li>Main Flight Computer Card</li>
+<li>Avionics Sensor Card</li>
+<li>Communications Card</li>
+<li>Altitude Control/Dynamics Sensor Card</li>
+</ul>
+<p><em>3.3V Power Rail</em></p>
+<ul>
+<li>Microcontroller</li>
+<li>Card logic</li>
+</ul>
+<p><strong>Connectors</strong></p>
+<p>There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Power Supply Card to the Backplane and the rest of the avionics stack.</p>
+<p><em>Backplane Connector</em></p>
+<p>Molex Part #: 0878332820</p>
+<p><img alt="28pin_generic" src="https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png" /></p>
+<p>Reference view for pinout of connector is from FRONT of card.</p>
+<p><img alt="28pin_Powercard" src="https://user-images.githubusercontent.com/12124823/93690836-8a466c00-fa9a-11ea-8a80-4e860dc7cecf.png" /></p>
+<h4 id="cis_2">CI’s:</h4>
+<ul>
+<li>Microcontroller</li>
+<li>Switching Regulators</li>
+<li>Battery Pack Charger</li>
+<li>Battery Pack Monitor</li>
+<li>Remove Before Flight Circuit</li>
+</ul>
+<h4 id="interfaces_2">Interfaces:</h4>
+<ul>
+<li>Backplane - CAN</li>
+<li>Backplane - Power</li>
+<li>Battery Pack</li>
+</ul>
+<h3 id="avionics-sensor-card_1">Avionics Sensor Card</h3>
+<h4 id="theory-of-operation_3">Theory of Operation</h4>
+<p>This card is the “eyes and ears” of the Main Flight Computer Card and contains all interfaces that are beyond the main processing and network management of the MFC. All sensors, interfaces and control systems used by the MFC directly and not in coordination with a payload mission live on this card.</p>
+<p><strong>Sensor Systems</strong></p>
+<p>This card will contain a set of sensors (IMU, pressure, temperature) that supplies the Main Flight Computer with telemetry seperate of any payload card. This provides redundancy in telemetry as well as allowing the MFC to fly with only the Avionics Sensor Card if needed.</p>
+<p>These sensors are common with similar sensors on the payload cards and include the following part numbers:</p>
+<ul>
+<li>ICM-20948</li>
+<li>BMP388</li>
+<li>TEMP SENSOR TBD</li>
+</ul>
+<p><strong>External Interfaces</strong></p>
+<p>This card provides two distinct external interfaces, one for GPS and one for Recovery Assistance</p>
+<p><strong>GPS</strong></p>
+<p>Provides an SMA header for the antenna connected to the GPS antenna. This GPS unit provides the HAB with its own GPS tracking and will eventually become the primary input for GPS. Currently this subsystem will act as the secondary, backup to the APRS tracking provides by a COTS board.</p>
+<p><strong>Recovery Assistance</strong></p>
+<p>This interface will connect out to buzzers and LEDs to assist in the recovery of the payload after landing. Activated only during the end of the flight. </p>
+<h4 id="electrical-interface_3">Electrical Interface</h4>
+<p><strong>Major components</strong></p>
+<ul>
+<li>Microcontroller - STM32F429VET6TR</li>
+<li>CAN Transceiver - TCAN1051</li>
+</ul>
+<p><strong>Power Supplies</strong></p>
+<p><em>12V Power Rail</em></p>
+<p>No usage (TBD)</p>
+<p><em>5V Power Rail</em></p>
+<ul>
+<li>3.3V Switching Regulator</li>
+<li>CAN Transceiver </li>
+<li>GPS</li>
+</ul>
+<p><em>1.8V Switching Regulator</em></p>
+<ul>
+<li>Sensors</li>
+<li>Recovery Functions</li>
+</ul>
+<h5 id="connectors">Connectors</h5>
+<p>There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.</p>
+<h4 id="cis_3">CI’s:</h4>
+<ul>
+<li>Microcontroller</li>
+<li>Sensor Network</li>
+<li>GPS system</li>
+<li>Recovery Assist</li>
+<li>Switching Regulators</li>
+</ul>
+<h4 id="interfaces_3">Interfaces:</h4>
+<ul>
+<li>Backplane - Ethernet</li>
+<li>Backplane - CAN</li>
+<li>Backplane - Power</li>
+<li>GPS Radio antenna</li>
+<li>Recovery LEDs/Buzzer</li>
+</ul>
+<h3 id="altitude-controldynamics-sensor-card">Altitude Control/Dynamics Sensor Card</h3>
+<h4 id="theory-of-operation_4">Theory of Operation</h4>
+<p><strong>Altitude Control System</strong></p>
+<p>This subsystem contains the systems required to control the ballast portion of altitude control. Primarily servo drivers and additional monitoring to confirm proper operation of release system.</p>
+<p><strong>Dynamics Sensors</strong></p>
+<p>This subsystem is primarily a set of interfaces off the card to sensor nodes located throughout the HAB. The goal is to collect data from multiple points to create a model of the vehicle during flight. This will assist in validating movement/motion models and inform decisions for future attitude control systems. </p>
+<h4 id="electrical-interface_4">Electrical Interface</h4>
+<p><strong>Major components</strong></p>
+<ul>
+<li>Microcontroller - STM32F429VET6TR</li>
+<li>CAN Transceiver - TCAN1051</li>
+</ul>
+<p><strong>Power Supplies</strong></p>
+<p><em>12V Power Rail</em></p>
+<p>No usage (TBD)</p>
+<p><em>5V Power Rail</em></p>
+<ul>
+<li>3.3V Switching Regulator</li>
+<li>1.8V Switching Regulator</li>
+<li>Servos</li>
+</ul>
+<p><em>3.3V Switching Regulator</em></p>
+<ul>
+<li>Sensors</li>
+</ul>
+<p><em>1.8V Switching Regulator</em></p>
+<ul>
+<li>Sensors</li>
+</ul>
+<p><strong>Connectors</strong></p>
+<p>There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.</p>
+<p><em>Backplane Connector</em></p>
+<p>Molex Part #: 0878332820</p>
+<p><img alt="28pin_generic" src="https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png" /></p>
+<p>Reference view for pinout of connector is from FRONT of card.</p>
+<p><img alt="28pin_altcontrldyn" src="https://user-images.githubusercontent.com/12124823/93690876-f88b2e80-fa9a-11ea-8b50-664c4248a641.png" /></p>
+<h4 id="cis_4">CI’s:</h4>
+<ul>
+<li>Microcontroller</li>
+<li>Sensor Network - Altitude Control</li>
+<li>Sensor Network - Dynamics</li>
+<li>Ballast Controller</li>
+<li>Switching Regulators</li>
+</ul>
+<h4 id="interfaces_4">Interfaces:</h4>
+<ul>
+<li>Backplane - Ethernet</li>
+<li>Backplane - CAN</li>
+<li>Backplane - Power</li>
+<li>Dynamics Sensor Nodes</li>
+</ul>
+<h3 id="communications-card_1">Communications Card</h3>
+<h4 id="theory-of-operation_5">Theory of Operation</h4>
+<p><strong>SDR</strong></p>
+<p>An off the shelf SDR will be mounted to the communications card, it will communicate with the MFC through a USB 2.0 link. </p>
+<!-- ###### RF Front End -->
+
+<h4 id="electrical-interface_5">Electrical Interface</h4>
+<p><strong>Power Supplies</strong></p>
+<p><em>12V Power Rail</em></p>
+<p>No usage (TBD)</p>
+<p><em>5V Power Rail</em></p>
+<ul>
+<li>SDR</li>
+<li>3.3V Switching Regulator</li>
+<li>RF Front end</li>
+</ul>
+<p><em>3.3V Switching Regulator</em></p>
+<ul>
+<li>RF Front end</li>
+</ul>
+<p><strong>Connectors</strong></p>
+<p>There is one 28 pin Molex MilliGrid shrouded right angle connector providing all interfaces to and from the Avionics Sensor Card to the Backplane and Main Flight Computer.</p>
+<p><em>Backplane Connector</em></p>
+<p>Molex Part #: 0878332820</p>
+<p><img alt="28pin_generic" src="https://user-images.githubusercontent.com/12124823/93690787-ac8bba00-fa99-11ea-98ac-7f51bff2ea2a.png" /></p>
+<p>Reference view for pinout of connector is from FRONT of card.</p>
+<p><img alt="28pin_comms" src="https://user-images.githubusercontent.com/12124823/93690897-34be8f00-fa9b-11ea-8a90-d7a02604cd54.png" /></p>
+<h4 id="cis_5">CI’s:</h4>
+<ul>
+<li>Microcontroller</li>
+<li>Radio Backend</li>
+<li>Radio Front End</li>
+<li>Switching Regulators</li>
+</ul>
+<h4 id="interfaces_5">Interfaces:</h4>
+<ul>
+<li>Backplane - Ethernet</li>
+<li>Backplane - CAN</li>
+<li>Backplane - USB</li>
+<li>Backplane - Power</li>
+<li>Radio antennas</li>
+</ul>
+<h3 id="balloon-board">Balloon Board</h3>
+<h4 id="theory-of-operation_6">Theory of Operation</h4>
+<p><strong>Altitude Control</strong></p>
+<p>The Balloon Board will control the gas regulation portion of the altitude control system. Board will supply the required interfaces and systems to operate a valve used to release helium from the balloon. The valve will be controlled by a servo motor.</p>
+<p><strong>Balloon Monitoring</strong></p>
+<p>The Balloon Board will be capable of monitoring internal conditions of the balloon through the use of pressure and temperature sensors. Pressure sensor will be board mounted and have a tap off the balloon plug to allow for local monitoring of the gas pressure, operating under the assumption that pressure is uniform within the balloon.</p>
+<p>A INSERT TYPE HERE temperature sense will be mounted inside the balloon plug and will have a wiring harness run back to the balloon board where any required filtering/amplification will be performed.</p>
+<p><strong>Flight Control</strong></p>
+<p>In the event of an issue requiring flight termination the Balloon Board also includes functionality to operate a nichrome based balloon cutoff. Additionally the valve can be commanded to open up and release all pressure.</p>
+<h4 id="electrical-interface_6">Electrical Interface</h4>
+<p><strong>Major components</strong></p>
+<ul>
+<li>Microcontroller - STM32F429VET6TR</li>
+<li>CAN Transceiver - TCAN1051</li>
+</ul>
+<p><strong>Power Supplies</strong></p>
+<p><em>12V Power Rail</em></p>
+<p>No usage (TBD)</p>
+<p><em>5V Power Rail</em></p>
+<ul>
+<li>1.8V Switching Regulator</li>
+<li>Sensors</li>
+<li>CAN Transceiver</li>
+</ul>
+<p><em>1.8V Switching Regulator</em></p>
+<ul>
+<li>Sensors</li>
+<li>Servo Control</li>
+</ul>
+<p><strong>Connectors</strong></p>
+<p>There is one 10 pin JST PH shrouded right angle connector providing all interfaces to and from the Balloon Board to the Backplane and Main Flight Computer.</p>
+<p><em>Backplane Connector</em></p>
+<p>JST Part #: S10B-PH-K-S(LF)(SN)</p>
+<p><img alt="10pin_generic" src="https://user-images.githubusercontent.com/12124823/93690914-69cae180-fa9b-11ea-9887-d93d8617f71c.png" /></p>
+<p>Reference view for pinout of connector is from FRONT of card.</p>
+<p><img alt="10pin_balloon" src="https://user-images.githubusercontent.com/12124823/93690913-69324b00-fa9b-11ea-8d38-8df2c772d73b.png" /></p>
+<h4 id="cis_6">CI’s:</h4>
+<ul>
+<li>Microcontroller</li>
+<li>Balloon Monitoring</li>
+<li>Gas Relief System</li>
+<li>Switching Regulators</li>
+</ul>
+<h4 id="interfaces_6">Interfaces:</h4>
+<ul>
+<li>Backplane - CAN</li>
+<li>Backplane - Power</li>
+<li>Gas Relief System</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pdr_avsw/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Flight Avionics Software" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Flight Avionics Software
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pdr_altitudecontrol/" class="md-footer__link md-footer__link--next" aria-label="Next: Altitude Control Logic" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Altitude Control Logic
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

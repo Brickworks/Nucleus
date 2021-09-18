@@ -1,0 +1,1483 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A high altitude balloon and the first mission from Brickworks.">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Altitude Control Logic - Nucleus</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#altitude-control-logic" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nucleus" class="md-header__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nucleus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Altitude Control Logic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nucleus" class="md-nav__button md-logo" aria-label="Nucleus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95 256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
+
+    </a>
+    Nucleus
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Brickworks/Nucleus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Brickworks/Nucleus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Mission Selection
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mission Selection" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mission Selection
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concepts/" class="md-nav__link">
+        Mission Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mission_concept-selection/" class="md-nav__link">
+        Concept Selection
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Preliminary Design (08/2020)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Preliminary Design (08/2020)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Preliminary Design (08/2020)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avsw/" class="md-nav__link">
+        Flight Avionics Software
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdr_avhw/" class="md-nav__link">
+        Flight Avionics Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Altitude Control Logic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Altitude Control Logic
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#approach" class="md-nav__link">
+    Approach
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-of-operations" class="md-nav__link">
+    Concept of Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-control" class="md-nav__link">
+    PID Control
+  </a>
+  
+    <nav class="md-nav" aria-label="PID Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules-of-thumb" class="md-nav__link">
+    Rules of thumb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tunable-parameters" class="md-nav__link">
+    Tunable Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Tunable Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pure-tunables" class="md-nav__link">
+    Pure Tunables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibrated-tunables" class="md-nav__link">
+    Calibrated Tunables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avionics" class="md-nav__link">
+    Avionics
+  </a>
+  
+    <nav class="md-nav" aria-label="Avionics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensing" class="md-nav__link">
+    Sensing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actuation" class="md-nav__link">
+    Actuation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-design-parameters" class="md-nav__link">
+    System Design Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="System Design Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-elements" class="md-nav__link">
+    System Elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment" class="md-nav__link">
+    Risk Assessment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-concept" class="md-nav__link">
+    Proof of Concept
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Final Design (09/2021)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Final Design (09/2021)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Final Design (09/2021)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_mission-profile/" class="md-nav__link">
+        Mission Profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Altitude Control System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Altitude Control System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Altitude Control System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_altctrl_conops/" class="md-nav__link">
+        Concept of Operations
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        HAB Flight Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Sensor Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Choosing a Control Approach
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        PID Controller
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Plant Dynamics in State Space
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        Flight Avionics Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Flight Avionics Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Flight Avionics Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_arch/" class="md-nav__link">
+        HAB Avionics Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight_avhw_mfc/" class="md-nav__link">
+        Main Flight Computer Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Avionics Sensor Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Altitude Control Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Communications Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Power Supply Card
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Backplane Interface Board
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../placeholder/" class="md-nav__link">
+        Balloon Board
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#approach" class="md-nav__link">
+    Approach
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-of-operations" class="md-nav__link">
+    Concept of Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-control" class="md-nav__link">
+    PID Control
+  </a>
+  
+    <nav class="md-nav" aria-label="PID Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules-of-thumb" class="md-nav__link">
+    Rules of thumb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tunable-parameters" class="md-nav__link">
+    Tunable Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Tunable Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pure-tunables" class="md-nav__link">
+    Pure Tunables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibrated-tunables" class="md-nav__link">
+    Calibrated Tunables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avionics" class="md-nav__link">
+    Avionics
+  </a>
+  
+    <nav class="md-nav" aria-label="Avionics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensing" class="md-nav__link">
+    Sensing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actuation" class="md-nav__link">
+    Actuation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-design-parameters" class="md-nav__link">
+    System Design Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="System Design Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-elements" class="md-nav__link">
+    System Elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment" class="md-nav__link">
+    Risk Assessment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-of-concept" class="md-nav__link">
+    Proof of Concept
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Brickworks/Nucleus/edit/master/docs/pdr_altitudecontrol.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="altitude-control-logic">Altitude Control Logic</h1>
+<p>Lead: Philip Linden</p>
+<p><strong>Overview</strong>: The scope of this PDR covers the logic and operations of the
+altitude controller system on the HAB, including arm and disarm criteria,
+approach for calculating when to actuate controllers, and risk mitigation
+strategies. The design of actuation mechanisms and electronic components are
+discussed in <a href="../placeholder/">Mechanical Systems</a> and <a href="../placeholder/">Flight Avionics
+Hardware</a>, respectively.</p>
+<p><strong>Objective</strong>: Actively control the weight and buoyancy of the HAB in order to
+maintain equilibrium at a prescribed altitude.</p>
+<p><img alt="Mission Profile Crop" src="../img/pdr/altitudecontrol/mission-profile_altctrl.png" /></p>
+<h2 id="approach">Approach</h2>
+<p>Normally the balloon is filled with lifting gas so that it rises with the
+payload until it reaches an altitude where the ambient temperature and pressure
+cause the balloon to expand beyond its limits and it bursts. Without active
+control, flight time can be increased by filling the balloon with just enough
+lift gas to be at equilibrium at the target altitude, but this is difficult for
+several reasons:</p>
+<ul>
+<li>The actual temperature and pressure at the target altitude are at best
+  roughly approximated by models, even when accounting for the latest weather
+  forecast.</li>
+<li>Temperature and pressure are not constant at the target altitude, so even if
+  there was a perfectly measured amount of lift gas to be at equilibrium for a
+  specific temperature and pressure band, it wouldn’t follow a target altitude.</li>
+<li>Filling the balloon with less gas would mean it takes longer for the HAB to
+  reach the target altitude.</li>
+</ul>
+<p>The HAB’s altitude is a function of two opposing forces: the upward buoyancy
+force and the weight of the balloon-payload system. Critically, both are
+directly influenced by something we can control. Buoyancy is a function of the
+amount of lift gas in the balloon, and weight is a function of the mass of the
+payload. Thus we can design a closed-loop control algorithm to change the
+balance of these two forces by bleeding lift gas from the balloon or dropping
+ballast mass from the payload based on the measured altitude in order to
+converge to some target altitude. This addresses a number of issues encountered
+with passive flight:</p>
+<ul>
+<li>Dynamic feedback control allows the balloon to maintain equilibrium at a
+  target altitude through changing temperatures and pressures.</li>
+<li>Open-loop control of lifting gas allows the balloon to be overfilled at
+  launch, rising to the target altitude quickly and then bleeding gas from the
+  balloon until equilibrium is achieved.</li>
+</ul>
+<p><img alt="Difference in approaches" src="../img/pdr/altitudecontrol/passive-vs-active-ctrl.png" /></p>
+<p>In order for the controller to converge to a geometric altitude, it must use a
+non-atmospheric reference like GPS altitude. Barometric altimeters measure
+pressure, which is calibrated to isobaric layers of a standard reference
+atmosphere.</p>
+<p><strong>Primary mode</strong>: GPS altitude hold. <br/> <strong>Secondary mode</strong>: Isobaric
+altitude hold.</p>
+<h2 id="concept-of-operations">Concept of Operations</h2>
+<ol>
+<li>Wait for a <em>controller enable</em> to be sent.<ol>
+<li>Disarm the controller when the avionics boot up.</li>
+<li>During pre-launch, operators enable the controller.</li>
+</ol>
+</li>
+<li>Disarm the controller unless when all of the following conditions are met:<ol>
+<li>A controller enable command has been received since the last boot or the
+   last controller disable command.</li>
+<li>The control error has crossed zero at least once (i.e., the HAB’s
+   altitude has risen above the target altitude at least once).</li>
+<li>There is ballast mass remaining in the reservoir.<ol>
+<li>Calibrate the mass flow rate at the ballast release valve prior to
+   flight and keep a tally of remaining ballast mass.</li>
+</ol>
+</li>
+<li>There is enough lifting gas in the balloon for the HAB to rise if the
+   reservoir were empty.<ol>
+<li>Use a pressure sensor in the balloon to compute the mass flow rate
+   at the bleed valve from the gauge pressure and temperature of
+   lifting gas inside the balloon and keep a tally of remaining lifting
+   gas.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Use a tuned PI control to drive a ballast release valve and a gas bleed
+   valve. The controller is designed for disturbance rejection of a noisy
+   altitude signal.<ol>
+<li>In order to conserve control effort, we must tune the controller such
+   that overshoot and oscillations are minimized.</li>
+<li>Response time and settling time should be tuned to be small compared to
+   flight time, but can still be on the order of ~1 hour.</li>
+<li>Control loop PWM frequency is tuned to be much faster than the response
+   time.</li>
+</ol>
+</li>
+<li><strong>GPS altitude hold (Stabilize):</strong> Enter stabilize control mode when the
+   controller is armed and remain in this mode until ascent rate and/or
+   altitude error are greater than the allowable bounds.<ol>
+<li>Use GPS altitude to converge to a geometric altitude that may cross
+   isobaric layer boundaries.</li>
+<li>This control mode uses more control mass than barometric altitude hold
+   so it should not be used for extended periods of time.</li>
+<li>Use this control mode during the stabilize phase to quickly approach the
+   target altitude.</li>
+</ol>
+</li>
+<li><strong>Barometric altitude hold (Cruise):</strong> Once the vehicle is near the target
+   altitude and has reached a steady state, transition to cruise mode to
+   maintain an altitude near the target for an extended period of time.<ol>
+<li>Use barometric altitude to equalize to an isobaric layer of the
+   atmosphere corresponding to a calibrated approximate altitude.</li>
+<li>This control mode uses less control mass because it is able to equalize
+   the balloon pressure to ambient pressure and “ride” isobaric layers of
+   atmosphere.</li>
+<li>Hold an isobaric altitude during the cruise phase in order to conserve
+   control mass.</li>
+</ol>
+</li>
+<li>If the controller is still armed and the altitude error exceeds the
+   allowable range, transition from cruise to stabilize and then repeat this
+   algorithm until the controller is disarmed.</li>
+<li>When the controller is disarmed, dump all remaining ballast.<ol>
+<li>Lock the ballast valve in the open position.</li>
+<li>Lock the bleed valve in the closed position.</li>
+</ol>
+</li>
+</ol>
+<p><img alt="Bleed Ballast Ops" src="../img/pdr/altitudecontrol/bleedballast-ops.png" /></p>
+<h2 id="pid-control">PID Control</h2>
+<p>In order to dynamically determine how much to bleed or ballast, we implement a
+PID controller to determine the percentage of time of each control cycle to
+keep the bleed or ballast valve open. This is also referred to as PWM control
+with a PID algorithm.</p>
+<p>The PID control algorithm works by modulating the inputs, u, to the Plant,
+which in our case means the bleed and ballast controls. The Plant is the
+physical response, so the balance of weight, buoyancy, and drag forces with the
+given mass properties and ambient conditions. (See
+<a href="[habtoolbox_1d-ascent-model.md](https://brickworks.github.io/HAB-toolbox/ascent_model/)">1D Atmospheric Flight Model</a>) 
+The output of the Plant is the actual altitude, <em>y</em>. For a given set point
+altitude, <em>r</em>, the PID controller attempts to reduce the error, <em>e=r-y</em>, to 
+zero.</p>
+<p>The PID controller consists of a set of gains applied to a proportional term,
+an integral term, and a derivative term that all operate on the error signal,
+<em>e</em>. These gains are tuned to get the desired response from the controller.</p>
+<h3 id="rules-of-thumb">Rules of thumb</h3>
+<p><strong>Proportional gain</strong>: How aggressively signal approaches setpoint. Too much
+causes overshoot. No impact on steady-state error.</p>
+<p><strong>Integral gain</strong>: How much error matters over time. Reduces oscillations and
+steady-state errors. Prone to windup, where accumulated errors over a long time
+cause lag in the controller after it reaches the desired point.</p>
+<p><strong>Derivative gain</strong>: How much rate of change matters. Reduces overshoot. Prone
+to oscillations. Noisy signals make it go crazy, but this can be mitigated by
+adding a lowpass filter.</p>
+<p><img alt="PID Diagram" src="../img/pdr/altitudecontrol/pid-general-diagram.png" />
+<img alt="PID Tuning Example 1" src="../img/pdr/altitudecontrol/pid-tuning-example-1.png" /> <img alt="PID Tuning Example 2" src="../img/pdr/altitudecontrol/pid-tuning-example-2.png" /></p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="http://apmonitor.com/pdc/index.php/Main/ProportionalIntegralControl">BYU Dynamics and Control by John D. Hedengren</a></li>
+<li><a href="http://ctms.engin.umich.edu/CTMS/index.php?example=Introduction&amp;section=ControlPID">Control Tutorials for Matlab &amp; Simulink</a></li>
+<li><a href="https://www.intechopen.com/books/matlab-a-fundamental-tool-for-scientific-computing-and-engineering-applications-volume-1/pid-control-design">PID Control Design by A.B. Campo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integral_windup">Wikipedia - PID Controller, Wikipedia - Integral Windup</a></li>
+<li><a href="https://www.crossco.com/blog/basics-tuning-pid-loops/">The Basics of Tuning PID Loops</a></li>
+</ul>
+<h3 id="tunable-parameters">Tunable Parameters</h3>
+<p>To achieve the desired behavior from the controller, we tune some of the
+parameters in software and tune other parameters as part of choosing or sizing
+elements of the system during the design process.</p>
+<h4 id="pure-tunables">Pure Tunables</h4>
+<p>I call the parameters that we can choose and change “for free” pure tunables,
+since tuning these values can be done as desired without extra engineering
+work.</p>
+<ul>
+<li>Target altitude</li>
+<li>Controller dead zone (allowable steady state error)</li>
+<li>Control loop cycle time (compute)</li>
+<li>Control loop cycle time (actuation PWM)</li>
+<li>Sensor measurement sample time</li>
+<li>Lowpass filter gain</li>
+<li>PID controller gains (which determine response time and percent overshoot)</li>
+<li>Initial ballast mass</li>
+<li>Initial lift gas mass</li>
+<li>Lift gas reserve fraction (fraction of total mass of lift gas allocated for
+  altitude control)</li>
+<li>Arm / disarm criteria</li>
+</ul>
+<h4 id="calibrated-tunables">Calibrated Tunables</h4>
+<p><em>Calibrated</em> tunables are what I call parameters that affect the controller’s
+behavior or system response but can’t be dialed in on a whim. These are things
+that require extra engineering or design changes to tune. We choose ideal
+values for these parameters during the design process, and then we measure the
+true values when the system is built.</p>
+<ul>
+<li>Ballast mass flow rate</li>
+<li>Bleed mass flow rate</li>
+<li>Actuator and component dry mass</li>
+<li>Maximum control loop cycle time (compute)</li>
+<li>Maximum control loop cycle time (actuation PWM)</li>
+<li>Maximum sensor measurement sample time</li>
+<li>Maximum lift gas reserve fraction</li>
+</ul>
+<h2 id="avionics">Avionics</h2>
+<p>The altitude control flight software application (<a href="../pdr_avsw/#main-flight-computer-software-design">Main Flight Computer
+Software Design</a>) issues
+commands to open the ballast or bleed valves over the CAN bus. When a bleed or
+ballast command is received by the altitude control interface board
+(<a href="../placeholder/">Altitude Control/Dynamics Sensor Card</a>)
+over CAN, it executes the corresponding subroutine to carry out the command.
+The software environment onboard the altitude control interface board
+(<a href="../pdr_avsw/#avionics-sensor-card-software-design">Altitude Control/Dynamics Card Software Design</a>)
+includes drivers for the hardware interfaces, such as a PWM motor controller
+for the valve actuators.</p>
+<p>The altitude control interface board is also responsible for polling sensors
+and actuators for telemetry and pre-processing the raw signals (e.g. voltages
+from a pressure sensor) into the appropriate derived values (e.g. values in
+units of pressure) before sending them to the CAN bus for use by other flight
+software and downlink.</p>
+<p><img alt="Flight Software Diagram" src="../img/pdr/altitudecontrol/fsw-diagram.png" /></p>
+<h3 id="sensing">Sensing</h3>
+<ul>
+<li><a href="../placeholder/">Avionics Sensor Card</a><ul>
+<li>GPS altitude</li>
+<li>Barometric altitude</li>
+<li>Ambient pressure</li>
+</ul>
+</li>
+<li><a href="../placeholder/">Balloon Sensor Board</a><ul>
+<li>Balloon valve position/state</li>
+<li>Balloon internal pressure</li>
+<li>Remaining lift gas</li>
+</ul>
+</li>
+<li><a href="../placeholder/">Altitude Control/Dynamics Sensor Card</a><ul>
+<li>Ballast valve position/state</li>
+<li>Remaining ballast sensor</li>
+</ul>
+</li>
+</ul>
+<h3 id="actuation">Actuation</h3>
+<ul>
+<li><strong>Raise altitude:</strong> Decrease total mass by releasing ballast. (See <a href="../placeholder/">Ballast Hopper</a>)</li>
+<li><strong>Lower altitude:</strong> Decrease buoyancy by venting lift gas. (See <a href="../placeholder/">Balloon Plug</a>)</li>
+</ul>
+<h2 id="system-design-parameters">System Design Parameters</h2>
+<h3 id="requirements">Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Description</th>
+<th>Target</th>
+<th>Allowable Bounds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Settling time</td>
+<td>Time for controller to transition from stabilize to cruise mode.</td>
+<td>20 minutes.</td>
+<td>10 minutes - 1 hour</td>
+</tr>
+<tr>
+<td>Steady state error (dead zone)</td>
+<td>Magnitude of the difference between target altitude and actual altitude during cruise mode</td>
+<td>150 m</td>
+<td>0 m - 500 m</td>
+</tr>
+<tr>
+<td>Ballast mass budget</td>
+<td>Portion of total system mass budget allocated to ballast material</td>
+<td>1 kg or 25%</td>
+<td>1 kg - 2 kg</td>
+</tr>
+<tr>
+<td>Bleed mass budget</td>
+<td>Portion of total system lift gas allocated to altitude control.</td>
+<td>0.5 kg or 30%</td>
+<td>No more than the mass of lift gas needed for positive lift with empty ballast</td>
+</tr>
+<tr>
+<td>Flight duration</td>
+<td>Impact on total flight time (launch to recovery) with altitude control enabled compared to an equivalent flight with altitude control disabled</td>
+<td>7 hours</td>
+<td>No less than the</td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-elements">System Elements</h3>
+<table>
+<thead>
+<tr>
+<th>Configuration Item</th>
+<th>Function</th>
+<th>Location</th>
+<th>Interfaces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Altitude Control Application</td>
+<td>Executes control algorithm and issues commands to actuators.</td>
+<td><a href="../pdr_avsw/#main-flight-computer-software-design">Main Flight Computer</a>)</td>
+<td><a href="../pdr_avsw/#main-flight-computer-software-design">Main Flight Computer</a>, <a href="../pdr_avsw/#can-tlm-rx">Telemetry RX App</a>, <a href="../placeholder/">Command TX App</a></td>
+</tr>
+<tr>
+<td><a href="../placeholder/">Altitude Control/Dynamics Sensor Card</a></td>
+<td>Receives commands, drives bleed and ballast actuators, collects and preprocesses raw signals from sensors and reports telemetry to the CAN bus.</td>
+<td><a href="../placeholder/">Avionics Rack</a></td>
+<td><a href="../placeholder/">Avionics Rack</a>, <a href="../placeholder/">Backplane Interface Board</a>, <a href="../pdr_avsw/#can-tlm-rx">CAN bus TX/RX</a></td>
+</tr>
+<tr>
+<td><a href="../placeholder/">Ballast Valve Actuator</a></td>
+<td>Dispenses ballast mass from the ballast hopper.</td>
+<td><a href="../placeholder/">Ballast Hopper</a></td>
+<td><a href="../placeholder/">Ballast Hopper</a>, <a href="../placeholder/">Altitude Control/Dynamics Sensor Card</a></td>
+</tr>
+<tr>
+<td><a href="../placeholder/">Bleed Valve Actuator</a></td>
+<td>Vents lift gas from the balloon.</td>
+<td><a href="../placeholder/">Balloon Plug</a></td>
+<td><a href="../placeholder/">Balloon Plug</a>, <a href="../placeholder/">Balloon Board</a></td>
+</tr>
+<tr>
+<td>Barometer</td>
+<td>Measures ambient barometric pressure and is calibrated to provide approximate altitude based on standard altitudes of isobaric layers of the atmosphere.</td>
+<td><a href="../placeholder/">Avionics Sensor Card</a></td>
+<td><a href="../placeholder/">Avionics Sensor Card</a></td>
+</tr>
+<tr>
+<td>GPS receiver</td>
+<td>Measures GPS altitude.</td>
+<td><a href="../placeholder/">Avionics Sensor Card</a></td>
+<td><a href="../placeholder/">Avionics Sensor Card</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="risk-assessment">Risk Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controller bleeds too much gas and the remaining gas in the balloon cannot lift the payload, even with an empty ballast hopper.</td>
+<td><strong>Severe.</strong> Flight terminated early.</td>
+<td>Calibrate the bleed valve mass flow rate perhaps in correlation to balloon internal pressure and/or time spent with the valve open. <br><br> Software disarm based on estimated lift gas remaining.</td>
+</tr>
+<tr>
+<td>Altitude never converges to a stable altitude by the time actuation limits are reached.</td>
+<td><strong>Minor.</strong> Flight duration mission objective is compromised, but no impact to other impacts of the flight.</td>
+<td>Tune the controller to minimize overshoot and oscillations, allowing for a longer response time.</td>
+</tr>
+<tr>
+<td>Bleed valve releases more gas than estimations or measurements report.</td>
+<td><strong>Moderate.</strong> It's okay if more gas is released than expected unless the remaining gas in the system cannot lift the "dry" mass of the system.</td>
+<td>Add some margin to the lift gas reserve level so that the controller is disarmed due to low gas before reaching a dangerously low level. <br><br> Make a direct measurement from inside the balloon that correlates to the amount of gas remaining, such as a calibrated temperature and pressure corresponding to the amount of gas remaining.</td>
+</tr>
+<tr>
+<td>Bleed valve gets stuck in the open position.</td>
+<td><strong>Severe.</strong> Flight terminated early.</td>
+<td>Add a redundant/emergency valve close mechanism to the balloon plug. <br><br> Build a cutdown threshold into the altitude controller so that if the controller is armed and altitude reaches the lower bound, the flight is terminated via cutdown.</td>
+</tr>
+<tr>
+<td>Bleed valve gets stuck in the closed position.</td>
+<td><strong>Minor.</strong> Altitude control is critically disabled, but no impact to other impacts of the flight.</td>
+<td>Testing and pre-flight inspection.</td>
+</tr>
+<tr>
+<td>Ballast valve releases more ballast than estimations or measurements report.</td>
+<td><strong>Moderate.</strong> It’s okay if more ballast is released than expected unless the controller thinks there is more ballast to release but there is not.</td>
+<td>Add some margin to the ballast reserve level so that the controller disarms due to ballast before reaching a dangerously low level. <br><br> Make a direct measurement from inside the ballast hopper correlated to the amount of ballast remaining, such as a calibrated mass flow rate corresponded to ballast remaining.</td>
+</tr>
+<tr>
+<td>Ballast valve gets stuck in the open position.</td>
+<td><strong>Minor.</strong> Altitude control is critically disabled, but no impact to other impacts of the flight.</td>
+<td>Testing and pre-flight inspection.</td>
+</tr>
+<tr>
+<td>Ballast valve gets stuck in the closed position.</td>
+<td><strong>Moderate.</strong> If ballast is stuck closed and the vehicle is descending, this would terminate the flight as the vehicle would not be able to recover positive lift.</td>
+<td>Redundant valve open mechanism or emergency (forcible) dumping of all ballast. <br><br> Store additional dry mass to release as emergency ballast.</td>
+</tr>
+<tr>
+<td>Controller is armed too early.</td>
+<td><strong>Moderate.</strong> Bleed and ballast reserves could be expended prior to reaching the target altitude or meeting the flight duration target.</td>
+<td>Place conservative delays and lockouts on the arming criteria.</td>
+</tr>
+<tr>
+<td>Altitude measurements are noisy or inaccurate.</td>
+<td><strong>Moderate.</strong> Bleed and ballast reserves could be expended prior to reaching the target altitude or meeting the flight duration target.</td>
+<td>Use a low-pass filter on sensor readings, introduce a dead zone to the controller activation scheme, and fuse altitude readings from multiple sensors.</td>
+</tr>
+<tr>
+<td>Drastic transient changes to ascent rate and altitude due to localized atmospheric wind shear.</td>
+<td><strong>Moderate.</strong> A localized area of the atmosphere could cause us to releast a lot of gas/ballast to compensate, then dump us back where we started, causing a lot of control mass to be wasted.</td>
+<td>Look at local GFS weather data on launch day. If there is significant vertical wind shear in the area, stand down on launch. <br><br> For significant and sudden changes in ascent rate (or other measurement data like pressure, acceleration, etc), especially during cruise mode, temporarily disarm the altitude controller.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="schedule">Schedule</h2>
+<p><img alt="Altitude Control Schedule" src="../img/pdr/altitudecontrol/altitudecontrol-timeline.png" /></p>
+<h2 id="proof-of-concept">Proof of Concept</h2>
+<p>A PID controller of this nature has been demonstrated using MATLAB/Simulink
+integrated with an implementation of a
+<a href="https://brickworks.github.io/HAB-toolbox/ascent_model/">1D Simple Atmospheric Ascent Model</a>.</p>
+<p>The model <a href="https://github.com/Brickworks/HAB-toolbox/tree/master/etc/Simulink">source code is available on GitHub</a>
+along with a <a href="../etc/simulink_ascent_model_variable_mass_displayorganization.pdf">PDF version of the schematic</a>.</p>
+<p><img alt="Altitude Control Proof of Concept 1" src="../img/pdr/altitudecontrol/ProofOfConcept1.png" />
+<img alt="Altitude Control Proof of Concept 2" src="../img/pdr/altitudecontrol/ProofOfConcept2.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pdr_avhw/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Flight Avionics Hardware" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Flight Avionics Hardware
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../flight_mission-profile/" class="md-footer__link md-footer__link--next" aria-label="Next: Mission Profile" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Mission Profile
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
